@@ -18,6 +18,12 @@
         ]
       ],
       [
+        "radix",
+        [
+          "rad-button"
+        ]
+      ],
+      [
         "theme-ui",
         [
           "tui-button",
