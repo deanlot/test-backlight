@@ -20,7 +20,8 @@
       [
         "radix",
         [
-          "rad-button"
+          "rad-button",
+          "rad-utils"
         ]
       ],
       [

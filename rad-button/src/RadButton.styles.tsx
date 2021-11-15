@@ -13,19 +13,19 @@ export const BaseButton = styled('button', {
   variants: {
     variant: {
       primary: {
-        backgroundColor: '$primaryYellow',
-        border: '3px solid $primaryYellow',
+        backgroundColor: '$primary',
+        border: '3px solid $primary',
 
         '&:disabled': {
-          backgroundColor: '$disabledGrey',
-          border: '3px solid $disabledGrey',
+          backgroundColor: '$disabled',
+          border: '3px solid $disabled',
         },
         '&:hover': {
-          border: '3px solid $hoverBorder',
+          border: '3px solid $outlinePrimary',
         },
         '&:active': {
-          backgroundColor: '$activeYellow',
-          border: '3px solid $activeYellow',
+          backgroundColor: '$activePrimary',
+          border: '3px solid $activePrimary',
         },
       },
       secondary: {

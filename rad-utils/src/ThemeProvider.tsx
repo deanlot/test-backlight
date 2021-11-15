@@ -37,7 +37,7 @@ export const ThemeProvider: FC = ({ children }) => {
   };
 
   return <ThemeCtx.Provider value={value}>
-    <div className={theme}>{children}</div>
+    <div className={themesConversion[theme]}>{children}</div>
   </ThemeCtx.Provider>;
 };
 

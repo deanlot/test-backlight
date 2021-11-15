@@ -2,9 +2,10 @@ import { createTheme } from './theme';
 
 export const lightTheme = createTheme('light-theme', {
   colors: {
-    primary: 'black',
+    primary: '#F0BD6B',
     secondary: 'white',
-
-    'primaryYellow' : 'yellow'
+    disabled: '#CACDD2',
+    outlinePrimary : '#D17F13',
+    activePrimary: '#F9D38E'
   },
 });
