@@ -1,5 +1,10 @@
 import { styled } from '@stitches/react';
 
+export enum IconPlacement {
+  Left = 'left',
+  Right = 'right'
+}
+
 export const BaseButton = styled('button', {
   // padding: '12px, 24px, 12px, 24px',
   paddingTop: '12px',
@@ -62,11 +67,23 @@ export const BaseButton = styled('button', {
   },
 });
 
-export const Container = styled('div', {
+export const Container = styled('div', () => {
+  return {
   display: 'flex',
   flexWrap: 'no-wrap',
   alignItems: 'center',
-});
+  flexDirection: 'row',
+  variants: {
+    iconPlacement: {
+      [IconPlacement.Left]: {
+        flexDirection: 'row-reverse'
+      },
+      [IconPlacement.Right]: {
+        flexDirection: 'row'
+      },
+    },
+  }
+}});
 
 export const ButtonText = styled('span', {
   display: 'flex',

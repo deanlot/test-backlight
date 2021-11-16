@@ -1,26 +1,53 @@
-import React, { ButtonHTMLAttributes, ReactNode } from 'react';
-import { BaseButton, ButtonText, Container } from './RadButton.styles';
+import React, { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react';
+import { BaseButton, ButtonText, Container, IconPlacement } from './RadButton.styles';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: 'primary' | 'secondary' | 'ghost';
+export type Variant = 'primary' | 'secondary' | 'ghost'
+
+
+interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
+  variant: Variant;
   icon?: ReactNode;
-  iconPlacement?: 'left' | 'right';
+  iconPlacement?: IconPlacement;
+  busy?: boolean;
 }
+
+
+/*
+add a busy state: boolean -> rendered state is disabled with a loading spinner
+  1. first we need to disable the button
+  2. we need to add an icon
+
+
+
+ */
 
 const RadButton = ({
   children,
-  variant,
-  disabled = false,
-  icon,
-  iconPlacement = 'right',
-}: ButtonProps) => (
-  <BaseButton variant={variant} disabled={disabled}>
-    <h1>Dean was here!!!!</h1>
-    <Container>
+  variant = 'secondary',
+  iconPlacement = IconPlacement.Right,
+  ...rest
+}: ButtonProps) => {
+  const [disabled, setDisabled] = useState<boolean>(rest.disabled)
+  // const [busy, setBusy] = useState<boolean>(rest.busy)
+  const [icon, setIcon] = useState<ReactNode>(rest.icon)
+  useEffect(() => {
+    if(rest.busy) {
+      setIcon(<div>busy</div>)
+    } else {
+      setIcon(rest.icon)
+    }
+
+    setDisabled(rest.busy)
+  }, [rest.busy])
+
+  const props = { ...rest, disabled}
+
+  return (<BaseButton variant={variant} {...props}>
+    <Container iconPlacement={iconPlacement}>
       <ButtonText>{children}</ButtonText>
-      {iconPlacement === 'right' && <div>{icon}</div>}
+      <div>{icon}</div>
     </Container>
-  </BaseButton>
-);
+  </BaseButton>)
+};
 
 export default RadButton;

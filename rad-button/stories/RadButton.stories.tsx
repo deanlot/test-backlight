@@ -8,3 +8,7 @@ export const secondary = () => (
 );
 
 export const primary = () => <RadButton variant={'primary'}>PRIMARY</RadButton>;
+
+  const TestComponent = () => <div>testCOmponent</div>
+
+export const primaryWithIcon = () => <RadButton variant={'primary'} icon={<div>testCOmponent</div>} busy={true} >PRIMARY ICON</RadButton>;
