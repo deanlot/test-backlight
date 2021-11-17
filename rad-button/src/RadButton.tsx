@@ -1,24 +1,26 @@
 import React, { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react';
-import { BaseButton, ButtonText, Container, IconPlacement } from './RadButton.styles';
+import {
+  IconPlacement,
+  SCBaseButton2,
+  StitchesBaseButton,
+  StitchesButtonText,
+  StitchesContainer
+} from './RadButton.styles';
 
 export type Variant = 'primary' | 'secondary' | 'ghost'
 
-
-interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
+export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
   variant: Variant;
   icon?: ReactNode;
   iconPlacement?: IconPlacement;
   busy?: boolean;
+  outlined?: boolean;
 }
-
 
 /*
 add a busy state: boolean -> rendered state is disabled with a loading spinner
   1. first we need to disable the button
   2. we need to add an icon
-
-
-
  */
 
 const RadButton = ({
@@ -42,12 +44,12 @@ const RadButton = ({
 
   const props = { ...rest, disabled}
 
-  return (<BaseButton variant={variant} {...props}>
-    <Container iconPlacement={iconPlacement}>
-      <ButtonText>{children}</ButtonText>
+  return (<SCBaseButton2 variant={variant} {...props}>
+    <StitchesContainer iconPlacement={iconPlacement}>
+      <StitchesButtonText>{children}</StitchesButtonText>
       <div>{icon}</div>
-    </Container>
-  </BaseButton>)
+    </StitchesContainer>
+  </SCBaseButton2>)
 };
 
 export default RadButton;
