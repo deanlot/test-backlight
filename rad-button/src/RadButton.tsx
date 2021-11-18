@@ -32,7 +32,6 @@ const RadButton = ({
   // const [disabled, setDisabled] = useState<boolean>(rest.disabled)
   const [icon, setIcon] = useState<ReactNode>(rest.icon)
   const [clickable, setClickable] = useState<boolean>(true)
-  // const [status, setStatus] = useState<ButtonStatus>(rest.status || ButtonStatus.Ready)
 
   // useEffect(() => {
   //   if(rest.busy) {
