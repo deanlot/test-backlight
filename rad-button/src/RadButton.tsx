@@ -1,8 +1,9 @@
 import React from 'react';
 import  { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react'
 import {
-  buttonStyles, ButtonText, FlexContainer,
+  buttonStyles, FlexContainer, IconContainer
 } from './RadButton.styles';
+import spinners from 'react-spinners';
 
 export type Variant = 'primary' | 'secondary' | 'ghost'
 
@@ -18,18 +19,17 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   variant: Variant;
   icon?: ReactNode;
   iconPlacement?: IconPlacement;
-  // busy?: boolean;
   status?: ButtonStatus
+  // busy?: boolean;
 }
 
 const RadButton = ({
   children,
   variant = 'secondary',
   iconPlacement = 'right',
-  disabled = false,
   ...rest
 }: ButtonProps) => {
-  // const [disabled, setDisabled] = useState<boolean>(rest.disabled)
+  const [disabled, setDisabled] = useState<boolean>(rest.disabled)
   const [icon, setIcon] = useState<ReactNode>(rest.icon)
   const [clickable, setClickable] = useState<boolean>(true)
 
@@ -43,24 +43,33 @@ const RadButton = ({
   //   setDisabled(rest.busy)
   // }, [rest.busy])
 
+  // this feels like its just become a reducer?
   useEffect(() => {
     switch(rest.status) {
       case ButtonStatus.Busy: {
         // do busy stuff
         setClickable(false)
-        setIcon(<div>busy</div>)
+        setIcon(
+          <spinners.ClipLoader
+            color='#2D3036'
+            size={'18px'}
+          />
+        )
+        setDisabled(false)
       }
       break;
       case ButtonStatus.Done: {
         // do complete stuff
         setClickable(false)
         setIcon(<div>done</div>)
+        setDisabled(false)
       }
       break;
       default: {
         // do ready stuff
         setClickable(true)
         setIcon(rest.icon)
+        setDisabled(rest.disabled)
       }
     }
   }, [rest.status])
@@ -68,8 +77,11 @@ const RadButton = ({
   return (
     <button className={buttonStyles({variant, clickable} )} disabled={disabled}>
       <FlexContainer iconPlacement={iconPlacement}>
-        <ButtonText>{children}</ButtonText>
-        <div>{icon}</div>
+        {/*<div className={flexContainerStyles({iconPlacement})}>*/}
+        {/*  */}
+        {/*</div>*/}
+        <span>{children}</span>
+        { icon && <IconContainer>{icon}</IconContainer> }
       </FlexContainer>
     </button>
   )

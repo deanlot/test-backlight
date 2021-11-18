@@ -2,6 +2,7 @@ import React from 'react';
 import { createContext, FC, useContext, useState } from 'react'
 import { lightTheme } from './light';
 import { darkTheme } from './dark';
+import '../../layout/src/fonts.css'
 
 export enum Theme {
   Light = 'Light',

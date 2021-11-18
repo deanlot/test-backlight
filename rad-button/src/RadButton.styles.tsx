@@ -1,14 +1,16 @@
 import { css, styled } from '@stitches/react';
 
 export const buttonStyles = css({
-  paddingTop: '12px',
-  paddingRight: '24px',
-  paddingBottom: '12px',
-  paddingLeft: '24px',
+  padding: '12px 24px',
   borderRadius: '32px',
+  fontSize: '14px',
+  fontFamily: 'LLCircularWeb',
   fontWeight: '700',
   color: '#472300',
   cursor: 'pointer',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
 
   '&:disabled': {
     pointerEvents: 'none'
@@ -34,16 +36,18 @@ export const buttonStyles = css({
       },
       secondary: {
         backgroundColor: 'rgba(255, 255, 255, 0)',
-        color: '#484B50',
+        color: '#000000',
         border: '2px solid #000000',
 
         '&:disabled': {
+          color: '#565960',
           border: '2px solid #565960',
         },
         '&:hover': {
           border: '3px solid #000000',
         },
         '&:active': {
+          color: '#484B50',
           border: '2px solid #484B50',
         },
       },
@@ -91,6 +95,6 @@ export const FlexContainer = styled('div', {
   }
 });
 
-export const ButtonText = styled('span', {
-  display: 'flex',
-});
+export const IconContainer = styled('div', {
+  paddingLeft: '20px'
+})
