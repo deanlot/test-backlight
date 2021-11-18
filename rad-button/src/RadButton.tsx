@@ -31,7 +31,8 @@ const RadButton = ({
   variant = 'secondary',
   iconPlacement = 'right',
   disabled,
-  busy,
+  busy = false,
+  onClick,
   ...rest
 }: ButtonProps) => {
   const [icon, setIcon] = useState<ReactNode>(rest.icon)
@@ -46,11 +47,10 @@ const RadButton = ({
     } else {
       setIcon(rest.icon)
     }
-
   }, [busy])
 
   return (
-    <Button.Comp className={Button.styles({variant, clickable: !busy} )} disabled={disabled}>
+    <Button.Comp className={Button.styles({variant, clickable: !busy} )} disabled={disabled} onClick={!busy && onClick}>
       <FlexContainer.Comp className={FlexContainer.styles({iconPlacement})} >
         <span>{children}</span>
         { icon && <IconContainer.Comp className={IconContainer.styles()}>{icon}</IconContainer.Comp> }
