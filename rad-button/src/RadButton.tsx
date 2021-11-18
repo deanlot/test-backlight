@@ -1,55 +1,79 @@
-import React, { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react';
+import React from 'react';
+import  { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react'
 import {
-  IconPlacement,
-  SCBaseButton2,
-  StitchesBaseButton,
-  StitchesButtonText,
-  StitchesContainer
+  buttonStyles, ButtonText, FlexContainer,
 } from './RadButton.styles';
 
 export type Variant = 'primary' | 'secondary' | 'ghost'
+
+export type IconPlacement = 'left' | 'right'
+
+export enum ButtonStatus {
+  Ready = 'ready',
+  Busy = 'busy',
+  Done = 'done'
+}
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
   variant: Variant;
   icon?: ReactNode;
   iconPlacement?: IconPlacement;
-  busy?: boolean;
-  outlined?: boolean;
+  // busy?: boolean;
+  status?: ButtonStatus
 }
-
-/*
-add a busy state: boolean -> rendered state is disabled with a loading spinner
-  1. first we need to disable the button
-  2. we need to add an icon
- */
 
 const RadButton = ({
   children,
   variant = 'secondary',
-  iconPlacement = IconPlacement.Right,
+  iconPlacement = 'right',
+  disabled = false,
   ...rest
 }: ButtonProps) => {
-  const [disabled, setDisabled] = useState<boolean>(rest.disabled)
-  // const [busy, setBusy] = useState<boolean>(rest.busy)
+  // const [disabled, setDisabled] = useState<boolean>(rest.disabled)
   const [icon, setIcon] = useState<ReactNode>(rest.icon)
+  const [clickable, setClickable] = useState<boolean>(true)
+  // const [status, setStatus] = useState<ButtonStatus>(rest.status || ButtonStatus.Ready)
+
+  // useEffect(() => {
+  //   if(rest.busy) {
+  //     setIcon(<div>busy</div>)
+  //   } else {
+  //     setIcon(rest.icon)
+  //   }
+  //
+  //   setDisabled(rest.busy)
+  // }, [rest.busy])
+
   useEffect(() => {
-    if(rest.busy) {
-      setIcon(<div>busy</div>)
-    } else {
-      setIcon(rest.icon)
+    switch(rest.status) {
+      case ButtonStatus.Busy: {
+        // do busy stuff
+        setClickable(false)
+        setIcon(<div>busy</div>)
+      }
+      break;
+      case ButtonStatus.Done: {
+        // do complete stuff
+        setClickable(false)
+        setIcon(<div>done</div>)
+      }
+      break;
+      default: {
+        // do ready stuff
+        setClickable(true)
+        setIcon(rest.icon)
+      }
     }
+  }, [rest.status])
 
-    setDisabled(rest.busy)
-  }, [rest.busy])
-
-  const props = { ...rest, disabled}
-
-  return (<SCBaseButton2 variant={variant} {...props}>
-    <StitchesContainer iconPlacement={iconPlacement}>
-      <StitchesButtonText>{children}</StitchesButtonText>
-      <div>{icon}</div>
-    </StitchesContainer>
-  </SCBaseButton2>)
+  return (
+    <button className={buttonStyles({variant, clickable} )} disabled={disabled}>
+      <FlexContainer iconPlacement={iconPlacement}>
+        <ButtonText>{children}</ButtonText>
+        <div>{icon}</div>
+      </FlexContainer>
+    </button>
+  )
 };
 
 export default RadButton;
