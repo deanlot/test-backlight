@@ -1,14 +1,11 @@
 import React from 'react';
-import  { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react'
-import {
-  Button,
-  FlexContainer, IconContainer
-} from './RadButton.styles';
+import { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react';
+import { Button, FlexContainer, IconContainer } from './RadButton.styles';
 import spinners from 'react-spinners';
 
-export type Variant = 'primary' | 'secondary' | 'ghost'
+export type Variant = 'primary' | 'secondary' | 'ghost';
 
-export type IconPlacement = 'left' | 'right'
+export type IconPlacement = 'left' | 'right';
 
 // export enum ButtonStatus {
 //   Ready = 'ready',
@@ -16,13 +13,14 @@ export type IconPlacement = 'left' | 'right'
 //   Done = 'done'
 // }
 
-export type Status = 'ready' | 'busy' | 'done'
+export type Status = 'ready' | 'busy' | 'done';
 
-export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
+export interface ButtonProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
   variant: Variant;
   icon?: ReactNode;
   iconPlacement?: IconPlacement;
-  status?: Status
+  status?: Status;
   busy?: boolean;
 }
 
@@ -35,28 +33,32 @@ const RadButton = ({
   onClick,
   ...rest
 }: ButtonProps) => {
-  const [icon, setIcon] = useState<ReactNode>(rest.icon)
+  const [icon, setIcon] = useState<ReactNode>(rest.icon);
 
   useEffect(() => {
-    if(!disabled && busy) {
-      setIcon(
-        <spinners.ClipLoader
-        color='#2D3036'
-        size={'18px'}
-      />)
+    if (!disabled && busy) {
+      setIcon(<spinners.ClipLoader color="#2D3036" size={'18px'} />);
     } else {
-      setIcon(rest.icon)
+      setIcon(rest.icon);
     }
-  }, [busy])
+  }, [busy]);
 
   return (
-    <Button.Comp className={Button.styles({variant, clickable: !busy} )} disabled={disabled} onClick={!busy && onClick}>
-      <FlexContainer.Comp className={FlexContainer.styles({iconPlacement})} >
+    <Button.Comp
+      className={Button.styles({ variant, clickable: !busy })}
+      disabled={disabled}
+      onClick={!busy && onClick}
+    >
+      <FlexContainer.Comp className={FlexContainer.styles({ iconPlacement })}>
         <span>{children}</span>
-        { icon && <IconContainer>{icon}</IconContainer> }
+        {icon && (
+          <IconContainer>
+            {icon}
+          </IconContainer>
+        )}
       </FlexContainer.Comp>
     </Button.Comp>
-  )
+  );
 };
 
 export default RadButton;
