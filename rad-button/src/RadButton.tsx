@@ -7,14 +7,12 @@ export type Variant = 'primary' | 'secondary' | 'ghost';
 
 export type IconPlacement = 'left' | 'right';
 
-export type Status = 'ready' | 'busy' | 'done';
-
-export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
+export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> & {
   variant: Variant;
   icon?: ReactNode;
   iconPlacement?: IconPlacement;
   busy?: boolean;
-}
+};
 
 const RadButton = ({
   children,
