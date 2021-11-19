@@ -13,14 +13,12 @@ export type IconPlacement = 'left' | 'right';
 //   Done = 'done'
 // }
 
-export type Status = 'ready' | 'busy' | 'done';
+export type Status = 'ready' | 'busy' | 'done'
 
-export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
+export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
   variant: Variant;
   icon?: ReactNode;
   iconPlacement?: IconPlacement;
-  status?: Status;
   busy?: boolean;
 }
 
