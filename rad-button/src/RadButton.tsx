@@ -10,19 +10,10 @@ export type Variant = 'primary' | 'secondary' | 'ghost'
 
 export type IconPlacement = 'left' | 'right'
 
-// export enum ButtonStatus {
-//   Ready = 'ready',
-//   Busy = 'busy',
-//   Done = 'done'
-// }
-
-export type Status = 'ready' | 'busy' | 'done'
-
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
   variant: Variant;
   icon?: ReactNode;
   iconPlacement?: IconPlacement;
-  status?: Status
   busy?: boolean;
 }
 
