@@ -24,15 +24,15 @@ const buttonStyles = css({
 
         '&:disabled': {
           backgroundColor: '$disabled',
-          border: '3px solid $disabled',
+          border: '3px solid $disabled'
         },
         '&:hover': {
-          border: '3px solid $outlinePrimary',
+          border: '3px solid $outlinePrimary'
         },
         '&:active': {
           backgroundColor: '$activePrimary',
-          border: '3px solid $activePrimary',
-        },
+          border: '3px solid $activePrimary'
+        }
       },
       secondary: {
         backgroundColor: 'rgba(255, 255, 255, 0)',
@@ -41,15 +41,15 @@ const buttonStyles = css({
 
         '&:disabled': {
           color: '#565960',
-          border: '2px solid #565960',
+          border: '2px solid #565960'
         },
         '&:hover': {
-          border: '3px solid #000000',
+          border: '3px solid #000000'
         },
         '&:active': {
           color: '#484B50',
-          border: '2px solid #484B50',
-        },
+          border: '2px solid #484B50'
+        }
       },
       ghost: {
         backgroundColor: 'rgba(255,255, 255, 0)',
@@ -57,30 +57,30 @@ const buttonStyles = css({
         color: '000',
 
         '&:disabled': {
-          color: '#565960',
+          color: '#565960'
         },
         '&:hover': {
-          color: '000',
+          color: '000'
         },
         '&:active': {
-          color: '#565960',
-        },
-      },
+          color: '#565960'
+        }
+      }
     },
     clickable: {
       true: {
         pointerEvents: 'cursor'
       },
       false: {
-        pointerEvents: 'none',
+        pointerEvents: 'none'
       }
     }
-  },
-})
+  }
+});
 
-export const Button = { Comp: styled('button'), styles: buttonStyles}
+export const Button = { Comp: styled('button'), styles: buttonStyles };
 
-const flexContainerStyles = css( {
+const flexContainerStyles = css({
   display: 'flex',
   flexWrap: 'no-wrap',
   alignItems: 'center',
@@ -92,16 +92,13 @@ const flexContainerStyles = css( {
       },
       right: {
         flexDirection: 'row'
-      },
-    },
+      }
+    }
   }
 });
 
-export const FlexContainer = { Comp: styled('div'), styles: flexContainerStyles}
+export const FlexContainer = { Comp: styled('div'), styles: flexContainerStyles };
 
-export const IconContainer = {
-  Comp: styled('div'),
-  styles: css({
-    paddingLeft: '20px'
-  })
-}
+export const IconContainer = styled('div', {
+  paddingLeft: '20px'
+});

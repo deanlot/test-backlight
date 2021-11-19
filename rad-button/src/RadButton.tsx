@@ -53,7 +53,7 @@ const RadButton = ({
     <Button.Comp className={Button.styles({variant, clickable: !busy} )} disabled={disabled} onClick={!busy && onClick}>
       <FlexContainer.Comp className={FlexContainer.styles({iconPlacement})} >
         <span>{children}</span>
-        { icon && <IconContainer.Comp className={IconContainer.styles()}>{icon}</IconContainer.Comp> }
+        { icon && <IconContainer>{icon}</IconContainer> }
       </FlexContainer.Comp>
     </Button.Comp>
   )
