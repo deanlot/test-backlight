@@ -7,13 +7,7 @@ export type Variant = 'primary' | 'secondary' | 'ghost';
 
 export type IconPlacement = 'left' | 'right';
 
-// export enum ButtonStatus {
-//   Ready = 'ready',
-//   Busy = 'busy',
-//   Done = 'done'
-// }
-
-export type Status = 'ready' | 'busy' | 'done'
+export type Status = 'ready' | 'busy' | 'done';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
   variant: Variant;
@@ -49,11 +43,7 @@ const RadButton = ({
     >
       <FlexContainer.Comp className={FlexContainer.styles({ iconPlacement })}>
         <span>{children}</span>
-        {icon && (
-          <IconContainer>
-            {icon}
-          </IconContainer>
-        )}
+        {icon && <IconContainer>{icon}</IconContainer>}
       </FlexContainer.Comp>
     </Button.Comp>
   );
