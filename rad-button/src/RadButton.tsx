@@ -1,26 +1,50 @@
-import React, { ButtonHTMLAttributes, ReactNode } from 'react';
-import { BaseButton, ButtonText, Container } from './RadButton.styles';
+import React from 'react';
+import { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react';
+import { Button, FlexContainer, IconContainer } from './RadButton.styles';
+import spinners from 'react-spinners';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: 'primary' | 'secondary' | 'ghost';
+export type Variant = 'primary' | 'secondary' | 'ghost';
+
+export type IconPlacement = 'left' | 'right';
+
+export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> & {
+  variant: Variant;
   icon?: ReactNode;
-  iconPlacement?: 'left' | 'right';
-}
+  iconPlacement?: IconPlacement;
+  busy?: boolean;
+};
 
 const RadButton = ({
   children,
-  variant,
-  disabled = false,
-  icon,
+  variant = 'secondary',
   iconPlacement = 'right',
-}: ButtonProps) => (
-  <BaseButton variant={variant} disabled={disabled}>
-    <h1>Dean was here!!!!</h1>
-    <Container>
-      <ButtonText>{children}</ButtonText>
-      {iconPlacement === 'right' && <div>{icon}</div>}
-    </Container>
-  </BaseButton>
-);
+  disabled,
+  busy = false,
+  onClick,
+  ...rest
+}: ButtonProps) => {
+  const [icon, setIcon] = useState<ReactNode>(rest.icon);
+
+  useEffect(() => {
+    if (!disabled && busy) {
+      setIcon(<spinners.ClipLoader color="#2D3036" size={'18px'} />);
+    } else {
+      setIcon(rest.icon);
+    }
+  }, [busy]);
+
+  return (
+    <Button.Comp
+      className={Button.styles({ variant, clickable: !busy })}
+      disabled={disabled}
+      onClick={!busy && onClick}
+    >
+      <FlexContainer.Comp className={FlexContainer.styles({ iconPlacement })}>
+        <span>{children}</span>
+        {icon && <IconContainer>{icon}</IconContainer>}
+      </FlexContainer.Comp>
+    </Button.Comp>
+  );
+};
 
 export default RadButton;
