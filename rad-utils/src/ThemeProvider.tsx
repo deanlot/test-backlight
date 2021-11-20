@@ -1,8 +1,7 @@
 import React from 'react';
 import { createContext, FC, useContext, useState } from 'react'
-import { lightTheme } from './light';
-import { darkTheme } from './dark';
 import '../../layout/src/fonts.css'
+import { themeDark, themeLight } from '../../theme';
 
 export enum Theme {
   Light = 'Light',
@@ -14,8 +13,8 @@ type Themes = {
 };
 
 const themesConversion: Themes = {
-  Light: lightTheme,
-  Dark: darkTheme
+  Light: themeLight,
+  Dark: themeDark
 };
 
 type ThemeCtxConfig = {

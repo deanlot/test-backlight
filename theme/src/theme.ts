@@ -1,4 +1,5 @@
 import { colorsLight } from './colorsLight';
+import { colorsDark } from './colorsDark';
 import { fonts } from './fonts';
 import { fontSizes } from './fontSizes';
 import { fontWeights } from './fontWeights';
@@ -6,24 +7,24 @@ import { lineHeights } from './lineHeights';
 import { letterSpacings } from './letterSpacings';
 import { space } from './space';
 import { radii } from './radii';
-import { colorsDark } from './colorsDark';
+import { createStitches } from '@stitches/react';
 
-const baseTheme = {
-  space,
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  letterSpacings,
-  radii
-}
+const { createTheme } = createStitches({
+  theme: {
+    space,
+    fonts,
+    fontSizes,
+    fontWeights,
+    lineHeights,
+    letterSpacings,
+    radii
+  }
+})
 
-export const themeLight = {
-  ...baseTheme,
+export const themeLight = createTheme({
   colors: colorsLight,
-}
+})
 
-export const themeDark = {
-  ...baseTheme,
+export const themeDark = createTheme({
   colors: colorsDark
-}
+})

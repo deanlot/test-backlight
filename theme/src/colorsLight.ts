@@ -1,140 +1,58 @@
-const primary = {
-  '50': '#fce9c6',
-  '100': '#f9d38e',
-  '200': '#f0bd6b',
-  '300': '#e5a139',
-  '400': '#d17f13',
-  '500': '#b55e02',
-  '600': '#874903',
-  '700': '#633305',
-  '800': '#472300',
-  '900': '#331800'
-};
-
-const secondary = {
-  '0': '#ffffff',
-  '20': '#f7f8fa',
-  '40': '#f0f1f4',
-  '60': '#ecedf0',
-  '80': '#e4e6e9',
-  '100': '#dcdfe6',
-  '200': '#cacdd2',
-  '300': '#abaeb5',
-  '400': '#8e9198',
-  '500': '#737780',
-  '600': '#565960',
-  '700': '#484b50',
-  '800': '#2d3036',
-  '820': '#202328',
-  '840': '#191b1e',
-  '860': '#121316',
-  '880': '#0a0b0c',
-  '900': '#000000'
-};
-
-const success = {
-  '0': '#ebfcf8',
-  '100': '#b6f0e6',
-  '200': '#64d9c7',
-  '300': '#11bdaf',
-  '400': '#06a195',
-  '500': '#00877e',
-  '600': '#0b6660',
-  '700': '#104a46',
-  '800': '#013632',
-  '900': '#012421'
-};
-
-const critical = {
-  '50': '#faefed',
-  '100': '#ffd9d6',
-  '200': '#ff9e99',
-  '300': '#fc6d62',
-  '400': '#f24d44',
-  '500': '#d6372b',
-  '600': '#ba1b13',
-  '700': '#85140c',
-  '800': '#520c02',
-  '900': '#3b0700'
-};
-
-const highlight = {
-  '50': '#F3F6FB',
-  '100': '#dde7f8',
-  '200': '#b4caef',
-  '300': '#8aade5',
-  '400': '#5190f6',
-  '500': '#256af4',
-  '600': '#265bb0',
-  '700': '#1d4586',
-  '800': '#14305d',
-  '900': '#0b1a32'
-}
+import { critical, highlight, primary, secondary, success } from './colors';
 
 export const colorsLight = {
-    button: {
-      callToAction: primary[500],
-      secondary: secondary[500],
-    },
+  "surface": secondary[0],
+  "surface-background": secondary[80],
+  "surface-muted": secondary[40],
+  "surface-negative": secondary[860],
+  "surface-negativeMuted": secondary[820],
+  "surface-primary": primary[50],
+  "surface-critical": critical[50],
+  "surface-highlight": highlight[50],
 
-    surface: {
-      background: secondary[80],
-      surface: secondary[0],
-      muted: secondary[40],
-      negative: secondary[860],
-      negativeMuted: secondary[820],
-      primary: primary[50],
-      critical: critical[50],
-      highlight: highlight[50]
-    },
+  "onSurface-icon": secondary[860],
+  "onSurface-iconSuccess": success[300],
+  "onSurface-iconCritical": critical[300],
+  "onSurface-iconHighlight": highlight[300],
+  "onSurface-iconPrimary": primary[300],
+  "onSurface-text": secondary[860],
+  "onSurface-textMuted": secondary[700],
+  "onSurface-textDisabled": secondary[600],
+  "onSurface-textNegative": secondary[0],
+  "onSurface-textNegativeMuted": secondary[100],
+  "onSurface-textNegativeDisabled": secondary[300],
+  "onSurface-textSuccess": success[700],
+  "onSurface-textCritical": critical[700],
+  "onSurface-textHighlight": highlight[700],
+  "onSurface-textPrimary": primary[700],
+  "onSurface-border": secondary[400],
+  "onSurface-borderMuted": secondary[200],
+  "onSurface-borderSuccess": success[200],
+  "onSurface-borderCritical": critical[200],
+  "onSurface-borderHighlight": highlight[200],
+  "onSurface-borderPrimary": primary[200],
+  "onSurface-onPrimary": primary[800],
 
-   onSurface: {
-      icon: secondary[860],
-      iconSuccess: success[300],
-      iconCritical: critical[300],
-      iconHighlight: highlight[300],
-      iconPrimary: primary[300],
-      text: secondary[860],
-      textMuted: secondary[700],
-      textDisabled: secondary[600],
-      textNegative: secondary[0],
-      textNegativeMuted: secondary[100],
-      textNegativeDisabled: secondary[300],
-      textSuccess: success[700],
-      textCritical: critical[700],
-      textHighlight: highlight[700],
-      textPrimary: primary[700],
-      border: secondary[400],
-      borderMuted: secondary[200],
-      borderSuccess: success[200],
-      borderCritical: critical[200],
-      borderHighlight: highlight[200],
-      borderPrimary: primary[200],
-      onPrimary: primary[800]
-   },
-
-  interactive: {
-      secondary: secondary[860],
-      secondaryDisabled: secondary[600],
-      secondaryHovered: secondary[900],
-      secondaryPressed: secondary[500],
-      success: success[500],
-      successDisabled: success[700],
-      successHovered: success[400],
-      successPressed: success[600],
-      primary: primary[300],
-      primaryDisabled: primary[500],
-      primaryHovered: primary[200],
-      primaryPressed: primary[400],
-      critical: critical[500],
-      criticalDisabled: critical[700],
-      criticalHovered: critical[400],
-      criticalPressed: critical[600],
-      highlight: highlight[500],
-      highlightDisabled: highlight[700],
-      highlightHovered: highlight[400],
-      highlightPressed: highlight[600]
-  }
+  "interactive-secondary": secondary[860],
+  "interactive-secondaryDisabled": secondary[600],
+  "interactive-secondaryHovered": secondary[900],
+  "interactive-secondaryPressed": secondary[500],
+  "interactive-success": success[500],
+  "interactive-successDisabled": success[700],
+  "interactive-successHovered": success[400],
+  "interactive-successPressed": success[600],
+  "interactive-primary": primary[300],
+  "interactive-primaryDisabled": primary[500],
+  "interactive-primaryHovered": primary[200],
+  "interactive-primaryPressed": primary[400],
+  "interactive-critical": critical[500],
+  "interactive-criticalDisabled": critical[700],
+  "interactive-criticalHovered": critical[400],
+  "interactive-criticalPressed": critical[600],
+  "interactive-highlight": highlight[500],
+  "interactive-highlightDisabled": highlight[700],
+  "interactive-highlightHovered": highlight[400],
+  "interactive-highlightPressed": highlight[600]
 };
 
 

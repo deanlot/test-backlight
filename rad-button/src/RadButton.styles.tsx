@@ -5,7 +5,7 @@ const buttonStyles = css({
   borderRadius: '32px',
   fontSize: '14px',
   fontFamily: 'LLCircularWeb',
-  fontWeight: '700',
+  fontWeight: '$regular',
   color: '#472300',
   cursor: 'pointer',
   display: 'flex',
@@ -19,7 +19,7 @@ const buttonStyles = css({
   variants: {
     variant: {
       primary: {
-        backgroundColor: '$primary',
+        backgroundColor: '$surface-primary',
         border: '3px solid $primary',
 
         '&:disabled': {
