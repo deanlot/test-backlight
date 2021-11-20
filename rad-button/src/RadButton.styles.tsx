@@ -1,6 +1,6 @@
 import { css, styled } from '@stitches/react';
 
-const buttonStyles = css({
+export const buttonStyles = css({
   padding: '12px 24px',
   borderRadius: '32px',
   fontSize: '14px',
@@ -78,9 +78,10 @@ const buttonStyles = css({
   }
 });
 
-export const Button = { Comp: styled('button'), styles: buttonStyles };
+export const Button = styled('button');
 
-const flexContainerStyles = css({
+export const FlexContainer = styled('div');
+export const flexVariants = css({
   display: 'flex',
   flexWrap: 'no-wrap',
   alignItems: 'center',
@@ -97,8 +98,10 @@ const flexContainerStyles = css({
   }
 });
 
-export const FlexContainer = { Comp: styled('div'), styles: flexContainerStyles };
+// export const IconContainer ={ Comp: styled('div'), styles: css({paddingLeft: '20px'}) };
 
-export const IconContainer = styled('div', {
-  paddingLeft: '20px'
-});
+export const IconContainer = styled('div', { paddingLeft: '20px' });
+
+//   styled('div', {
+//   paddingLeft: '20px'
+// });
