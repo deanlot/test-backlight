@@ -17,20 +17,6 @@
         ]
       ],
       [
-        "theme-ui",
-        [
-          "tui-button",
-          "tui-utils"
-        ]
-      ],
-      [
-        "styled-components",
-        [
-          "styled-button",
-          "styled-utils"
-        ]
-      ],
-      [
         "dockit",
         [
           "layout"
