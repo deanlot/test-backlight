@@ -4,17 +4,9 @@
     "menu": [
       "readme",
       [
-        "tokens",
+        "Theme",
         [
-          "typography",
-          "colors",
-          "space",
-          "sizes",
-          "shadows",
-          "radii",
-          "border",
-          "z-index",
-          "all"
+          "theme"
         ]
       ],
       [
