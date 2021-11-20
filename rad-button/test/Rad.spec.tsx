@@ -1,12 +1,13 @@
 import React from 'react';
+import chai from 'chai';
 import { render } from '@testing-library/react';
 import RadButton from '../src/RadButton';
-import '@testing-library/jest-dom';
 
+const expect = chai.expect;
 
-describe('Dummy test', function () {
-  it('should be always true', function () {
-    const {getByText} = render(<RadButton variant={'primary'}>primary</RadButton>);
-    expect(getByText('primary')).toBeInTheDocument();
+describe('RadButton', function() {
+  it('should render the component', function() {
+    const { getByText } = render(<RadButton variant={'primary'}>primary</RadButton>);
+    expect(getByText('primary')).to.exist;
   });
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ButtonHTMLAttributes, ReactNode, useEffect, useState, MouseEvent } from 'react';
-import { Button, FlexContainer, IconContainer } from './RadButton.styles';
+import { Button, buttonStyles, FlexContainer, flexVariants, IconContainer } from './RadButton.styles';
 import spinners from 'react-spinners';
 
 export type Variant = 'primary' | 'secondary' | 'ghost';
@@ -18,22 +18,22 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style' 
 };
 
 const RadButton = ({
-  children,
-  variant = 'secondary',
-  iconPlacement = 'right',
-  disabled = false,
-  busy = false,
+                     children,
+                     variant = 'secondary',
+                     iconPlacement = 'right',
+                     disabled = false,
+                     busy = false,
   notifySuccess = false,
   notifyFailure = false,
-  onClick,
-  ...rest
-}: ButtonProps) => {
+                     onClick,
+                     ...rest
+                   }: ButtonProps) => {
   const [icon, setIcon] = useState<ReactNode>(rest.icon);
   const [done, setDone] = useState<boolean>(false);
 
   const setIcon2 = () => {
     if (!disabled && busy) {
-      setIcon(<spinners.ClipLoader color="#2D3036" size={'18px'} />);
+      setIcon(<spinners.ClipLoader color='#2D3036' size={'18px'} />);
     } else {
       setIcon(rest.icon);
     }
@@ -72,17 +72,17 @@ const RadButton = ({
 
   return (
     <div>
-      <Button.Comp
-        className={Button.styles({ variant, clickable: !busy || !done })}
+      <Button
+        className={buttonStyles({ variant, clickable: !busy || !done })}
         disabled={disabled}
         onClick={!busy && handleClick}
         role="button"
       >
-        <FlexContainer.Comp className={FlexContainer.styles({ iconPlacement })}>
-          <span>{children}dsdsdsdsdd</span>
+        <FlexContainer className={flexVariants({ iconPlacement })}>
+          <span>{children}</span>
           {icon && <IconContainer>{icon}</IconContainer>}
-        </FlexContainer.Comp>
-      </Button.Comp>
+        </FlexContainer>
+      </Button>
     </div>
   );
 };
