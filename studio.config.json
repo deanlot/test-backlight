@@ -4,17 +4,9 @@
     "menu": [
       "readme",
       [
-        "tokens",
+        "Theme",
         [
-          "typography",
-          "colors",
-          "space",
-          "sizes",
-          "shadows",
-          "radii",
-          "border",
-          "z-index",
-          "all"
+          "theme"
         ]
       ],
       [
@@ -22,20 +14,6 @@
         [
           "rad-button",
           "rad-utils"
-        ]
-      ],
-      [
-        "theme-ui",
-        [
-          "tui-button",
-          "tui-utils"
-        ]
-      ],
-      [
-        "styled-components",
-        [
-          "styled-button",
-          "styled-utils"
         ]
       ],
       [
