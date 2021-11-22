@@ -7,6 +7,10 @@ export type Variant = 'primary' | 'secondary' | 'ghost';
 
 export type IconPlacement = 'left' | 'right';
 
+type onClickPromise = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<boolean>;
+type onClickSynchronous = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+type onClick = onClickSynchronous | onClickPromise;
+
 export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style' | 'onClick'> & {
   variant: Variant;
   icon?: ReactNode;
@@ -14,26 +18,26 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style' 
   busy?: boolean;
   notifySuccess?: boolean;
   notifyFailure?: boolean;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => Promise<boolean>;
+  onClick?: onClick;
 };
 
 const RadButton = ({
-                     children,
-                     variant = 'secondary',
-                     iconPlacement = 'right',
-                     disabled = false,
-                     busy = false,
+  children,
+  variant = 'secondary',
+  iconPlacement = 'right',
+  disabled = false,
+  busy = false,
   notifySuccess = false,
   notifyFailure = false,
-                     onClick,
-                     ...rest
-                   }: ButtonProps) => {
+  onClick,
+  ...rest
+}: ButtonProps) => {
   const [icon, setIcon] = useState<ReactNode>(rest.icon);
   const [done, setDone] = useState<boolean>(false);
 
   const setIcon2 = () => {
     if (!disabled && busy) {
-      setIcon(<spinners.ClipLoader color='#2D3036' size={'18px'} />);
+      setIcon(<spinners.ClipLoader color="#2D3036" size={'18px'} />);
     } else {
       setIcon(rest.icon);
     }
@@ -56,7 +60,8 @@ const RadButton = ({
   const handleClick = (e) =>
     onClick &&
     !done &&
-    onClick(e)
+    // @ts-expect-error onClick can return void but Promise.resolve typing requests a boolean
+    Promise.resolve(onClick(e))
       // show success icon for 1200 ms
       .then((res) => {
         if (notifySuccess) {

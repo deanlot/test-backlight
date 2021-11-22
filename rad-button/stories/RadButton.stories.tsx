@@ -7,11 +7,9 @@ export const primaryReady = () => (
   <RadButton
     variant={'primary'}
     notifySuccess
-    onClick={() =>
-      new Promise<boolean>((resolve, reject) => {
-        return resolve(true);
-      })
-    }
+    onClick={(e) => {
+      console.log('clicked', e);
+    }}
   >
     PRIMARY
   </RadButton>
@@ -35,6 +33,7 @@ export const secondaryReady = () => (
     notifyFailure
     onClick={() =>
       new Promise<boolean>((resolve, reject) => {
+        console.log('clicked promise');
         return reject(true);
       })
     }
