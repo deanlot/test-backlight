@@ -58,7 +58,7 @@ describe('RadButton', function() {
     });
   });
 
-  it.skip('should show failure state when a onClick rejects', async () => {
+  it.skip('should show failure state when a onClick fails', async () => {
     try {
       const { getByText, getByTestId } = render(<RadButton data-testid={'save-button'} variant={'primary'}
                                                            showOnClickResult={true}
