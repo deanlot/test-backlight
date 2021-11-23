@@ -1,9 +1,11 @@
 import React from 'react';
 import { act, fireEvent, getByTestId, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 import RadButton from '../src/RadButton';
+import { fn } from 'jest-mock';
+import '../../jest.setup';
 
-describe('RadButton', function () {
-  it('should render the component', function () {
+describe('RadButton', function() {
+  it('should render the component', function() {
     const { getByText } = render(<RadButton variant={'primary'}>primary</RadButton>);
     expect(getByText('primary')).toBeInTheDocument();
   });
@@ -11,13 +13,13 @@ describe('RadButton', function () {
   it('should present user with done icon when the button is clicked and notifySuccess is true', async () => {
     const { getByText, getByTestId } = render(<RadButton data-testid={'save-button'} variant={'primary'}
                                                          showOnClickResult={true}
-        onClick={() =>
-          new Promise<void>((resolve) => {
-            return setTimeout(() => {
-              return resolve();
-            }, 10);
-          })
-        }
+                                                         onClick={() =>
+                                                           new Promise<void>((resolve) => {
+                                                             return setTimeout(() => {
+                                                               return resolve();
+                                                             }, 10);
+                                                           })
+                                                         }
       >
         primary
       </RadButton>
@@ -32,17 +34,17 @@ describe('RadButton', function () {
   });
 
   it('should not allow a user to click while promise is still pending', async () => {
-    const clickFn = jest.fn();
+    const clickFn = fn();
     const { getByTestId } = render(<RadButton data-testid={'save-button'} variant={'primary'}
                                               showOnClickResult={true}
-        onClick={() =>
-          new Promise<void>((resolve) => {
-            return setTimeout(() => {
-          clickFn();
-              return resolve();
-        }, 100);
-          })
-        }
+                                              onClick={() =>
+                                                new Promise<void>((resolve) => {
+                                                  return setTimeout(() => {
+                                                    clickFn();
+                                                    return resolve();
+                                                  }, 100);
+                                                })
+                                              }
       >
         primary
       </RadButton>
