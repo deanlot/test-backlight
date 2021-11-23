@@ -6,7 +6,7 @@ type LoadingProps = {
 };
 
 const Loading = ({ size = '12px' }: LoadingProps) => (
-  <LoadingIcon data-testing-id="loading-icon" css={{ width: size, height: size }} />
+  <LoadingIcon data-testid="loading-icon" css={{ width: size, height: size }} />
 );
 
 export default Loading;
