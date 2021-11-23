@@ -1,5 +1,11 @@
 {
   "parser": "typescript",
   "printWidth": 120,
-  "singleQuote": true
+  "singleQuote": true,
+  "overrides":[
+    {
+      "files": "*.mdx",
+      "parser": "mdx"
+    }
+  ]
 }
