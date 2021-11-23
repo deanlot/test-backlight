@@ -60,7 +60,7 @@ export default MdxButtonLayout;
   code={`
   <RadButton
     variant="primary"
-    notifySuccess
+    showOnClickResult
     onClick={() => new Promise((resolve) => resolve())}
   >
     Click Me
@@ -78,7 +78,7 @@ export default MdxButtonLayout;
   code={`
   <RadButton
     variant="primary"
-    notifySuccess
+    showOnClickResult
     onClick={() => {}}
   >
     Click Me
@@ -93,7 +93,7 @@ export default MdxButtonLayout;
   code={`
   <RadButton
     variant="primary"
-    notifyFailure
+    showOnClickResult
     onClick={() => new Promise((resolve, reject) => reject())}
   >
     Click Me
