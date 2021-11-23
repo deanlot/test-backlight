@@ -106,7 +106,7 @@ type onClickAsync<T = any> = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => P
 type onClickSync = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 type onClick = onClickSync | onClickAsync;
 
-export interface RadButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style' | 'onClick'> {
+interface RadButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style' | 'onClick'> {
   /**
    * Variant of the button
    */
