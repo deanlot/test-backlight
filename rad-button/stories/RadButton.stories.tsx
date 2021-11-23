@@ -7,9 +7,9 @@ export default layout;
 export const primaryReady = () => (
   <RadButton
     variant={'primary'}
-    notifySuccess
+    showOnClickResult
     onClick={(e) => {
-      console.log('click')
+      console.log('click');
     }}
   >
     PRIMARY
@@ -33,7 +33,7 @@ export const primaryDisabled = () => (
 export const secondaryReady = () => (
   <RadButton
     variant={'secondary'}
-    notifyFailure
+    showOnClickResult
     onClick={() =>
       new Promise<boolean>((resolve, reject) => {
         console.log('clicked promise');
