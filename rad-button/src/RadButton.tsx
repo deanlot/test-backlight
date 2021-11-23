@@ -5,7 +5,7 @@ import {
   FlexContainer,
   flexVariants,
   IconContainer,
-  iconContainerStyles
+  iconContainerStyles,
 } from './RadButton.styles';
 import Loading from './Loading/Loading';
 
@@ -13,19 +13,17 @@ import Loading from './Loading/Loading';
  Button component that the user can press to trigger an action.
  */
 export const RadButton = ({
-                            children,
-                            variant = 'primary',
-                            disabled = false,
-                            notifySuccess = false,
-                            notifyFailure = false,
-                            iconPlacement = 'right',
-                            onClick = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise.resolve(e),
-                            busy = false,
-                            ...rest
-                          }: RadButtonProps) => {
+  children,
+  variant = 'primary',
+  disabled = false,
+  showOnClickResult = false,
+  iconPlacement = 'right',
+  onClick = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise.resolve(e),
+  busy = false,
+  ...rest
+}: RadButtonProps) => {
   const [icon, setIcon] = useState<ReactNode>(rest.icon || undefined);
-  // const [done, setDone] = useState<boolean>(false);
-  const [timer, setTimer] = useState<number>();
+  const [timer, setTimer] = useState<ReturnType<typeof setTimeout>>();
   const [clickable, setClickable] = useState<boolean>(!busy);
 
   useEffect(() => {
@@ -42,38 +40,45 @@ export const RadButton = ({
     }
   }, [busy, disabled, rest.icon]);
 
-  const showSuccess = useCallback((result) => {
-    if (notifySuccess) {
-      setIcon(<div>done</div>);
-    }
-    return result;
-  }, [notifySuccess]);
+  const showSuccess = useCallback(
+    (result) => {
+      if (showOnClickResult) {
+        setIcon(<div>done</div>);
+      }
+      return result;
+    },
+    [showOnClickResult]
+  );
 
-  const showFailed = useCallback((error) => {
-    if (notifyFailure) {
-      setIcon(<div>whoops</div>);
-    }
-    throw error;
-  }, [notifyFailure]);
+  const showFailed = useCallback(
+    (error) => {
+      if (showOnClickResult) {
+        setIcon(<div>whoops</div>);
+      }
+      throw error;
+    },
+    [showOnClickResult]
+  );
 
-
-  const handleClick = useCallback((e) => {
-    return Promise.resolve(e)
-      .then((e) => {
-        if (clickable) {
-          setClickable(false);
-          return onClick(e);
-        }
-        return e;
-      })
-      .then(showSuccess)
-      .catch(showFailed)
-      .finally(() => {
-        setClickable(true);
-        // @ts-expect-error not a NodeJS.Timeout
-        setTimer(setTimeout(() => setIcon(rest.icon), 1200));
-      });
-  }, [showSuccess, showFailed]);
+  const handleClick = useCallback(
+    (e) => {
+      return Promise.resolve(e)
+        .then((e) => {
+          if (clickable) {
+            setClickable(false);
+            return onClick(e);
+          }
+          return e;
+        })
+        .then(showSuccess)
+        .catch(showFailed)
+        .finally(() => {
+          setClickable(true);
+          setTimer(setTimeout(() => setIcon(rest.icon), 1200));
+        });
+    },
+    [showSuccess, showFailed]
+  );
 
   // this is disgusting!!!
   const iconPlacementPadding = children ? (icon ? iconPlacement : 'noIcon') : 'center';
@@ -84,7 +89,7 @@ export const RadButton = ({
       disabled={disabled}
       // onClick must have a ternary that defaults to undefined to prevent compiler errors
       onClick={clickable ? handleClick : undefined}
-      role='button'
+      role="button"
       {...rest}
     >
       <FlexContainer className={flexVariants(!!icon && { iconPlacement })}>
@@ -95,10 +100,8 @@ export const RadButton = ({
   );
 };
 
-export type Variant = 'primary' | 'secondary' | 'ghost';
-
-export type IconPlacement = 'left' | 'right';
-
+type Variant = 'primary' | 'secondary' | 'ghost';
+type IconPlacement = 'left' | 'right';
 type onClickAsync<T = any> = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<T>;
 type onClickSync = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 type onClick = onClickSync | onClickAsync;
@@ -121,13 +124,10 @@ export interface RadButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElem
    */
   busy?: boolean;
   /**
-   * If true, the button will display a check icon on completion of the onClick
+   * If true, the button will display a "check icon" on successful completion of the onClick
+   * and a "shudder" animation on rejection/error of the onClick
    */
-  notifySuccess?: boolean;
-  /**
-   * If true, the button will display a "shudder" animation on rejection/error of the onClick
-   */
-  notifyFailure?: boolean;
+  showOnClickResult?: boolean;
   /**
    * Accepts both a promise and a synchronous function to run when a button click is triggered
    */
