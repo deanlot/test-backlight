@@ -1,4 +1,5 @@
-import { themeLight, themeDark } from '../';
+import { systemUIDarkTheme, systemUILightTheme } from '../src/theme';
 
-export const lightTheme = () => themeLight;
-export const darkTheme = () => themeDark;
+export const lightTheme = () => (systemUILightTheme);
+
+export const darkTheme = () => (systemUIDarkTheme);
