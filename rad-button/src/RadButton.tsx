@@ -1,7 +1,14 @@
 import React from 'react';
 import { ButtonHTMLAttributes, ReactNode, useEffect, useState, MouseEvent } from 'react';
-import { Button, buttonStyles, FlexContainer, flexVariants, IconContainer } from './RadButton.styles';
-import spinners from 'react-spinners';
+import {
+  Button,
+  buttonStyles,
+  FlexContainer,
+  flexVariants,
+  IconContainer,
+  iconContainerStyles,
+} from './RadButton.styles';
+import Loading from './Loading/Loading';
 
 export type Variant = 'primary' | 'secondary' | 'ghost';
 
@@ -11,33 +18,58 @@ type onClickPromise = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<
 type onClickSynchronous = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 type onClick = onClickSynchronous | onClickPromise;
 
-export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style' | 'onClick'> & {
+export interface RadButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style' | 'onClick'> {
+  /**
+   * Variant of the button
+   */
   variant: Variant;
+  /**
+   * Icon to be placed in the button
+   */
   icon?: ReactNode;
+  /**
+   * Where the Icon should be placed
+   */
   iconPlacement?: IconPlacement;
+  /**
+   * A busy state that prevent clicks and shows a loading spinner
+   */
   busy?: boolean;
+  /**
+   * If true, the button will display a check icon on completion of the onClick
+   */
   notifySuccess?: boolean;
+  /**
+   * If true, the button will display a "shudder" animation on rejection/error of the onClick
+   */
   notifyFailure?: boolean;
+  /**
+   * Accepts both a promise and a synchronous function to run when a button click is triggered
+   */
   onClick?: onClick;
-};
+}
 
-const RadButton = ({
+/**
+ Button component that the user can press to trigger an action.
+ */
+export const RadButton = ({
   children,
-  variant = 'secondary',
-  iconPlacement = 'right',
+  variant = 'primary',
   disabled = false,
   busy = false,
   notifySuccess = false,
   notifyFailure = false,
+  iconPlacement = 'right',
   onClick,
   ...rest
-}: ButtonProps) => {
-  const [icon, setIcon] = useState<ReactNode>(rest.icon);
+}: RadButtonProps) => {
+  const [icon, setIcon] = useState<ReactNode>(rest.icon || undefined);
   const [done, setDone] = useState<boolean>(false);
+  const clickable = !busy && !done;
 
   const setIcon2 = () => {
     if (!disabled && busy) {
-      setIcon(<spinners.ClipLoader color="#2D3036" size={'18px'} />);
+      setIcon(<Loading />);
     } else {
       setIcon(rest.icon);
     }
@@ -59,7 +91,6 @@ const RadButton = ({
 
   const handleClick = (e) =>
     onClick &&
-    !done &&
     // @ts-expect-error onClick can return void but Promise.resolve typing requests a boolean
     Promise.resolve(onClick(e))
       // show success icon for 1200 ms
@@ -75,20 +106,22 @@ const RadButton = ({
         }
       });
 
+  // this is disgusting!!!
+  const iconPlacementPadding = children ? (icon ? iconPlacement : 'noIcon') : 'center';
+
   return (
-    <div>
-      <Button
-        className={buttonStyles({ variant, clickable: !busy || !done })}
-        disabled={disabled}
-        onClick={!busy && handleClick}
-        role="button"
-      >
-        <FlexContainer className={flexVariants({ iconPlacement })}>
-          <span>{children}</span>
-          {icon && <IconContainer>{icon}</IconContainer>}
-        </FlexContainer>
-      </Button>
-    </div>
+    <Button
+      className={buttonStyles({ variant, clickable, iconPlacementPadding: iconPlacementPadding })}
+      disabled={disabled}
+      // onClick must have a ternary that defaults to undefined to prevent compiler errors
+      onClick={clickable ? handleClick : undefined}
+      role="button"
+    >
+      <FlexContainer className={flexVariants(!!icon && { iconPlacement })}>
+        {children && <span>{children}</span>}
+        {icon && <IconContainer className={iconContainerStyles({ children: !!children })}>{icon}</IconContainer>}
+      </FlexContainer>
+    </Button>
   );
 };
 

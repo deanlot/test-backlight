@@ -21,6 +21,8 @@ export const primaryBusy = () => (
   </RadButton>
 );
 
+export const primaryBusyIconOnly = () => <RadButton variant={'primary'} busy />;
+
 export const primaryDisabled = () => (
   <RadButton variant={'primary'} disabled>
     PRIMARY
