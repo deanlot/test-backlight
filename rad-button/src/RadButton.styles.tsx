@@ -1,7 +1,6 @@
 import { css, styled } from '@stitches/react';
 
 export const buttonStyles = css({
-  padding: '12px 24px',
   borderRadius: '32px',
   fontSize: '14px',
   fontFamily: 'LLCircularWeb',
@@ -10,10 +9,13 @@ export const buttonStyles = css({
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
+  flexWrap: 'nowrap',
   justifyContent: 'center',
+  alignItems: 'center',
+  minHeight: '40px',
 
   '&:disabled': {
-    pointerEvents: 'none'
+    pointerEvents: 'none',
   },
 
   variants: {
@@ -24,15 +26,15 @@ export const buttonStyles = css({
 
         '&:disabled': {
           backgroundColor: '$disabled',
-          border: '3px solid $disabled'
+          border: '3px solid $disabled',
         },
         '&:hover': {
-          border: '3px solid $outlinePrimary'
+          border: '3px solid $outlinePrimary',
         },
         '&:active': {
           backgroundColor: '$activePrimary',
-          border: '3px solid $activePrimary'
-        }
+          border: '3px solid $activePrimary',
+        },
       },
       secondary: {
         backgroundColor: 'rgba(255, 255, 255, 0)',
@@ -41,15 +43,15 @@ export const buttonStyles = css({
 
         '&:disabled': {
           color: '#565960',
-          border: '2px solid #565960'
+          border: '2px solid #565960',
         },
         '&:hover': {
-          border: '3px solid #000000'
+          border: '3px solid #000000',
         },
         '&:active': {
           color: '#484B50',
-          border: '2px solid #484B50'
-        }
+          border: '2px solid #484B50',
+        },
       },
       ghost: {
         backgroundColor: 'rgba(255,255, 255, 0)',
@@ -57,25 +59,39 @@ export const buttonStyles = css({
         color: '000',
 
         '&:disabled': {
-          color: '#565960'
+          color: '#565960',
         },
         '&:hover': {
-          color: '000'
+          color: '000',
         },
         '&:active': {
-          color: '#565960'
-        }
-      }
+          color: '#565960',
+        },
+      },
     },
     clickable: {
       true: {
-        pointerEvents: 'cursor'
+        pointerEvents: 'cursor',
       },
       false: {
-        pointerEvents: 'none'
-      }
-    }
-  }
+        pointerEvents: 'none',
+      },
+    },
+    iconPlacementPadding: {
+      left: {
+        padding: '8px 24px 8px 16px',
+      },
+      right: {
+        padding: '8px 16px 8px 24px',
+      },
+      center: {
+        padding: '8px',
+      },
+      noIcon: {
+        padding: '12px 24px',
+      },
+    },
+  },
 });
 
 export const Button = styled('button');
@@ -89,19 +105,22 @@ export const flexVariants = css({
   variants: {
     iconPlacement: {
       left: {
-        flexDirection: 'row-reverse'
+        flexDirection: 'row-reverse',
       },
       right: {
-        flexDirection: 'row'
-      }
-    }
-  }
+        flexDirection: 'row',
+      },
+    },
+  },
 });
 
-// export const IconContainer ={ Comp: styled('div'), styles: css({paddingLeft: '20px'}) };
-
-export const IconContainer = styled('div', { paddingLeft: '20px' });
-
-//   styled('div', {
-//   paddingLeft: '20px'
-// });
+export const iconContainerStyles = css({
+  variants: {
+    children: {
+      true: {
+        paddingLeft: '20px',
+      },
+    },
+  },
+});
+export const IconContainer = styled('div');
