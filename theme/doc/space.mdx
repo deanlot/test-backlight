@@ -1,11 +1,9 @@
 import { mdx } from '@mdx-js/react';
-import { themeLight as theme } from '../';
 import { SystemUIShowcases } from '@divriots/dockit-react/systemui-showcases';
 import { MdxLayout } from '~/layout';
+  import { systemUILightTheme } from '../src/theme';
 export default MdxLayout;
 
 # Space
 
-<div id="space">
-    <SystemUIShowcases theme={theme} showcaseKey="space" />
-</div>
+<SystemUIShowcases theme={systemUILightTheme} showcaseKey="space" />
