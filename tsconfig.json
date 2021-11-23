@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "ESNext",
     "allowJs": true,
-    "allowNonTsExtensions": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "jsx": "react",

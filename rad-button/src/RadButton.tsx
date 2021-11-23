@@ -57,8 +57,8 @@ export const RadButton = ({
   }, [notifyFailure]);
 
 
-  const handleClick = useCallback((e) => {
-    return Promise.resolve(e)
+  const handleClick = useCallback((e) =>
+    Promise.resolve(e)
       .then((e) => {
         if (clickable) {
           setClickable(false);
@@ -72,8 +72,7 @@ export const RadButton = ({
         setClickable(true);
         // @ts-expect-error not a NodeJS.Timeout
         setTimer(setTimeout(() => setIcon(rest.icon), 1200));
-      });
-  }, [showSuccess, showFailed]);
+      }), [showSuccess, showFailed]);
 
   // this is disgusting!!!
   const iconPlacementPadding = children ? (icon ? iconPlacement : 'noIcon') : 'center';
