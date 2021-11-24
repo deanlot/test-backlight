@@ -59,11 +59,6 @@ export interface BaseButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
    * A busy state that prevent clicks and shows a loading spinner
    */
   busy?: boolean;
-  /**
-   * If true, the button will display a "check icon" on successful completion of the onClick
-   * and a "shudder" animation on rejection/error of the onClick
-   */
-  showOnClickResult?: boolean;
 }
 
 export const Button = (props: BaseButtonProps): ReactElement => {

@@ -5,11 +5,11 @@ import { BaseButton, BaseButtonProps } from '../../Button/src/BaseButton';
 type OnClickAsync<T = any> = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<T>;
 
 type FeedbackButtonProps = Omit<BaseButtonProps, 'onClick'> & {
-  onClickAsync?: OnClickAsync;
+  onClick?: OnClickAsync;
   delay?: number;
 }
 
-const FeedbackButton = ({ onClickAsync, busy, delay, ...rest }: FeedbackButtonProps) => {
+const FeedbackButton = ({ onClick, busy, delay, ...rest }: FeedbackButtonProps) => {
   const [clickable, setClickable] = useState<boolean>(!busy);
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout>>();
   const [icon, setIcon] = useState<ReactNode>(rest.icon || undefined);
@@ -26,10 +26,10 @@ const FeedbackButton = ({ onClickAsync, busy, delay, ...rest }: FeedbackButtonPr
   });
 
   const handleClick = useCallback((e) => {
-      const updateButtonToNotClickableAndInvokeOnClickAsync = (e) => {
+      const updateButtonToNotClickableAndInvokeOnClick = (e) => {
         if (clickable) {
           setClickable(false);
-          return onClickAsync(e);
+          return onClick(e);
         }
         return e;
       };
@@ -48,12 +48,12 @@ const FeedbackButton = ({ onClickAsync, busy, delay, ...rest }: FeedbackButtonPr
       };
 
       return Promise.resolve(e)
-        .then(updateButtonToNotClickableAndInvokeOnClickAsync)
+        .then(updateButtonToNotClickableAndInvokeOnClick)
         .catch(shakeButton)
         .then(showSuccessIcon)
         .finally(debouncedRevertToInitialState);
     },
-    [onClickAsync]
+    [onClick]
   );
 
   return <BaseButton {...rest} onClick={handleClick} icon={icon} />;

@@ -7,8 +7,7 @@ export default layout;
 export const primaryReady = () => (
   <FeedbackButton
     variant={'primary'}
-    showOnClickResult
-    onClickAsync={(e) => {
+    onClick={(e) => {
       return Promise.resolve();
     }}
   >
