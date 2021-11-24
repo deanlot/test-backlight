@@ -35,7 +35,7 @@ export const RadButton = ({
 
   useEffect(() => {
     if (!disabled && busy) {
-      setIcon(<Loading />);
+      setIcon(<Loading variant={variant} />);
     } else {
       setIcon(rest.icon);
     }
