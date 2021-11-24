@@ -8,15 +8,5 @@ export default MdxLayout;
 # Border Widths
 
 <div className={themeLight.toString()}>
-  <BorderWidthsShowcase>
-      { Object.keys(systemUILightTheme.borderWidths).map(
-        (token) => (
-          <BorderWidthsSample
-            key={token}
-            token={token}
-            value={systemUILightTheme.borderWidths[token]}
-          />)
-        )
-      }
-  </BorderWidthsShowcase>
+  <BorderWidthsShowcase theme={systemUILightTheme}/>
 </div>
