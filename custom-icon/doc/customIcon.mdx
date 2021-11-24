@@ -1,0 +1,38 @@
+import { mdx } from '@mdx-js/react';
+import { MdxButtonLayout } from '~/layout';
+import { Props, Description } from '@divriots/dockit-react/props';
+import { Playground } from '@divriots/dockit-react/playground';
+import CustomIcon from '../src/CustomIcon';
+export default MdxButtonLayout;
+
+# Icon
+<Description of={CustomIcon} />
+
+## Usage
+### Passing in an SVG
+Create the SVG and pass it into CustomIcon as a ReactNode along with an accessible label.
+
+<Playground
+  scope={{ CustomIcon }}
+  code={`
+    <CustomIcon
+      label="home"
+      svg={
+        <svg width="24px" height="24px">
+          <path
+            d="M22.272,23.247a.981.981,0,0,0,.978-.978V9.747a1.181,1.181,0,0,0-.377-.8L12,.747,1.127,8.947a1.181,1.181,0,0,0-.377.8V22.269a.981.981,0,0,0,.978.978Z"
+            key="M22.272,23.247a.981.981,0,0,0,.978-.978V9.747a1.181,1.181,0,0,0-.377-.8L12,.747,1.127,8.947a1.181,1.181,0,0,0-.377.8V22.269a.981.981,0,0,0,.978.978Z"
+            fill="none"
+            stroke="#000"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+          />
+        </svg>
+      }
+    />
+  `}
+/>
+
+## Props
+<Props of={CustomIcon} />

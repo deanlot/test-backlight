@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomIcon from '../../custom-icon/src/CustomIcon';
-import { icons, PickedSVGProps } from '../../icons/icons';
+import { icons, PickedSVGProps } from '../icons/icons';
 
 /**
  Icon component that renders SVGs from our icon library

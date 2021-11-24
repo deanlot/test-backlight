@@ -6,6 +6,10 @@ export type CustomIconProps = {
   svg: ReactNode;
 };
 
+/**
+  Custom Icon will render an SVG adding some accessibility labels
+ */
+
 const CustomIcon = ({ label, svg }: CustomIconProps) => {
   return <AccessibleIcon.Root label={label}>{svg}</AccessibleIcon.Root>;
 };
