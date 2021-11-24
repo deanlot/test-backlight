@@ -5,8 +5,8 @@ import { icons, PickedSVGProps } from '../../icons/icons';
 /**
  Icon component that renders SVGs from our icon library
  */
-const Icon = ({ iconName, ...props }: IconProps) => {
-  const { paths, size, fill, stroke, strokeLinecap, strokeLinejoin, strokeWidth, transform } = icons[iconName];
+const Icon = ({ icon, ...props }: IconProps) => {
+  const { paths, size, fill, stroke, strokeLinecap, strokeLinejoin, strokeWidth, transform } = icons[icon];
   const svgSize = props.size || size;
 
   const SVG = (
@@ -26,11 +26,11 @@ const Icon = ({ iconName, ...props }: IconProps) => {
     </svg>
   );
 
-  return <CustomIcon label={iconName} svg={SVG} {...props} />;
+  return <CustomIcon label={icon} svg={SVG} {...props} />;
 };
 
 interface IconProps extends PickedSVGProps {
-  iconName: keyof typeof icons;
+  icon: keyof typeof icons;
   size?: string;
 }
 
