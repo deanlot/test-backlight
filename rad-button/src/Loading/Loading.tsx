@@ -5,7 +5,7 @@ type LoadingProps = {
   size?: number | string;
 };
 
-const Loading = ({ size = '12px' }: LoadingProps) => (
+const Loading = ({ size = '20px' }: LoadingProps) => (
   <LoadingIcon data-testid="loading-icon" css={{ width: size, height: size }} />
 );
 

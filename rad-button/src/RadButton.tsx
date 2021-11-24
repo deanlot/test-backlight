@@ -2,6 +2,7 @@ import React, { ButtonHTMLAttributes, MouseEvent, ReactNode, useCallback, useEff
 import {
   Button,
   buttonStyles,
+  ButtonText,
   FlexContainer,
   flexVariants,
   IconContainer,
@@ -60,8 +61,8 @@ export const RadButton = ({
     [showOnClickResult]
   );
 
-
-  const handleClick = useCallback((e) =>
+  const handleClick = useCallback(
+    (e) =>
       Promise.resolve(e)
         .then((e) => {
           if (clickable) {
@@ -92,7 +93,7 @@ export const RadButton = ({
       {...rest}
     >
       <FlexContainer className={flexVariants(!!icon && { iconPlacement })}>
-        {children && <span>{children}</span>}
+        {children && <ButtonText>{children}</ButtonText>}
         {icon && <IconContainer className={iconContainerStyles({ children: !!children })}>{icon}</IconContainer>}
       </FlexContainer>
     </Button>

@@ -2,10 +2,6 @@ import { css, styled } from '@stitches/react';
 
 export const buttonStyles = css({
   borderRadius: '32px',
-  fontSize: '14px',
-  fontFamily: 'LLCircularWeb',
-  fontWeight: '$regular',
-  color: '#472300',
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
@@ -100,6 +96,20 @@ export const buttonStyles = css({
 
 export const Button = styled('button');
 
+export const ButtonText = styled('span', {
+  fontFamily: 'LLCircularWeb',
+  fontStyle: 'normal',
+  fontWeight: 'bold',
+  fontSize: '14px',
+  lineHeight: '16px',
+  display: 'flex',
+  alignItems: 'center',
+  textAlign: 'right',
+  letterSpacing: '0.06em',
+  textTransform: 'uppercase',
+  color: '#472300',
+});
+
 export const FlexContainer = styled('div');
 export const flexVariants = css({
   display: 'flex',
@@ -119,6 +129,7 @@ export const flexVariants = css({
 });
 
 export const iconContainerStyles = css({
+  lineHeight: 0,
   variants: {
     children: {
       true: {
