@@ -1,11 +1,5 @@
 import { styled } from '@stitches/react';
 
-export const SampleContainer = styled('div', {
-  display: 'grid',
-  gridTemplateColumns: '30px auto',
-  alignItems: 'center',
-});
-
 export const Sample = styled('div', {
   width: 100,
   height: 30,
