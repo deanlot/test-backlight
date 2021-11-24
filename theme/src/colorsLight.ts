@@ -1,6 +1,8 @@
 import { critical, highlight, primary, secondary, success } from './colors';
 
 export const colorsLight = {
+  "transparent": "transparent",
+
   "surface": secondary[0],
   "surface-background": secondary[80],
   "surface-muted": secondary[40],
@@ -9,12 +11,13 @@ export const colorsLight = {
   "surface-primary": primary[50],
   "surface-critical": critical[50],
   "surface-highlight": highlight[50],
+  "surface-success": highlight[50],
 
   "onSurface-icon": secondary[860],
-  "onSurface-iconSuccess": success[300],
-  "onSurface-iconCritical": critical[300],
-  "onSurface-iconHighlight": highlight[300],
-  "onSurface-iconPrimary": primary[300],
+  "onSurface-iconSuccess": success[400],
+  "onSurface-iconCritical": critical[400],
+  "onSurface-iconHighlight": highlight[400],
+  "onSurface-iconPrimary": primary[400],
   "onSurface-text": secondary[860],
   "onSurface-textMuted": secondary[700],
   "onSurface-textDisabled": secondary[600],
@@ -27,11 +30,14 @@ export const colorsLight = {
   "onSurface-textPrimary": primary[700],
   "onSurface-border": secondary[400],
   "onSurface-borderMuted": secondary[200],
-  "onSurface-borderSuccess": success[200],
-  "onSurface-borderCritical": critical[200],
-  "onSurface-borderHighlight": highlight[200],
-  "onSurface-borderPrimary": primary[200],
+  "onSurface-borderSuccess": success[300],
+  "onSurface-borderCritical": critical[300],
+  "onSurface-borderHighlight": highlight[300],
+  "onSurface-borderPrimary": primary[300],
   "onSurface-onPrimary": primary[800],
+  "onSurface-onSuccess": success[50],
+  "onSurface-onCritical": critical[50],
+  "onSurface-onHighlight": highlight[50],
 
   "interactive-secondary": secondary[860],
   "interactive-secondaryDisabled": secondary[600],
@@ -54,22 +60,3 @@ export const colorsLight = {
   "interactive-highlightHovered": highlight[400],
   "interactive-highlightPressed": highlight[600]
 };
-
-
-//   surfaceBackground: "#E4E6E9",
-//   surface: "#FFFFFF",
-//   surfaceMuted: "#F0F1F4",
-//   surfaceNegative: "#121316",
-//   surfaceNegativeMuted: "#202328",
-//   surfacePrimary: "#FCE9C6",
-//   surfaceCritical: "#FAEFED",
-//   surfaceHighlight: "#F3F6FB",
-//
-//   "surface-background": "#E4E6E9",
-//   "surface": "#FFFFFF",
-//   "surface-muted": "#F0F1F4",
-//   "surface-negative": "#121316",
-//   "surface-negative-muted": "#202328",
-//   "surface-primary": "#FCE9C6",
-//   "surface-critical": "#FAEFED",
-//   "surface-highlight": "#F3F6FB",
