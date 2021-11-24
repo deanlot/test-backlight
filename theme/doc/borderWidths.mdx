@@ -1,9 +1,22 @@
 import { mdx } from '@mdx-js/react';
-import { SystemUIShowcases } from '@divriots/dockit-react/systemui-showcases';
 import { MdxLayout } from '~/layout';
-import { systemUILightTheme } from '../src/theme';
+import { systemUILightTheme, themeLight } from '../src/theme';
+import BorderWidthsSample from './components/border-widths-sample/BorderWidthsSample';
+import BorderWidthsShowcase from './components/border-widths-showcase/BorderWidthsShowcase';
 export default MdxLayout;
 
-# Border Width
+# Border Widths
 
-<SystemUIShowcases theme={systemUILightTheme} showcaseKey="borderWidth" />
+<div className={themeLight.toString()}>
+  <BorderWidthsShowcase>
+      { Object.keys(systemUILightTheme.borderWidths).map(
+        (token) => (
+          <BorderWidthsSample
+            key={token}
+            token={token}
+            value={systemUILightTheme.borderWidths[token]}
+          />)
+        )
+      }
+  </BorderWidthsShowcase>
+</div>
