@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomIcon, { CustomIconProps } from '../../custom-icon/src/CustomIcon';
+import CustomIcon from '../../custom-icon/src/CustomIcon';
 import { icons, PickedSVGProps } from '../../icons/icons';
 
 interface IconProps extends PickedSVGProps {
@@ -12,21 +12,11 @@ interface IconProps extends PickedSVGProps {
 }
 
 const Icon = ({ iconName, ...props }: IconProps) => {
-  const {
-    paths,
-    size: iconSize,
-    fill,
-    stroke,
-    strokeLinecap,
-    strokeLinejoin,
-    strokeWidth,
-    transform,
-  } = icons[iconName];
-
-  const size = props.size || iconSize;
+  const { paths, size, fill, stroke, strokeLinecap, strokeLinejoin, strokeWidth, transform } = icons[iconName];
+  const svgSize = props.size || size;
 
   const SVG = (
-    <svg width={size} height={size} style={{ width: size, height: size }}>
+    <svg width={svgSize} height={svgSize}>
       {paths.map((path) => (
         <path
           d={path}
