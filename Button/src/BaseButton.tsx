@@ -24,12 +24,9 @@ export const BaseButton = ({
 
   const icon = !disabled && busy ? <Loading /> : rest.icon;
 
-  // this is disgusting!!!
-  const iconPlacementPadding = children ? (icon ? iconPlacement : 'noIcon') : 'center';
-
   return (
     <StyledButton
-      className={buttonStyles({ variant, iconPlacementPadding: iconPlacementPadding })}
+      className={buttonStyles({ variant, icon: !children && !!icon })}
       disabled={disabled}
       role='button'
       {...rest}
