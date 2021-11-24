@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../src/BaseButton';
+import { Button } from '../src/Button';
 import { layout } from '../../utils/src/story-decorator';
 
 export default layout;

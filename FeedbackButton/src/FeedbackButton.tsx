@@ -1,18 +1,20 @@
 import React, { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
 import { useSpring } from 'react-spring';
-import { BaseButton, BaseButtonProps } from '../../Button/src/BaseButton';
+import { BaseButtonProps, Button } from '../../Button/src/Button';
 
 type OnClickAsync<T = any> = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<T>;
 
-type FeedbackButtonProps = Omit<BaseButtonProps, 'onClick'> & {
+interface FeedbackButtonProps extends Omit<BaseButtonProps, 'onClick'> {
   onClick?: OnClickAsync;
   delay?: number;
+  inferBusy?: boolean;
 }
 
-const FeedbackButton = ({ onClick, busy, delay, ...rest }: FeedbackButtonProps) => {
-  const [clickable, setClickable] = useState<boolean>(!busy);
+const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonProps) => {
+  const [clickable, setClickable] = useState<boolean>(!rest.busy);
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout>>();
   const [icon, setIcon] = useState<ReactNode>(rest.icon || undefined);
+
 
   useEffect(() => {
     return () => {
@@ -56,7 +58,7 @@ const FeedbackButton = ({ onClick, busy, delay, ...rest }: FeedbackButtonProps) 
     [onClick]
   );
 
-  return <BaseButton {...rest} onClick={handleClick} icon={icon} />;
+  return <Button {...rest} onClick={handleClick} icon={icon} />;
 };
 
 export default FeedbackButton;

@@ -1,2 +1,2 @@
-export * from './src/BaseButton';
+export * from './src/Button';
 export * from './src/specialisations/FeedbackButton';

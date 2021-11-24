@@ -12,11 +12,10 @@ import Loading from './Loading/Loading';
 /**
  Button component that the user can press to trigger an action.
  */
-export const BaseButton = ({
+export const Button = ({
                              children,
                              variant = 'primary',
                              disabled = false,
-                             showOnClickResult = false,
                              iconPlacement = 'right',
                              busy = false,
                              ...rest
@@ -60,7 +59,3 @@ export interface BaseButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
    */
   busy?: boolean;
 }
-
-export const Button = (props: BaseButtonProps): ReactElement => {
-  return <BaseButton {...props} />;
-};

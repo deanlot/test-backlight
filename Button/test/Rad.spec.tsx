@@ -1,6 +1,6 @@
 import React from 'react';
 import { act, fireEvent, getByTestId, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
-import {Button} from '../src/BaseButton';
+import {Button} from '../src/Button';
 import { fn } from 'jest-mock';
 import '../../jest.setup';
 
