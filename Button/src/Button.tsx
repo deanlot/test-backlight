@@ -6,13 +6,13 @@ import {
   IconContainer,
   iconContainerStyles,
   StyledButton
-} from './BaseButton.styles';
+} from './Button.styles';
 import Loading from './Loading/Loading';
 
 /**
  Button component that the user can press to trigger an action.
  */
-export const Button = ({
+const Button = ({
                              children,
                              variant = 'primary',
                              disabled = false,
@@ -59,3 +59,5 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
    */
   busy?: boolean;
 }
+
+export default Button;

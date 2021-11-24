@@ -8,19 +8,17 @@ export default MdxButtonLayout;
 # FeedbackButton
 <Description of={FeedbackButton} />
 
-## Usage
-### Notify Success onClick (Promise)
+### Inferring busy state
 <p>
-  "onClick" can receive either a promise or a synchronous callback. Below is an example of a promise-based callback.
-  This will trigger a success icon to be displayed for 1200ms on resolution of the promise
+In the below usage, the busy indicator will be displayed while the promise is being executed, once completed, te button will display the success icon briefly to the user.
 </p>
 <Playground
   scope={{ FeedbackButton }}
   code={`
   <FeedbackButton
     variant="primary"
-    showOnClickResult
-    onClick={() => new Promise((resolve) => resolve())}
+    inferBusy
+    onClick={() => new Promise((resolve) => setTimeout(resolve, 3000))}
   >
     Click Me
   </FeedbackButton>
