@@ -1,6 +1,7 @@
 import { critical, highlight, primary, secondary, success } from './colors';
+import { Colors } from './types/colors';
 
-export const colorsDark = {
+export const colorsDark: Colors = {
   transparent: 'transparent',
 
   surface: secondary[0],
@@ -11,12 +12,13 @@ export const colorsDark = {
   'surface-primary': primary[50],
   'surface-critical': critical[50],
   'surface-highlight': highlight[50],
+  'surface-success': highlight[50],
 
   'onSurface-icon': secondary[860],
-  'onSurface-iconSuccess': success[300],
-  'onSurface-iconCritical': critical[300],
-  'onSurface-iconHighlight': highlight[300],
-  'onSurface-iconPrimary': primary[300],
+  'onSurface-iconSuccess': success[400],
+  'onSurface-iconCritical': critical[400],
+  'onSurface-iconHighlight': highlight[400],
+  'onSurface-iconPrimary': primary[400],
   'onSurface-text': secondary[860],
   'onSurface-textMuted': secondary[700],
   'onSurface-textDisabled': secondary[600],
@@ -29,11 +31,14 @@ export const colorsDark = {
   'onSurface-textPrimary': primary[700],
   'onSurface-border': secondary[400],
   'onSurface-borderMuted': secondary[200],
-  'onSurface-borderSuccess': success[200],
-  'onSurface-borderCritical': critical[200],
-  'onSurface-borderHighlight': highlight[200],
-  'onSurface-borderPrimary': primary[200],
+  'onSurface-borderSuccess': success[300],
+  'onSurface-borderCritical': critical[300],
+  'onSurface-borderHighlight': highlight[300],
+  'onSurface-borderPrimary': primary[300],
   'onSurface-onPrimary': primary[800],
+  'onSurface-onSuccess': success[50],
+  'onSurface-onCritical': critical[50],
+  'onSurface-onHighlight': highlight[50],
 
   'interactive-secondary': secondary[860],
   'interactive-secondaryDisabled': secondary[600],

@@ -9,11 +9,12 @@ import { space } from './space';
 import { radii } from './radii';
 import { borderWidths } from './borderWidths';
 import { createStitches } from '@stitches/react';
+import { ConfigType } from '@stitches/react/types/config';
 
 // Stitches takes an input object in the SystemUI standard format.
 // It returns an object in a slightly different format.
 // The systemUILightTheme and systemUIDarkTheme are used to feed the documentation components.
-export const systemUILightTheme = {
+export const systemUILightTheme: ConfigType.Theme = {
   colors: colorsLight,
   space,
   fonts,
@@ -22,18 +23,18 @@ export const systemUILightTheme = {
   lineHeights,
   letterSpacings,
   radii,
-  borderWidths
-}
+  borderWidths,
+};
 
-export const systemUIDarkTheme = {
+export const systemUIDarkTheme: ConfigType.Theme = {
   ...systemUILightTheme,
   colors: colorsDark,
-}
+};
 
 const { createTheme } = createStitches({
-  theme: {}
-})
+  theme: {},
+});
 
-export const themeLight = createTheme(systemUILightTheme)
+export const themeLight = createTheme(systemUILightTheme);
 
-export const themeDark = createTheme(systemUIDarkTheme)
+export const themeDark = createTheme(systemUIDarkTheme);
