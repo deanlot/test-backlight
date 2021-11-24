@@ -19,7 +19,7 @@ export const buttonStyles = css({
 
   variants: {
     variant: {
-      primary: {
+      solid: {
         backgroundColor: '$interactive-primary',
         color: '$onSurface-onPrimary',
         border: '$borderWidths$3 solid $onSurface-borderPrimary',
@@ -29,11 +29,11 @@ export const buttonStyles = css({
           backgroundColor: 'CornflowerBlue',
         },
         '&:hover': {
-          border: '$borderWidths$3 solid HotPink' // Currently the figma does not show a border. It actually shows no change.
+          border: '$borderWidths$3 solid HotPink', // Currently the figma does not show a border. It actually shows no change.
         },
         '&:active': {
           backgroundColor: '$interactive-primaryHovered', // Figma says this token but shouldn't it be primaryPressed?
-        }
+        },
       },
       outline: {
         backgroundColor: '$transparent',
@@ -42,15 +42,15 @@ export const buttonStyles = css({
 
         '&:disabled': {
           color: '$onSurface-textDisabled',
-          border: '$borderWidths$2 solid $interactive-secondaryDisabled'
+          border: '$borderWidths$2 solid $interactive-secondaryDisabled',
         },
         '&:hover': {
-          border: '$borderWidths$3 solid $interactive-secondaryHovered'
+          border: '$borderWidths$3 solid $interactive-secondaryHovered',
         },
         '&:active': {
           color: 'CornflowerBlue',
-          border: '$borderWidths$2 solid CornflowerBlue'
-        }
+          border: '$borderWidths$2 solid CornflowerBlue',
+        },
       },
       ghost: {
         backgroundColor: '$transparent',
@@ -58,15 +58,15 @@ export const buttonStyles = css({
         color: 'CornflowerBlue',
 
         '&:disabled': {
-          color: '$onSurface-textDisabled'
+          color: '$onSurface-textDisabled',
         },
         '&:hover': {
-          color: 'CornflowerBlue'
+          color: 'CornflowerBlue',
         },
         '&:active': {
-          color: 'CornflowerBlue'
-        }
-      }
+          color: 'CornflowerBlue',
+        },
+      },
     },
     clickable: {
       true: {

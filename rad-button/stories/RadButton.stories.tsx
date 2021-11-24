@@ -4,29 +4,29 @@ import { layout } from '../../rad-utils/src/story-decorator';
 
 export default layout;
 
-export const primaryReady = () => (
+export const solidReady = () => (
   <RadButton
-    variant={'primary'}
+    variant={'solid'}
     showOnClickResult
     onClick={(e) => {
       console.log('click');
     }}
   >
-    PRIMARY
+    SOLID
   </RadButton>
 );
 
-export const primaryBusy = () => (
-  <RadButton variant={'primary'} busy>
-    PRIMARY
+export const solidBusy = () => (
+  <RadButton variant={'solid'} busy>
+    SOLID
   </RadButton>
 );
 
-export const primaryBusyIconOnly = () => <RadButton variant={'primary'} busy />;
+export const solidBusyIconOnly = () => <RadButton variant={'solid'} busy />;
 
-export const primaryDisabled = () => (
-  <RadButton variant={'primary'} disabled>
-    PRIMARY
+export const solidDisabled = () => (
+  <RadButton variant={'solid'} disabled>
+    SOLID
   </RadButton>
 );
 
@@ -41,34 +41,34 @@ export const outlineReady = () => (
       })
     }
   >
-    SECONDARY
+    OUTLINE
   </RadButton>
 );
 
 export const outlineBusy = () => (
   <RadButton variant={'outline'} busy>
-    SECONDARY
+    OUTLINE
   </RadButton>
 );
 
 export const outlineDisabled = () => (
   <RadButton variant={'outline'} disabled>
-    SECONDARY
+    OUTLINE
   </RadButton>
 );
 
-export const ghostReady = () => <RadButton variant={'ghost'}>SECONDARY</RadButton>;
+export const ghostReady = () => <RadButton variant={'ghost'}>OUTLINE</RadButton>;
 
 export const ghostBusy = () => (
   <RadButton variant={'ghost'} busy>
-    SECONDARY
+    OUTLINE
   </RadButton>
 );
 
 export const ghostDisabled = () => (
   <RadButton variant={'ghost'} disabled>
-    SECONDARY
+    OUTLINE
   </RadButton>
 );
 
-// export const primaryWithIcon = () => <RadButton variant={'primary'} icon={<div>testCOmponent</div>}>PRIMARY ICON</RadButton>;
+// export const solidWithIcon = () => <RadButton variant={'solid'} icon={<div>testCOmponent</div>}>SOLID ICON</RadButton>;

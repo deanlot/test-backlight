@@ -14,7 +14,7 @@ import Loading from './Loading/Loading';
  */
 export const RadButton = ({
   children,
-  variant = 'primary',
+  variant = 'solid',
   disabled = false,
   showOnClickResult = false,
   iconPlacement = 'right',
@@ -60,8 +60,8 @@ export const RadButton = ({
     [showOnClickResult]
   );
 
-
-  const handleClick = useCallback((e) =>
+  const handleClick = useCallback(
+    (e) =>
       Promise.resolve(e)
         .then((e) => {
           if (clickable) {
@@ -99,7 +99,7 @@ export const RadButton = ({
   );
 };
 
-type Variant = 'primary' | 'outline' | 'ghost';
+type Variant = 'solid' | 'outline' | 'ghost';
 type IconPlacement = 'left' | 'right';
 type onClickAsync<T = any> = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<T>;
 type onClickSync = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => void;

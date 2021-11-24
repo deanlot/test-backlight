@@ -4,27 +4,30 @@ import RadButton from '../src/RadButton';
 import { fn } from 'jest-mock';
 import '../../jest.setup';
 
-describe('RadButton', function() {
-  it('should render the component', function() {
-    const { getByText } = render(<RadButton variant={'primary'}>primary</RadButton>);
-    expect(getByText('primary')).toBeInTheDocument();
+describe('RadButton', function () {
+  it('should render the component', function () {
+    const { getByText } = render(<RadButton variant={'solid'}>solid</RadButton>);
+    expect(getByText('solid')).toBeInTheDocument();
   });
 
   it('should present user with done icon when the button is clicked and notifySuccess is true', async () => {
-    const { getByText, getByTestId } = render(<RadButton data-testid={'save-button'} variant={'primary'}
-                                                         showOnClickResult={true}
-                                                         onClick={() =>
-                                                           new Promise<void>((resolve) => {
-                                                             return setTimeout(() => {
-                                                               return resolve();
-                                                             }, 10);
-                                                           })
-                                                         }
+    const { getByText, getByTestId } = render(
+      <RadButton
+        data-testid={'save-button'}
+        variant={'solid'}
+        showOnClickResult={true}
+        onClick={() =>
+          new Promise<void>((resolve) => {
+            return setTimeout(() => {
+              return resolve();
+            }, 10);
+          })
+        }
       >
-        primary
+        solid
       </RadButton>
     );
-    expect(getByText('primary')).toBeInTheDocument();
+    expect(getByText('solid')).toBeInTheDocument();
     expect(getByTestId('save-button')).toBeInTheDocument();
     await act(async () => {
       await fireEvent.click(getByTestId('save-button'));
@@ -35,18 +38,21 @@ describe('RadButton', function() {
 
   it('should not allow a user to click while promise is still pending', async () => {
     const clickFn = fn();
-    const { getByTestId } = render(<RadButton data-testid={'save-button'} variant={'primary'}
-                                              showOnClickResult={true}
-                                              onClick={() =>
-                                                new Promise<void>((resolve) => {
-                                                  return setTimeout(() => {
-                                                    clickFn();
-                                                    return resolve();
-                                                  }, 100);
-                                                })
-                                              }
+    const { getByTestId } = render(
+      <RadButton
+        data-testid={'save-button'}
+        variant={'solid'}
+        showOnClickResult={true}
+        onClick={() =>
+          new Promise<void>((resolve) => {
+            return setTimeout(() => {
+              clickFn();
+              return resolve();
+            }, 100);
+          })
+        }
       >
-        primary
+        solid
       </RadButton>
     );
     await act(async () => {
@@ -60,9 +66,16 @@ describe('RadButton', function() {
 
   it.skip('should show failure state when a onClick rejects', async () => {
     try {
-      const { getByText, getByTestId } = render(<RadButton data-testid={'save-button'} variant={'primary'}
-                                                           showOnClickResult={true}
-                                                           onClick={() => Promise.reject('Fail!!!')}>primary</RadButton>);
+      const { getByText, getByTestId } = render(
+        <RadButton
+          data-testid={'save-button'}
+          variant={'solid'}
+          showOnClickResult={true}
+          onClick={() => Promise.reject('Fail!!!')}
+        >
+          solid
+        </RadButton>
+      );
       await act(async () => {
         await fireEvent.click(getByTestId('save-button'));
       });
