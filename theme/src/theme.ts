@@ -7,6 +7,7 @@ import { lineHeights } from './lineHeights';
 import { letterSpacings } from './letterSpacings';
 import { space } from './space';
 import { radii } from './radii';
+import { borderWidths } from './borderWidths';
 import { createStitches } from '@stitches/react';
 
 // Stitches takes an input object in the SystemUI standard format.
@@ -20,7 +21,8 @@ export const systemUILightTheme = {
   fontWeights,
   lineHeights,
   letterSpacings,
-  radii
+  radii,
+  borderWidths
 }
 
 export const systemUIDarkTheme = {

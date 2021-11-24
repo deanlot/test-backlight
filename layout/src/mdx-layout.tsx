@@ -3,7 +3,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { CoreLayout } from '@divriots/dockit-react/mdx-layout-core';
 
 const themeDocs = [
-  "colorsLight","colorsDark","space","fontSize","fonts","fontWeight","lineHeight","letterSpacing","radii"
+  "colorsLight","colorsDark","space","fontSize","fonts","fontWeight","lineHeight","letterSpacing","radii","borderWidths"
 ]
 
 export const MdxLayout = ({ components = {}, onSwitch, ...rest }) => {
