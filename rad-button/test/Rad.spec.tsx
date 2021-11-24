@@ -75,7 +75,7 @@ describe('RadButton', function () {
     expect(getByTestId('save-button')).toBeDisabled();
   });
 
-  it.skip('should show failure state when a onClick rejects', async () => {
+  it.skip('should show failure icon / animation when a onClick fails', async () => {
     try {
       const { getByText, getByTestId } = render(
         <RadButton
