@@ -1,12 +1,11 @@
 import { css, styled } from '@stitches/react';
 
 export const buttonStyles = css({
-  padding: '12px 24px',
-  borderRadius: '32px',
-  fontSize: '14px',
+  padding: '$space$3 $space$5',
+  borderRadius: '$radii$4',
+  fontSize: '$fontSizes$3',
   fontFamily: 'LLCircularWeb',
   fontWeight: '$regular',
-  color: '#472300',
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
@@ -18,52 +17,52 @@ export const buttonStyles = css({
 
   variants: {
     variant: {
-      primary: {
-        backgroundColor: '$surface-primary',
-        border: '3px solid $primary',
+      solid: {
+        backgroundColor: '$interactive-primary',
+        color: '$onSurface-onPrimary',
+        border: '$borderWidths$3 solid $onSurface-borderPrimary',
 
         '&:disabled': {
-          backgroundColor: '$disabled',
-          border: '3px solid $disabled'
+          color: 'HotPink',
+          backgroundColor: 'CornflowerBlue',
         },
         '&:hover': {
-          border: '3px solid $outlinePrimary'
+          border: '$borderWidths$3 solid HotPink' // Currently the figma does not show a border. It actually shows no change.
         },
         '&:active': {
-          backgroundColor: '$activePrimary',
-          border: '3px solid $activePrimary'
+          backgroundColor: '$interactive-primaryHovered', // Figma says this token but shouldn't it be primaryPressed?
         }
       },
-      secondary: {
-        backgroundColor: 'rgba(255, 255, 255, 0)',
-        color: '#000000',
-        border: '2px solid #000000',
+      outline: {
+        backgroundColor: '$transparent',
+        color: 'CornflowerBlue',
+        border: '2px solid CornflowerBlue',
 
         '&:disabled': {
-          color: '#565960',
-          border: '2px solid #565960'
+          color: '$onSurface-textDisabled',
+          border: '$borderWidths$2 solid $interactive-secondaryDisabled'
         },
         '&:hover': {
-          border: '3px solid #000000'
+          border: '$borderWidths$3 solid $interactive-secondaryHovered'
         },
         '&:active': {
           color: '#484B50',
-          border: '2px solid #484B50'
+          border: '$borderWidths$2 solid CornflowerBlue'
         }
       },
       ghost: {
-        backgroundColor: 'rgba(255,255, 255, 0)',
+        backgroundColor: '$transparent',
         border: 'none',
-        color: '000',
+        color: 'CornflowerBlue',
 
         '&:disabled': {
-          color: '#565960'
+          color: '$onSurface-textDisabled'
         },
         '&:hover': {
-          color: '000'
+          color: 'CornflowerBlue'
         },
         '&:active': {
-          color: '#565960'
+          color: 'CornflowerBlue'
         }
       }
     },
@@ -98,10 +97,4 @@ export const flexVariants = css({
   }
 });
 
-// export const IconContainer ={ Comp: styled('div'), styles: css({paddingLeft: '20px'}) };
-
 export const IconContainer = styled('div', { paddingLeft: '20px' });
-
-//   styled('div', {
-//   paddingLeft: '20px'
-// });
