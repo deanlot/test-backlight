@@ -1,18 +1,18 @@
 import React from 'react';
 import { act, fireEvent, getByTestId, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
-import RadButton from '../src/RadButton';
+import {Button} from '../src/BaseButton';
 import { fn } from 'jest-mock';
 import '../../jest.setup';
 
 describe('RadButton', function () {
   it('should render the component', function () {
-    const { getByText } = render(<RadButton variant={'primary'}>primary</RadButton>);
+    const { getByText } = render(<Button variant={'primary'}>primary</Button>);
     expect(getByText('primary')).toBeInTheDocument();
   });
 
   it('should present user with done icon when the button is clicked and notifySuccess is true', async () => {
     const { getByText, getByTestId } = render(
-      <RadButton
+      <Button
         data-testid={'save-button'}
         variant={'primary'}
         showOnClickResult={true}
@@ -25,7 +25,7 @@ describe('RadButton', function () {
         }
       >
         primary
-      </RadButton>
+      </Button>
     );
     expect(getByText('primary')).toBeInTheDocument();
     expect(getByTestId('save-button')).toBeInTheDocument();
@@ -39,7 +39,7 @@ describe('RadButton', function () {
   it('should not allow a user to click while promise is still pending', async () => {
     const clickFn = fn();
     const { getByTestId } = render(
-      <RadButton
+      <Button
         data-testid={'save-button'}
         variant={'primary'}
         showOnClickResult={true}
@@ -53,7 +53,7 @@ describe('RadButton', function () {
         }
       >
         primary
-      </RadButton>
+      </Button>
     );
     await act(async () => {
       await fireEvent.click(getByTestId('save-button'));
@@ -66,9 +66,9 @@ describe('RadButton', function () {
 
   it('should show a disabled state as priority when both disabled and busy state are enabled', async () => {
     const { getByTestId, queryByTestId } = render(
-      <RadButton data-testid={'save-button'} variant={'primary'} busy disabled>
+      <Button data-testid={'save-button'} variant={'primary'} busy disabled>
         primary
-      </RadButton>
+      </Button>
     );
 
     expect(queryByTestId('loading-icon')).not.toBeInTheDocument();
@@ -78,14 +78,14 @@ describe('RadButton', function () {
   it.skip('should show failure icon / animation when a onClick fails', async () => {
     try {
       const { getByText, getByTestId } = render(
-        <RadButton
+        <Button
           data-testid={'save-button'}
           variant={'primary'}
           showOnClickResult={true}
           onClick={() => Promise.reject('Fail!!!')}
         >
           primary
-        </RadButton>
+        </Button>
       );
       await act(async () => {
         await fireEvent.click(getByTestId('save-button'));

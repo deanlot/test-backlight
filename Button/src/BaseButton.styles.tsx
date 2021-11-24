@@ -94,7 +94,7 @@ export const buttonStyles = css({
   },
 });
 
-export const Button = styled('button');
+export const StyledButton = styled('button');
 
 export const FlexContainer = styled('div');
 export const flexVariants = css({
