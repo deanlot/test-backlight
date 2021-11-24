@@ -46,7 +46,11 @@ export const buttonStyles = css({
           border: '2px solid #565960',
         },
         '&:hover': {
-          border: '3px solid #000000',
+          border: '2px solid #000000',
+          // this allows the button to appear as if the border is 3px without increasing the border by 1px
+          // increasing the border will increase space occupied by the button
+          // and could possibly cause surrounding elements to shift
+          boxShadow: 'inset 0 0 0 1px #000000',
         },
         '&:active': {
           color: '#484B50',
