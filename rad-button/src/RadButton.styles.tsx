@@ -1,7 +1,6 @@
 import { css, styled } from '@stitches/react';
 
 export const buttonStyles = css({
-  padding: '$space$3 $space$5',
   borderRadius: '$radii$4',
   fontSize: '$fontSizes$3',
   fontFamily: 'LLCircularWeb',
@@ -9,15 +8,18 @@ export const buttonStyles = css({
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
+  flexWrap: 'nowrap',
   justifyContent: 'center',
+  alignItems: 'center',
+  minHeight: '40px',
 
   '&:disabled': {
-    pointerEvents: 'none'
+    pointerEvents: 'none',
   },
 
   variants: {
     variant: {
-      solid: {
+      primary: {
         backgroundColor: '$interactive-primary',
         color: '$onSurface-onPrimary',
         border: '$borderWidths$3 solid $onSurface-borderPrimary',
@@ -46,7 +48,7 @@ export const buttonStyles = css({
           border: '$borderWidths$3 solid $interactive-secondaryHovered'
         },
         '&:active': {
-          color: '#484B50',
+          color: 'CornflowerBlue',
           border: '$borderWidths$2 solid CornflowerBlue'
         }
       },
@@ -68,13 +70,27 @@ export const buttonStyles = css({
     },
     clickable: {
       true: {
-        pointerEvents: 'cursor'
+        pointerEvents: 'cursor',
       },
       false: {
-        pointerEvents: 'none'
-      }
-    }
-  }
+        pointerEvents: 'none',
+      },
+    },
+    iconPlacementPadding: {
+      left: {
+        padding: '8px 24px 8px 16px',
+      },
+      right: {
+        padding: '8px 16px 8px 24px',
+      },
+      center: {
+        padding: '8px',
+      },
+      noIcon: {
+        padding: '12px 24px',
+      },
+    },
+  },
 });
 
 export const Button = styled('button');
@@ -88,13 +104,22 @@ export const flexVariants = css({
   variants: {
     iconPlacement: {
       left: {
-        flexDirection: 'row-reverse'
+        flexDirection: 'row-reverse',
       },
       right: {
-        flexDirection: 'row'
-      }
-    }
-  }
+        flexDirection: 'row',
+      },
+    },
+  },
 });
 
-export const IconContainer = styled('div', { paddingLeft: '20px' });
+export const iconContainerStyles = css({
+  variants: {
+    children: {
+      true: {
+        paddingLeft: '20px',
+      },
+    },
+  },
+});
+export const IconContainer = styled('div');
