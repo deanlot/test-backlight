@@ -19,7 +19,7 @@ export const Button = ({
                              iconPlacement = 'right',
                              busy = false,
                              ...rest
-                           }: BaseButtonProps) => {
+                           }: ButtonProps) => {
 
   const icon = !disabled && busy ? <Loading /> : rest.icon;
 
@@ -41,7 +41,7 @@ export const Button = ({
 type Variant = 'primary' | 'secondary' | 'ghost';
 type IconPlacement = 'left' | 'right';
 
-export interface BaseButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
+export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
   /**
    * Variant of the button
    */

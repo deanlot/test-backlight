@@ -1,10 +1,9 @@
 import React, { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
-import { useSpring } from 'react-spring';
-import { BaseButtonProps, Button } from '../../Button/src/Button';
+import { Button, ButtonProps } from '../../Button/src/Button';
 
 type OnClickAsync<T = any> = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<T>;
 
-interface FeedbackButtonProps extends Omit<BaseButtonProps, 'onClick'> {
+interface FeedbackButtonProps extends Omit<ButtonProps, 'onClick'> {
   onClick?: OnClickAsync;
   delay?: number;
   inferBusy?: boolean;
@@ -21,11 +20,6 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
       timer && clearTimeout(timer);
     };
   }, [timer]);
-
-  const { x } = useSpring({
-    from: { x: 0 },
-    to: { x: 1 }
-  });
 
   const handleClick = useCallback((e) => {
       const updateButtonToNotClickableAndInvokeOnClick = (e) => {
