@@ -1,5 +1,6 @@
 import { css, styled } from '@stitches/react';
 
+export const Button = styled('button');
 export const buttonStyles = css({
   borderRadius: '32px',
   cursor: 'pointer',
@@ -77,24 +78,19 @@ export const buttonStyles = css({
         pointerEvents: 'none',
       },
     },
-    iconPlacementPadding: {
-      left: {
-        padding: '8px 24px 8px 16px',
+    icon: {
+      true: {
+        padding: 'inherit',
+        width: '40px',
+        height: '40px',
       },
-      right: {
-        padding: '8px 16px 8px 24px',
-      },
-      center: {
-        padding: '8px',
-      },
-      noIcon: {
-        padding: '12px 24px',
+      false: {
+        paddingLeft: '24px',
+        paddingRight: '24px',
       },
     },
   },
 });
-
-export const Button = styled('button');
 
 export const ButtonText = styled('span', {
   fontFamily: 'LLCircularWeb',

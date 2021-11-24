@@ -80,19 +80,16 @@ export const RadButton = ({
     [showSuccess, showFailed]
   );
 
-  // this is disgusting!!!
-  const iconPlacementPadding = children ? (icon ? iconPlacement : 'noIcon') : 'center';
-
   return (
     <Button
-      className={buttonStyles({ variant, clickable, iconPlacementPadding: iconPlacementPadding })}
+      className={buttonStyles({ variant, clickable, icon: !children && !!icon })}
       disabled={disabled}
       // onClick must have a ternary that defaults to undefined to prevent compiler errors
       onClick={clickable ? handleClick : undefined}
       role="button"
       {...rest}
     >
-      <FlexContainer className={flexVariants(!!icon && { iconPlacement })}>
+      <FlexContainer className={flexVariants(icon && { iconPlacement })}>
         {children && <ButtonText>{children}</ButtonText>}
         {icon && <IconContainer className={iconContainerStyles({ children: !!children })}>{icon}</IconContainer>}
       </FlexContainer>
