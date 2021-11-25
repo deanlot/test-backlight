@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from './ThemeProvider';
+import { ThemeProvider } from '../../theme-provider/context/ThemeProvider';
 
 export const layout = {
   decorators: [
@@ -7,7 +7,7 @@ export const layout = {
       <ThemeProvider>
         <Story />
       </ThemeProvider>
-    )
+    ),
   ],
-  parameters: { layout: 'centered' }
+  parameters: { layout: 'centered' },
 };

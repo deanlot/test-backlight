@@ -2,11 +2,11 @@ import { mdx } from '@mdx-js/react';
 import { MdxLayout } from '~/layout';
 import { systemUILightTheme, themeLight } from '../src/theme';
 import BorderWidthsSample from './components/border-widths-sample/BorderWidthsSample';
-import BorderWidthsShowcase from './components/border-widths-showcase/BorderWidthsShowcase';
+import BorderWidthsShowcase from './components/border-widths-showcase/BorderWidthsShowcase'; import { ThemeProvider } from '../../theme-provider';
 export default MdxLayout;
 
 # Border Widths
 
-<div className={themeLight.toString()}>
+<ThemeProvider>
   <BorderWidthsShowcase theme={systemUILightTheme}/>
-</div>
+</ThemeProvider>

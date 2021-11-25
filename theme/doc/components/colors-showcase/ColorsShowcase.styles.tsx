@@ -2,6 +2,7 @@ import { styled } from '@stitches/react';
 
 export const GroupLabel = styled('h2', {
   textTransform: 'capitalize',
+  marginBottom: 24,
 });
 
 export const Samples = styled('div', {

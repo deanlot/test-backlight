@@ -1,9 +1,11 @@
 import { mdx } from '@mdx-js/react';
 import { MdxLayout } from '~/layout';
 import ColorsShowcase from './components/colors-showcase/ColorsShowcase';
-import { systemUIDarkTheme } from '../src/theme';
+import { ThemeProvider } from '../../theme-provider';
 export default MdxLayout;
 
-# ColorsShowcase - Dark Theme
+# Colors Showcase
 
-<ColorsShowcase theme={ systemUIDarkTheme }/>
+<ThemeProvider>
+  <ColorsShowcase/>
+</ThemeProvider>

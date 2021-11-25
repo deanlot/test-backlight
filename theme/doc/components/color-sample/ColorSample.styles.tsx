@@ -1,7 +1,7 @@
 import { styled } from '@stitches/react';
 
 export const SampleContainer = styled('div', {
-  marginBottom: 32,
+  marginBottom: 16,
   fontSize: 11,
 });
 

@@ -4,14 +4,14 @@ import { Label, Sample, Samples, SampleContainer, TextSample } from './ColorSamp
 
 type SwatchProps = {
   token: string;
-  color: string;
+  color: string | number | boolean;
   group: string;
 };
 
 const ColorSample = ({ color, token, group }: SwatchProps): ReactElement => (
   <SampleContainer>
     <Samples>
-      <Sample css={{ backgroundColor: color }} />
+      <Sample css={{ backgroundColor: color as string }} />
       <Label>{token.replace(`${group}-`, '')}</Label>
       <TextSample>{color}</TextSample>
     </Samples>

@@ -1,14 +1,17 @@
 import { groupColors } from '../../utils/group-colors';
 import React from 'react';
 import { ReactElement } from 'react';
-import ColorSample from '../colors-sample/ColorSample';
+import ColorSample from '../color-sample/ColorSample';
 import { GroupLabel, Samples } from './ColorsShowcase.styles';
+import { useTheme } from '../../../../theme-provider';
+import ThemePanel from '../../../../theme-panel/ThemePanel';
 
-const ColorsShowcase = ({ theme }): ReactElement => {
+const ColorsShowcase = (): ReactElement => {
+  const { theme } = useTheme();
   const groupedColors = groupColors(theme.colors);
 
   return (
-    <div>
+    <ThemePanel>
       {Object.keys(groupedColors).map((group) => (
         <div key={group}>
           <GroupLabel>{group}</GroupLabel>
@@ -19,7 +22,7 @@ const ColorsShowcase = ({ theme }): ReactElement => {
           </Samples>
         </div>
       ))}
-    </div>
+    </ThemePanel>
   );
 };
 
