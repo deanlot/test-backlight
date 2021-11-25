@@ -20,7 +20,11 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
     from: { x: 1 },
     to: { x: 0 },
     reset: failed,
-    immediate: !failed
+    immediate: !failed,
+    config: { duration: 200 },
+    onRest: () => {
+      setFailed(false);
+    }
   });
 
   useEffect(() => {
@@ -45,7 +49,6 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
           setClickable(true);
           return setTimer(setTimeout(() => {
             setIcon(rest.icon);
-            setFailed(false);
           }, delay || 1200));
         };
 
