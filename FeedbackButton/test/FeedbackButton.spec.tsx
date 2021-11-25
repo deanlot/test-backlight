@@ -1,6 +1,6 @@
 import React from 'react';
 import { act, fireEvent, getByTestId, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
-import {Button} from '~/Button/src/BaseButton';
+import Button from '~/Button/src/Button';
 import { fn } from 'jest-mock';
 import '../../jest.setup';
 
@@ -15,7 +15,6 @@ describe('RadButton', function () {
       <Button
         data-testid={'save-button'}
         variant={'primary'}
-        showOnClickResult={true}
         onClick={() =>
           new Promise<void>((resolve) => {
             return setTimeout(() => {
@@ -42,7 +41,6 @@ describe('RadButton', function () {
       <Button
         data-testid={'save-button'}
         variant={'primary'}
-        showOnClickResult={true}
         onClick={() =>
           new Promise<void>((resolve) => {
             return setTimeout(() => {
@@ -81,7 +79,6 @@ describe('RadButton', function () {
         <Button
           data-testid={'save-button'}
           variant={'primary'}
-          showOnClickResult={true}
           onClick={() => Promise.reject('Fail!!!')}
         >
           primary

@@ -1,5 +1,6 @@
 import React, { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
 import Button, { ButtonProps } from '../../Button/src/Button';
+import { animated, useSpring } from 'react-spring';
 
 type OnClickAsync<T = any> = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<T>;
 
@@ -23,7 +24,18 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
   const [icon, setIcon] = useState<ReactNode>(rest.icon || undefined);
   const [busy, setBusy] = useState<boolean>(rest.busy || false);
   const [clickable, setClickable] = useState<boolean>(!busy);
+  const [failed, setFailed] = useState<boolean>(false);
 
+  const { x } = useSpring({
+    from: { x: 1 },
+    to: { x: 0 },
+    reset: failed,
+    immediate: !failed
+  });
+
+  useEffect(() => {
+    console.info('failed in effect', failed);
+  }, [failed]);
 
   useEffect(() => {
     return () => {
@@ -44,15 +56,19 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
             setBusy(rest.busy);
           }
           setClickable(true);
-          return setTimer(setTimeout(() => setIcon(rest.icon), delay || 1200));
+          return setTimer(setTimeout(() => {
+            setIcon(rest.icon);
+            setFailed(false);
+          }, delay || 1200));
         };
 
         const showSuccessIcon = () => {
           return setIcon(<div>done</div>);
         };
 
-        const shakeButton = () => {
-          return setIcon(<div>whoops</div>);
+        const shakeButton = (e) => {
+          setFailed(true);
+          throw new Error(e);
         };
 
         return Promise.resolve(e)
@@ -62,10 +78,19 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
           .finally(debouncedRevertToInitialState);
       }
     },
-    [onClick, clickable, busy, inferBusy]
+    [onClick, clickable, busy, inferBusy, setFailed, setIcon]
   );
 
-  return <Button {...rest} onClick={handleClick} icon={icon} busy={busy} />;
+  return <animated.div
+    style={{
+      transform: x
+        .to({
+          range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
+          output: [0, 5, -5, 5, -5, 5, -5, 0]
+        })
+        .to(x => `translate3d(${x}px, 0px, 0px)`)
+    }}
+  ><Button {...rest} onClick={handleClick} icon={icon} busy={busy} /></animated.div>;
 };
 
 export default FeedbackButton;

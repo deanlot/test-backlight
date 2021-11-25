@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../src/Button';
+import Button from '../src/Button';
 import { layout } from '../../utils/src/story-decorator';
 
 export default layout;
@@ -7,7 +7,6 @@ export default layout;
 export const primaryReady = () => (
   <Button
     variant={'primary'}
-    showOnClickResult
     onClick={(e) => {
       console.log('click');
     }}
@@ -33,7 +32,6 @@ export const primaryDisabled = () => (
 export const secondaryReady = () => (
   <Button
     variant={'secondary'}
-    showOnClickResult
     onClick={() =>
       new Promise<boolean>((resolve, reject) => {
         console.log('clicked promise');
