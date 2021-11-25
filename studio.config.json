@@ -10,17 +10,17 @@
         ]
       ],
       [
+        "buttons",
+        [
+          "Button",
+          "FeedbackButton"
+        ]
+      ],
+      [
         "icons",
         [
           "icon",
           "custom-icon"
-        ]
-      ],
-      [
-        "radix",
-        [
-          "rad-button",
-          "rad-utils"
         ]
       ],
       [
