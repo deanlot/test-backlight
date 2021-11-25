@@ -18,4 +18,3 @@ import expect from 'expect'; // Extremely important ! Don't change the version o
 expect.extend(matchers);
 // @ts-ignore
 globalThis.expect = expect;
-jest.useFakeTimers();

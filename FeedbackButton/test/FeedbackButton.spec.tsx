@@ -17,6 +17,7 @@ describe('FeedbackButton', function() {
       <FeedbackButton
         data-testid={'test-button'}
         variant={'primary'}
+        delay={10}
         onClick={() =>
           new Promise<void>((resolve) => {
             return setTimeout(() => {
@@ -41,12 +42,13 @@ describe('FeedbackButton', function() {
       <FeedbackButton
         data-testid={'test-button'}
         variant={'primary'}
+        delay={10}
         inferBusy
         onClick={() =>
           new Promise<void>((resolve) => {
             return setTimeout(() => {
               return resolve();
-            }, 100);
+            }, 10);
           })
         }
       >
@@ -60,7 +62,6 @@ describe('FeedbackButton', function() {
       expect(getByTestId('test-button').className).toMatch(/clickable\-false/);
       expect(getByTestId('loading-icon')).toBeInTheDocument();
     });
-    jest.advanceTimersByTime(100);
     await waitFor(() => {
       expect(getByText('done')).toBeInTheDocument();
     });
@@ -78,7 +79,7 @@ describe('FeedbackButton', function() {
             return setTimeout(() => {
               clickFn();
               return resolve();
-            }, 100);
+            }, 10);
           })
         }
       >
