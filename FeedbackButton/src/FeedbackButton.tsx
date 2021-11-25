@@ -2,6 +2,13 @@ import React, { MouseEvent, ReactNode, useCallback, useEffect, useState } from '
 import Button, { ButtonProps } from '../../Button/src/Button';
 import { animated, useSpring } from 'react-spring';
 
+/**
+ * The <FeedbackButton /> component should be used when there is an asynchronous call associated to a onClick event.
+ * It is used to provide visual cue's to users on the result of a button click.
+ *
+ * Engineers can opt into controlling the busy indicator of the button, or to infer the busy state for as long as the associated
+ * Promise passed into the onClick function is executing.
+ */
 const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonProps) => {
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout>>();
   const [icon, setIcon] = useState<ReactNode>(rest.icon || undefined);
