@@ -1,8 +1,13 @@
 import { SVGProps } from 'react';
 
+type Sizes = 's' | 'm' | 'l' | 'xl';
 type Icon = {
+  sizes: {
+    [key in Sizes]: number;
+  };
+  width: number;
+  height: number;
   paths: string[];
-  size: string;
 };
 
 export type PickedSVGProps = Pick<
@@ -14,7 +19,9 @@ export type Icons = Record<string, Icon & PickedSVGProps>;
 
 export const icons: Icons = {
   home: {
-    size: '24px',
+    sizes: { s: 12, m: 24, l: 36, xl: 48 },
+    width: 24,
+    height: 24,
     fill: 'none',
     stroke: '#000',
     strokeLinecap: 'round',
