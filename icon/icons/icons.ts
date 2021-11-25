@@ -1,7 +1,7 @@
 import { SVGProps } from 'react';
 
-type Sizes = 's' | 'm' | 'l' | 'xl';
-type Icon = {
+export type Sizes = 's' | 'm' | 'l' | 'xl';
+type IconMeta = {
   sizes: {
     [key in Sizes]: number;
   };
@@ -12,10 +12,12 @@ type Icon = {
 
 export type PickedSVGProps = Pick<
   SVGProps<SVGPathElement>,
-  'fill' | 'stroke' | 'strokeLinecap' | 'strokeLinejoin' | 'strokeWidth' | 'transform'
+  'fill' | 'stroke' | 'strokeLinecap' | 'strokeLinejoin' | 'strokeWidth' | 'transform' | 'd'
 >;
 
-export type Icons = Record<string, Icon & PickedSVGProps>;
+export type IconPreset = IconMeta & PickedSVGProps;
+
+export type Icons = Record<string, IconPreset>;
 
 export const icons: Icons = {
   home: {
