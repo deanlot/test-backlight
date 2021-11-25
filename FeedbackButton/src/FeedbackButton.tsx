@@ -17,11 +17,8 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
   });
 
   useEffect(() => {
-    console.info('failed in effect', failed);
-  }, [failed]);
-
-  useEffect(() => {
     return () => {
+      // if a component unmounts, we need to clear the timer.
       timer && clearTimeout(timer);
     };
   }, [timer]);
