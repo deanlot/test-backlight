@@ -50,57 +50,6 @@ export default MdxButtonLayout;
   `}
 />
 
-### Notify Success onClick (Promise)
-<p>
-  "onClick" can receive either a promise or a synchronous callback. Below is an example of a promise-based callback.
-  This will trigger a success icon to be displayed for 1200ms on resolution of the promise
-</p>
-<Playground
-  scope={{ Button }}
-  code={`
-  <Button
-    variant="primary"
-    showOnClickResult
-    onClick={() => new Promise((resolve) => resolve())}
-  >
-    Click Me
-  </Button>
-  `}
-/>
-
-### Notify Success onClick (Synchronous)
-<p>
-  Just like the promise-based version above, "onClick" can receive a synchronous callback that will be turned into a promise
-  inside of the button. I think
-</p>
-<Playground
-  scope={{ Button }}
-  code={`
-  <Button
-    variant="primary"
-    showOnClickResult
-    onClick={() => {}}
-  >
-    Click Me
-  </Button>
-  `}
-/>
-
-
-### Notify Failure onClick
-<Playground
-  scope={{ Button }}
-  code={`
-  <Button
-    variant="primary"
-    showOnClickResult
-    onClick={() => new Promise((resolve, reject) => reject())}
-  >
-    Click Me
-  </Button>
-  `}
-/>
-
 
 ## Props
 In addition to the below props, we also expose the props used with a native "button" element.

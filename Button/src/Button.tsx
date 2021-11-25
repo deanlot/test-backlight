@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import {
   buttonStyles,
   FlexContainer,
@@ -13,13 +13,13 @@ import Loading from './Loading/Loading';
  Button component that the user can press to trigger an action.
  */
 const Button = ({
-                             children,
-                             variant = 'primary',
-                             disabled = false,
-                             iconPlacement = 'right',
-                             busy = false,
-                             ...rest
-                           }: ButtonProps) => {
+                  children,
+                  variant = 'primary',
+                  disabled = false,
+                  iconPlacement = 'right',
+                  busy = false,
+                  ...rest
+                }: ButtonProps) => {
 
   const icon = !disabled && busy ? <Loading /> : rest.icon;
 
