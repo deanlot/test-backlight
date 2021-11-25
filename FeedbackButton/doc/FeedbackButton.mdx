@@ -9,7 +9,7 @@ export default MdxButtonLayout;
 # FeedbackButton
 <Description of={FeedbackButton} />
 
-### Inferring busy state
+### Success state
 <p>
 In the below usage, the busy indicator will be displayed while the promise is being executed, once completed, te button will display the success icon briefly to the user.
 </p>
@@ -28,9 +28,9 @@ In the below usage, the busy indicator will be displayed while the promise is be
 
 ### Failure state
 <p>
-  Just like the promise-based version above, "onClick" can receive a synchronous callback that will be turned into a promise
-  inside of the FeedbackButton. I think
+  If the promise passed in fails the button will shake as a visual cue to the end user.
 </p>
+__Note: the exception is caught and thrown back up to the implementation__
 <Playground
   scope={{ FeedbackButton }}
   code={`
