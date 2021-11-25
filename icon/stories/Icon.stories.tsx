@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '../src/Icon';
-import { layout } from '../../rad-utils/src/story-decorator';
+import { layout } from '../../utils/src/story-decorator';
 export default layout;
 
 export const IconSmall = () => <Icon icon="home" size="s" />;

@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomIcon from '../src/CustomIcon';
-import { layout } from '../../rad-utils/src/story-decorator';
+import { layout } from '../../utils/src/story-decorator';
 export default layout;
 
 const SVG = (
