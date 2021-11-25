@@ -4,7 +4,7 @@ import Button from '../src/Button';
 import '../../jest.setup';
 import { fn } from 'jest-mock';
 
-describe('RadButton', function() {
+describe('Button', function() {
   it('should render the button component as primary variant', function() {
     const { getByTestId } = render(<Button data-testid={'save-button'} variant={'primary'}>primary</Button>);
     expect(getByTestId('save-button').className).toMatch(/variant\-primary/);
