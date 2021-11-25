@@ -12,31 +12,25 @@ export type Colors = {
   'surface-success': string;
 
   'onSurface-icon': string;
-  'onSurface-iconSuccess': string;
-  'onSurface-iconCritical': string;
-  'onSurface-iconHighlight': string;
-  'onSurface-iconPrimary': string;
   'onSurface-text': string;
   'onSurface-textMuted': string;
   'onSurface-textDisabled': string;
   'onSurface-textNegative': string;
   'onSurface-textNegativeMuted': string;
   'onSurface-textNegativeDisabled': string;
-  'onSurface-textSuccess': string;
-  'onSurface-textCritical': string;
-  'onSurface-textHighlight': string;
-  'onSurface-textPrimary': string;
   'onSurface-border': string;
-  'onSurface-borderMuted': string;
-  'onSurface-borderSuccess': string;
-  'onSurface-borderCritical': string;
-  'onSurface-borderHighlight': string;
-  'onSurface-borderPrimary': string;
   'onSurface-onPrimary': string;
+  'onSurface-onPrimarySurface': string;
   'onSurface-onSuccess': string;
+  'onSurface-onSuccessSurface': string;
   'onSurface-onCritical': string;
+  'onSurface-onCriticalSurface': string;
   'onSurface-onHighlight': string;
+  'onSurface-onHighlightSurface': string;
 
+  'interactive-disabled': string;
+  'interactive-hovered': string;
+  'interactive-pressed': string;
   'interactive-secondary': string;
   'interactive-secondaryDisabled': string;
   'interactive-secondaryHovered': string;
