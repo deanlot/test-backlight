@@ -2,23 +2,6 @@ import React, { MouseEvent, ReactNode, useCallback, useEffect, useState } from '
 import Button, { ButtonProps } from '../../Button/src/Button';
 import { animated, useSpring } from 'react-spring';
 
-type OnClickAsync<T = any> = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<T>;
-
-interface FeedbackButtonProps extends Omit<ButtonProps, 'onClick'> {
-  /**
-   * returns a Promise controls the success and failure gestures prompted to a user (based on promise success or failure).
-   */
-  onClick: OnClickAsync;
-  /**
-   * Use this to override the time that the success icon is displayed for
-   */
-  delay?: number;
-  /**
-   * Sets the button's busy state to true while the promise function in 'OnClick' is executing. Reverts back to original state regardless of success or failure.
-   */
-  inferBusy?: boolean;
-}
-
 const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonProps) => {
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout>>();
   const [icon, setIcon] = useState<ReactNode>(rest.icon || undefined);
@@ -92,5 +75,22 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
     }}
   ><Button {...rest} onClick={handleClick} icon={icon} busy={busy} /></animated.div>;
 };
+
+type OnClickAsync<T = any> = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<T>;
+
+interface FeedbackButtonProps extends Omit<ButtonProps, 'onClick'> {
+  /**
+   * returns a Promise controls the success and failure gestures prompted to a user (based on promise success or failure).
+   */
+  onClick: OnClickAsync;
+  /**
+   * Use this to override the time that the success icon is displayed for
+   */
+  delay?: number;
+  /**
+   * Sets the button's busy state to true while the promise function in 'OnClick' is executing. Reverts back to original state regardless of success or failure.
+   */
+  inferBusy?: boolean;
+}
 
 export default FeedbackButton;
