@@ -22,49 +22,49 @@ export const buttonStyles = css({
       solid: {
         backgroundColor: '$interactive-primary',
         color: '$onSurface-onPrimary',
-        border: '$borderWidths$3 solid $onSurface-borderPrimary',
+        border: 'none',
 
         '&:disabled': {
-          color: 'HotPink',
-          backgroundColor: 'CornflowerBlue',
+          color: '$onSurface-textMuted',
+          backgroundColor: '$interactive-disabled',
         },
         '&:hover': {
-          border: '$borderWidths$3 solid HotPink', // Currently the figma does not show a border. It actually shows no change.
+          backgroundColor: '$interactive-primaryHovered',
         },
         '&:active': {
-          backgroundColor: '$interactive-primaryHovered', // Figma says this token but shouldn't it be primaryPressed?
+          backgroundColor: '$interactive-primaryPressed',
         },
       },
       outline: {
         backgroundColor: '$transparent',
-        color: 'CornflowerBlue',
-        border: '2px solid CornflowerBlue',
+        color: '$interactive-secondary',
+        boxShadow: 'inset 0 0 0 $borderWidths$medium $colors$interactive-secondary',
+        border: 'none',
 
         '&:disabled': {
           color: '$onSurface-textDisabled',
-          border: '$borderWidths$2 solid $interactive-secondaryDisabled',
+          boxShadow: 'inset 0 0 0 $borderWidths$medium $colors$interactive-disabled',
         },
         '&:hover': {
-          border: '$borderWidths$3 solid $interactive-secondaryHovered',
+          backgroundColor: '$interactive-hovered',
         },
         '&:active': {
-          color: 'CornflowerBlue',
-          border: '$borderWidths$2 solid CornflowerBlue',
+          boxShadow: 'inset 0 0 0 $borderWidths$medium $colors$onSurface-textMuted',
         },
       },
       ghost: {
         backgroundColor: '$transparent',
+        color: '$onSurface-text',
         border: 'none',
-        color: 'CornflowerBlue',
 
         '&:disabled': {
           color: '$onSurface-textDisabled',
         },
         '&:hover': {
-          color: 'CornflowerBlue',
+          backgroundColor: '$interactive-hovered',
         },
         '&:active': {
-          color: 'CornflowerBlue',
+          backgroundColor: '$interactive-pressed',
         },
       },
     },
