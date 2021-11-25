@@ -10,10 +10,10 @@
         ]
       ],
       [
-        "radix",
+        "buttons",
         [
-          "rad-button",
-          "rad-utils"
+          "Button",
+          "FeedbackButton"
         ]
       ],
       [

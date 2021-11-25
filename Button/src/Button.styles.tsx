@@ -1,11 +1,8 @@
 import { css, styled } from '@stitches/react';
 
+export const StyledButton = styled('button');
 export const buttonStyles = css({
   borderRadius: '32px',
-  fontSize: '14px',
-  fontFamily: 'LLCircularWeb',
-  fontWeight: '$regular',
-  color: '#472300',
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
@@ -46,7 +43,11 @@ export const buttonStyles = css({
           border: '2px solid #565960',
         },
         '&:hover': {
-          border: '3px solid #000000',
+          border: '2px solid #000000',
+          // this allows the button to appear as if the border is 3px without increasing the border by 1px
+          // increasing the border will increase space occupied by the button
+          // and could possibly cause surrounding elements to shift
+          boxShadow: 'inset 0 0 0 1px #000000',
         },
         '&:active': {
           color: '#484B50',
@@ -77,24 +78,33 @@ export const buttonStyles = css({
         pointerEvents: 'none',
       },
     },
-    iconPlacementPadding: {
-      left: {
-        padding: '8px 24px 8px 16px',
+    icon: {
+      true: {
+        padding: 'inherit',
+        width: '40px',
+        height: '40px',
       },
-      right: {
-        padding: '8px 16px 8px 24px',
-      },
-      center: {
-        padding: '8px',
-      },
-      noIcon: {
-        padding: '12px 24px',
+      false: {
+        paddingLeft: '24px',
+        paddingRight: '24px',
       },
     },
   },
 });
 
-export const Button = styled('button');
+export const ButtonText = styled('span', {
+  fontFamily: 'LLCircularWeb',
+  fontStyle: 'normal',
+  fontWeight: 'bold',
+  fontSize: '14px',
+  lineHeight: '16px',
+  display: 'flex',
+  alignItems: 'center',
+  textAlign: 'right',
+  letterSpacing: '0.06em',
+  textTransform: 'uppercase',
+  color: '#472300',
+});
 
 export const FlexContainer = styled('div');
 export const flexVariants = css({
@@ -115,6 +125,7 @@ export const flexVariants = css({
 });
 
 export const iconContainerStyles = css({
+  lineHeight: 0,
   variants: {
     children: {
       true: {
