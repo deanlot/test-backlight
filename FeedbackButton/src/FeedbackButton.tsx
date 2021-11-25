@@ -1,6 +1,7 @@
 import React, { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
 import Button, { ButtonProps } from '../../Button/src/Button';
 import { animated, useSpring } from 'react-spring';
+import CheckIcon from '../../CheckIcon/src/CheckIcon';
 
 /**
  * The <FeedbackButton /> component should be used when there is an asynchronous call associated to a onClick event.
@@ -53,7 +54,7 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
         };
 
         const showSuccessIcon = () => {
-          return setIcon(<div>done</div>);
+          return setIcon(<CheckIcon size={'l'} />);
         };
 
         const shakeButton = (e) => {
