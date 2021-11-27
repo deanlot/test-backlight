@@ -1,4 +1,6 @@
 import React from 'react';
 import { styled } from '@stitches/react';
 
-export const Svg = styled('svg');
+export const SVGStyleWrapper = styled('div', {
+  lineHeight: '0',
+});
