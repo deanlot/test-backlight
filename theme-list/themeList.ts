@@ -1,5 +1,6 @@
-import { systemUIDarkTheme, systemUILightTheme } from '../theme/src/theme';
 import { ThemeList } from './types/themeList';
+import { BenchDark } from './themes/bench-dark';
+import { BenchLight } from './themes/bench-light';
 
 export enum Themes {
   Light = 'Light',
@@ -7,6 +8,6 @@ export enum Themes {
 }
 
 export const themeList: ThemeList = {
-  [Themes.Light]: systemUILightTheme,
-  [Themes.Dark]: systemUIDarkTheme,
+  [Themes.Light]: BenchLight,
+  [Themes.Dark]: BenchDark,
 };

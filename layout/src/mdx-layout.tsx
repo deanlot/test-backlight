@@ -2,8 +2,7 @@ import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { CoreLayout } from '@divriots/dockit-react/mdx-layout-core';
 import { ThemeProvider } from '../../theme-provider';
-import { themeList } from '~/theme/src/themeList';
-import { Themes } from '../../theme-list/themeList';
+import { themeList, Themes } from '../../theme-list/themeList';
 
 const themeDocs = [
   'colors',
@@ -20,7 +19,8 @@ const themeDocs = [
 export const MdxLayout = ({ components = {}, onSwitch, ...rest }) => {
   // Hack the menu by adding pages. Need to make sure they don't get added on every render too.
   // Also need to remove the default theme.mdx
-  // __context also contains pageGraph which sets colorsDark as the default. That would need to change.
+  // __context also contains pageGraph which sets the earliest alphabetical file (currently borderWidths) as the default.
+  // That would need to change.
   rest.__context.pages = [
     ...rest.__context.pages.filter(({ nav }) => nav.key !== 'theme'),
     ...(!rest.__context.pages.includes(({ nav }) => nav.key === 'colors') &&

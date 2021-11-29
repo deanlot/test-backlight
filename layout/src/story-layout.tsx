@@ -1,7 +1,6 @@
 import React from 'react';
-import { themeList } from '~/theme/src/themeList';
 import { ThemeProvider } from '../../theme-provider';
-import { Themes } from '../../theme-list/themeList';
+import { themeList, Themes } from '../../theme-list/themeList';
 
 export const StoryLayout = {
   decorators: [
