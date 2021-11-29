@@ -1,6 +1,6 @@
 import React from 'react';
 import RadButton from '../src/RadButton';
-import { StoryLayout } from '~/layout';
+import { StoryLayout } from '../../layout';
 
 export default StoryLayout;
 

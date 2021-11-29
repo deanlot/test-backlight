@@ -1,19 +1,19 @@
 import React, { FC, ReactElement } from 'react';
-import { ThemeMode, useTheme } from '../theme-provider';
+import { useTheme } from '../theme-provider';
 import { ActiveTab, Tab, TabBar, ThemePanelContainer } from './ThemePanel.styles';
-import { themeList } from '../theme-provider/utils/themeList';
+import { themeList } from '../theme-list/themeList';
 
 const ThemePanel: FC = ({ children }): ReactElement => {
-  const { themeName, setThemeMode } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <ThemePanelContainer>
       <TabBar>
         {Object.keys(themeList).map((key) =>
-          key === themeName ? (
+          theme === themeList[key] ? (
             <ActiveTab>{key}</ActiveTab>
           ) : (
-            <Tab onClick={() => setThemeMode(ThemeMode[key])}>{key}</Tab>
+            <Tab onClick={() => setTheme(themeList[key])}>{key}</Tab>
           )
         )}
       </TabBar>

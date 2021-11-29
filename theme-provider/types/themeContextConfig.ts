@@ -1,8 +1,6 @@
-import { ThemeMode } from './themeMode';
 import { ConfigType } from '@stitches/react/types/config';
 
 export type ThemeContextConfig = {
-  setThemeMode: (themeMode: ThemeMode) => void;
+  setTheme: (theme: ConfigType.Theme) => void;
   theme: ConfigType.Theme;
-  themeName: string;
 };

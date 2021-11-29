@@ -2,6 +2,8 @@ import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { CoreLayout } from '@divriots/dockit-react/mdx-layout-core';
 import { ThemeProvider } from '../../theme-provider';
+import { themeList } from '~/theme/src/themeList';
+import { Themes } from '../../theme-list/themeList';
 
 const themeDocs = [
   'colors',
@@ -34,7 +36,7 @@ export const MdxLayout = ({ components = {}, onSwitch, ...rest }) => {
   ];
 
   return (
-    <ThemeProvider>
+    <ThemeProvider initialTheme={themeList[Themes.Light]}>
       <MDXProvider components={{ ...components }}>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css/out/light.min.css" />
         <CoreLayout

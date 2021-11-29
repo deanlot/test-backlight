@@ -8,7 +8,6 @@ import { letterSpacings } from './letterSpacings';
 import { space } from './space';
 import { radii } from './radii';
 import { borderWidths } from './borderWidths';
-import { createStitches } from '@stitches/react';
 import { ConfigType } from '@stitches/react/types/config';
 
 // Stitches takes an input object in the SystemUI standard format.
@@ -30,11 +29,3 @@ export const systemUIDarkTheme: ConfigType.Theme = {
   ...systemUILightTheme,
   colors: colorsDark,
 };
-
-const { createTheme } = createStitches({
-  theme: {},
-});
-
-export const themeLight = createTheme(systemUILightTheme);
-
-export const themeDark = createTheme(systemUIDarkTheme);

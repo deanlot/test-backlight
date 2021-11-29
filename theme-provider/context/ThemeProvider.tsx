@@ -1,28 +1,38 @@
-import React from 'react';
-import { createContext, FC, useContext, useState } from 'react';
+import React, { PropsWithChildren, useMemo, useState } from 'react';
+import { createContext, useContext } from 'react';
 import '../../layout/src/fonts.css';
-import { ThemeMode } from '../types/themeMode';
 import { ThemeContextConfig } from '../types/themeContextConfig';
-import { themeList } from '../utils/themeList';
+import { themeList, Themes } from '../../theme-list/themeList';
+import { ConfigType } from '@stitches/react/types/config';
+import { createStitches } from '@stitches/react';
 
 const ThemeContext = createContext<ThemeContextConfig>({
-  setThemeMode: () => null,
-  theme: themeList[ThemeMode.Light].theme,
-  themeName: ThemeMode.Light,
+  setTheme: () => null,
+  theme: themeList[Themes.Light],
 });
 
-export const ThemeProvider: FC = ({ children }) => {
-  const [themeMode, setThemeMode] = useState<ThemeMode>(ThemeMode.Light);
+const { createTheme } = createStitches({
+  theme: {},
+});
 
-  const state: ThemeContextConfig = {
-    setThemeMode,
-    theme: themeList[themeMode].theme,
-    themeName: themeList[themeMode].themeName,
-  };
+export const ThemeProvider = ({ initialTheme, children }: PropsWithChildren<{ initialTheme: ConfigType.Theme }>) => {
+  // Console warn if initial theme changes
+
+  const [theme, setTheme] = useState<ConfigType.Theme>(initialTheme);
+
+  const state: ThemeContextConfig = useMemo(
+    () => ({
+      setTheme,
+      theme,
+    }),
+    [theme]
+  );
+
+  const stitchesTheme = useMemo(() => createTheme(theme), [theme]);
 
   return (
     <ThemeContext.Provider value={state}>
-      <div className={themeList[themeMode].className}>{children}</div>
+      <div className={stitchesTheme.className}>{children}</div>
     </ThemeContext.Provider>
   );
 };
