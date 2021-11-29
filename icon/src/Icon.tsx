@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import CustomIcon from '../../custom-icon/src/CustomIcon';
-import { icons, PickedSVGProps, Sizes } from '../icons/icons';
+import { PickedSVGProps, Sizes } from '../icons/icons';
 import { Svg } from './Icon.styles';
-import { getScale } from './utils';
 
 const sizes = {
   s: 12,
@@ -11,31 +10,34 @@ const sizes = {
   xl: 24,
 };
 
+export const getScaleMultiplier = (selectedSize, width, height) => ({
+  widthMultiplier: selectedSize / width,
+  heightMultiplier: selectedSize / height,
+});
+
 /**
  Icon component that renders SVGs from our icon library
  */
-const Icon = ({ label, size, fill, stroke, strokeLinecap, strokeLinejoin, strokeWidth, transform, d }: IconProps) => {
+const Icon = ({ path, label, color, fill, size, width, height }: IconProps) => {
   const sizeDimension = sizes[size];
+  const { widthMultiplier, heightMultiplier } = getScaleMultiplier(sizeDimension, width, height);
 
   const SVG = (
-    <svg
-      width={sizeDimension}
-      height={sizeDimension}
+    <Svg
+      width={`${sizeDimension}px`}
+      height={`${sizeDimension}px`}
       viewBox={`0 0 ${sizeDimension} ${sizeDimension}`}
-      fill="none"
+      fill={fill || 'none'}
       xmlns="http://www.w3.org/2000/svg"
+      css={{
+        '& g > path': {
+          ...(color && { stroke: color }),
+          ...(fill && { fill }),
+        },
+      }}
     >
-      <path
-        d={d}
-        key={d}
-        fill={fill}
-        stroke={stroke}
-        strokeLinecap={strokeLinecap}
-        strokeLinejoin={strokeLinejoin}
-        strokeWidth={strokeWidth}
-        transform={transform}
-      />
-    </svg>
+      <g transform={`scale(${widthMultiplier}, ${heightMultiplier})`}>{path}</g>
+    </Svg>
   );
 
   return <CustomIcon label={label} svg={SVG} />;
@@ -44,6 +46,11 @@ const Icon = ({ label, size, fill, stroke, strokeLinecap, strokeLinejoin, stroke
 interface IconProps extends PickedSVGProps {
   label: string;
   size: Sizes;
+  path: ReactNode;
+  color: string;
+  fill: string;
+  width: number;
+  height: number;
 }
 
 export default Icon;
