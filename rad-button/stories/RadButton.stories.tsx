@@ -1,8 +1,8 @@
 import React from 'react';
 import RadButton from '../src/RadButton';
-import { layout } from '../../rad-utils/src/story-decorator';
+import { StoryLayout } from '~/layout';
 
-export default layout;
+export default StoryLayout;
 
 export const solidReady = () => (
   <RadButton
@@ -57,17 +57,17 @@ export const outlineDisabled = () => (
   </RadButton>
 );
 
-export const ghostReady = () => <RadButton variant={'ghost'}>OUTLINE</RadButton>;
+export const ghostReady = () => <RadButton variant={'ghost'}>GHOST</RadButton>;
 
 export const ghostBusy = () => (
   <RadButton variant={'ghost'} busy>
-    OUTLINE
+    GHOST
   </RadButton>
 );
 
 export const ghostDisabled = () => (
   <RadButton variant={'ghost'} disabled>
-    OUTLINE
+    GHOST
   </RadButton>
 );
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { CoreLayout } from '@divriots/dockit-react/mdx-layout-core';
+import { ThemeProvider } from '../../theme-provider';
 
 const themeDocs = [
   'colors',
@@ -33,12 +34,16 @@ export const MdxLayout = ({ components = {}, onSwitch, ...rest }) => {
   ];
 
   return (
-    <MDXProvider components={{ ...components }}>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css/out/light.min.css" />
-      <CoreLayout
-        logo={<img src="https://mms.businesswire.com/media/20210603005032/en/882138/23/Bench_Logo.jpg" width="180px" />}
-        {...rest}
-      />
-    </MDXProvider>
+    <ThemeProvider>
+      <MDXProvider components={{ ...components }}>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css/out/light.min.css" />
+        <CoreLayout
+          logo={
+            <img src="https://mms.businesswire.com/media/20210603005032/en/882138/23/Bench_Logo.jpg" width="180px" />
+          }
+          {...rest}
+        />
+      </MDXProvider>
+    </ThemeProvider>
   );
 };

@@ -1,12 +1,8 @@
 import { mdx } from '@mdx-js/react';
 import { MdxLayout } from '~/layout';
-import { systemUILightTheme, themeLight } from '../src/theme';
-import BorderWidthsSample from './components/border-widths-sample/BorderWidthsSample';
-import BorderWidthsShowcase from './components/border-widths-showcase/BorderWidthsShowcase'; import { ThemeProvider } from '../../theme-provider';
+import { systemUILightTheme } from '../src/theme';
+import BorderWidthsShowcase from './components/border-widths-showcase/BorderWidthsShowcase';
 export default MdxLayout;
 
 # Border Widths
-
-<ThemeProvider>
-  <BorderWidthsShowcase theme={systemUILightTheme}/>
-</ThemeProvider>
+<BorderWidthsShowcase theme={systemUILightTheme}/>
