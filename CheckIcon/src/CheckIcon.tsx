@@ -13,7 +13,7 @@ const path = (
 );
 
 const CheckIcon = ({ size = 'm', color, label, fill }: CheckIconProps) => {
-  return <Icon label={label || 'check'} size={size} path={path} color={color} fill={fill} width={12} height={12} />;
+  return <Icon label={label || 'check'} size={size} path={path} color={color} fill={fill} />;
 };
 
 type CheckIconProps = {

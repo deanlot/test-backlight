@@ -18,7 +18,7 @@ export const getScaleMultiplier = (selectedSize, width, height) => ({
 /**
  Icon component that renders SVGs from our icon library
  */
-const Icon = ({ path, label, color, fill, size, width, height }: IconProps) => {
+const Icon = ({ path, label, color, fill, size, width = 12, height = 12 }: IconProps) => {
   const sizeDimension = sizes[size];
   const { widthMultiplier, heightMultiplier } = getScaleMultiplier(sizeDimension, width, height);
 
@@ -49,8 +49,8 @@ interface IconProps extends PickedSVGProps {
   path: ReactNode;
   color: string;
   fill: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
 export default Icon;
