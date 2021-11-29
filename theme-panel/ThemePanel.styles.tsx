@@ -6,6 +6,7 @@ export const TabBar = styled('div', {
   display: 'grid',
   gridAutoFlow: 'column',
   justifyContent: 'end',
+  marginBottom: 8,
 });
 
 export const Tab = styled('button', {
