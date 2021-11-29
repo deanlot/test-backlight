@@ -1,13 +1,62 @@
 import React from 'react';
-import { icons } from '../../icons/icons';
-import Icon from '../../src/Icon';
-import { IconContainer } from './IconPreview.styles';
+import CheckIcon from '../../../CheckIcon/src/CheckIcon';
+import { GroupContainer, IconContainer, IconName } from './IconPreview.styles';
 
-const IconPreview = () =>
-  Object.keys(icons).map((icon) => (
+const IconPreview = () => (
+  <GroupContainer>
     <IconContainer>
-      <Icon icon={icon} key={icon} />
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
     </IconContainer>
-  ));
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+    <IconContainer>
+      <CheckIcon />
+      <IconName>CheckIcon</IconName>
+    </IconContainer>
+  </GroupContainer>
+);
 
 export default IconPreview;
