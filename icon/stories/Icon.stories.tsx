@@ -1,9 +1,9 @@
 import React from 'react';
 import CheckIcon from '../icons/CheckIcon/src/CheckIcon';
-import { layout } from '../../utils/src/story-decorator';
-export default layout;
+import { StoryLayout } from '~/layout';
+export default StoryLayout;
 
-export const IconSmall = () => <CheckIcon size="s" color="red" />;
+export const IconSmall = () => <CheckIcon size="s" />;
 export const IconMedium = () => <CheckIcon />;
-export const IconLarge = () => <CheckIcon size="l" color="blue" />;
-export const IconExtraLarge = () => <CheckIcon size="xl" fill="green" color="pink" />;
+export const IconLarge = () => <CheckIcon size="l" />;
+export const IconExtraLarge = () => <CheckIcon size="xl" />;
