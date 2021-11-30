@@ -5,7 +5,7 @@ import {
   flexVariants,
   IconContainer,
   iconContainerStyles,
-  StyledButton
+  StyledButton,
 } from './Button.styles';
 import Loading from './Loading/Loading';
 
@@ -13,21 +13,20 @@ import Loading from './Loading/Loading';
  Button component that the user can press to trigger an action.
  */
 const Button = ({
-                  children,
-                  variant = 'primary',
-                  disabled = false,
-                  iconPlacement = 'right',
-                  busy = false,
-                  ...rest
-                }: ButtonProps) => {
-
+  children,
+  variant = 'primary',
+  disabled = false,
+  iconPlacement = 'right',
+  busy = false,
+  ...rest
+}: ButtonProps) => {
   const icon = !disabled && busy ? <Loading /> : rest.icon;
 
   return (
     <StyledButton
       className={buttonStyles({ variant, icon: !children && !!icon, clickable: !busy })}
       disabled={disabled}
-      role='button'
+      role="button"
       {...rest}
     >
       <FlexContainer className={flexVariants(!!icon && { iconPlacement })}>
