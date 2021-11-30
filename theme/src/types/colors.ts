@@ -1,0 +1,54 @@
+export type Colors = {
+  transparent: string;
+
+  surface: string;
+  'surface-background': string;
+  'surface-muted': string;
+  'surface-negative': string;
+  'surface-negativeMuted': string;
+  'surface-primary': string;
+  'surface-critical': string;
+  'surface-highlight': string;
+  'surface-success': string;
+
+  'onSurface-icon': string;
+  'onSurface-text': string;
+  'onSurface-textMuted': string;
+  'onSurface-textDisabled': string;
+  'onSurface-textNegative': string;
+  'onSurface-textNegativeMuted': string;
+  'onSurface-textNegativeDisabled': string;
+  'onSurface-border': string;
+  'onSurface-onPrimary': string;
+  'onSurface-onPrimarySurface': string;
+  'onSurface-onSuccess': string;
+  'onSurface-onSuccessSurface': string;
+  'onSurface-onCritical': string;
+  'onSurface-onCriticalSurface': string;
+  'onSurface-onHighlight': string;
+  'onSurface-onHighlightSurface': string;
+
+  'interactive-disabled': string;
+  'interactive-hovered': string;
+  'interactive-pressed': string;
+  'interactive-secondary': string;
+  'interactive-secondaryDisabled': string;
+  'interactive-secondaryHovered': string;
+  'interactive-secondaryPressed': string;
+  'interactive-success': string;
+  'interactive-successDisabled': string;
+  'interactive-successHovered': string;
+  'interactive-successPressed': string;
+  'interactive-primary': string;
+  'interactive-primaryDisabled': string;
+  'interactive-primaryHovered': string;
+  'interactive-primaryPressed': string;
+  'interactive-critical': string;
+  'interactive-criticalDisabled': string;
+  'interactive-criticalHovered': string;
+  'interactive-criticalPressed': string;
+  'interactive-highlight': string;
+  'interactive-highlightDisabled': string;
+  'interactive-highlightHovered': string;
+  'interactive-highlightPressed': string;
+};
