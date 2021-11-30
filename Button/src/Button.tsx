@@ -1,11 +1,12 @@
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import {
   buttonStyles,
+  ButtonText,
   FlexContainer,
   flexVariants,
   IconContainer,
   iconContainerStyles,
-  StyledButton
+  StyledButton,
 } from './Button.styles';
 import Loading from './Loading/Loading';
 
@@ -13,39 +14,38 @@ import Loading from './Loading/Loading';
  Button component that the user can press to trigger an action.
  */
 const Button = ({
-                  children,
-                  variant = 'primary',
-                  disabled = false,
-                  iconPlacement = 'right',
-                  busy = false,
-                  ...rest
-                }: ButtonProps) => {
-
+  children,
+  variant = 'solid',
+  disabled = false,
+  iconPlacement = 'right',
+  busy = false,
+  ...rest
+}: ButtonProps) => {
   const icon = !disabled && busy ? <Loading /> : rest.icon;
 
   return (
     <StyledButton
       className={buttonStyles({ variant, icon: !children && !!icon, clickable: !busy })}
       disabled={disabled}
-      role='button'
+      role="button"
       {...rest}
     >
       <FlexContainer className={flexVariants(!!icon && { iconPlacement })}>
-        {children && <span>{children}</span>}
+        {children && <ButtonText>{children}</ButtonText>}
         {icon && <IconContainer className={iconContainerStyles({ children: !!children })}>{icon}</IconContainer>}
       </FlexContainer>
     </StyledButton>
   );
 };
 
-type Variant = 'primary' | 'secondary' | 'ghost';
+type Variant = 'solid' | 'outline' | 'ghost';
 type IconPlacement = 'left' | 'right';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
   /**
    * Variant of the button
    */
-  variant: Variant;
+  variant?: Variant;
   /**
    * Icon to be placed in the button
    */
