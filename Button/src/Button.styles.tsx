@@ -1,10 +1,8 @@
 import { css, styled } from '@stitches/react';
 
+export const StyledButton = styled('button');
 export const buttonStyles = css({
   borderRadius: '$radii$4',
-  fontSize: '$fontSizes$3',
-  fontFamily: 'LLCircularWeb',
-  fontWeight: '$regular',
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
@@ -76,24 +74,31 @@ export const buttonStyles = css({
         pointerEvents: 'none',
       },
     },
-    iconPlacementPadding: {
-      left: {
-        padding: '8px 24px 8px 16px',
+    icon: {
+      true: {
+        padding: 'inherit',
+        width: '40px',
+        height: '40px',
       },
-      right: {
-        padding: '8px 16px 8px 24px',
-      },
-      center: {
-        padding: '8px',
-      },
-      noIcon: {
-        padding: '12px 24px',
+      false: {
+        paddingLeft: '24px',
+        paddingRight: '24px',
       },
     },
   },
 });
 
-export const Button = styled('button');
+export const ButtonText = styled('span', {
+  fontSize: '$fontSizes$3',
+  fontFamily: '$fonts$actions',
+  fontWeight: '$regular',
+  lineHeight: '16px',
+  display: 'flex',
+  alignItems: 'center',
+  textAlign: 'right',
+  letterSpacing: '0.06em',
+  textTransform: 'uppercase',
+});
 
 export const FlexContainer = styled('div');
 export const flexVariants = css({
@@ -114,6 +119,7 @@ export const flexVariants = css({
 });
 
 export const iconContainerStyles = css({
+  lineHeight: 0,
   variants: {
     children: {
       true: {
