@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, SVGProps } from 'react';
 import CustomIcon from '../../custom-icon/src/CustomIcon';
 import { Svg } from './Icon.styles';
-import { PickedSVGProps, Sizes } from '../types';
+import { Sizes } from '../types';
 import { getScaleMultiplier } from './utils';
 
 const sizes = {
@@ -57,5 +57,10 @@ interface IconProps extends PickedSVGProps {
   height?: number;
   brand?: boolean;
 }
+
+export type PickedSVGProps = Pick<
+  SVGProps<SVGPathElement>,
+  'fill' | 'stroke' | 'strokeLinecap' | 'strokeLinejoin' | 'strokeWidth' | 'transform' | 'd'
+>;
 
 export default Icon;
