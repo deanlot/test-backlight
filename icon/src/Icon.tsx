@@ -10,6 +10,13 @@ const sizes = {
   xl: 24,
 };
 
+const brandSizes = {
+  s: 12,
+  m: 16,
+  l: 24,
+  xl: 40,
+};
+
 export const getScaleMultiplier = (selectedSize, width, height) => ({
   widthMultiplier: selectedSize / width,
   heightMultiplier: selectedSize / height,
@@ -18,8 +25,9 @@ export const getScaleMultiplier = (selectedSize, width, height) => ({
 /**
  Icon component that renders SVGs from our icon library
  */
-const Icon = ({ path, label, color, fill, size, width = 12, height = 12 }: IconProps) => {
-  const sizeDimension = sizes[size];
+const Icon = ({ path, label, color, fill, size, width = 12, height = 12, brand = false }: IconProps) => {
+  // brand icons have special sizing
+  const sizeDimension = brand ? brandSizes[size] : sizes[size];
   const { widthMultiplier, heightMultiplier } = getScaleMultiplier(sizeDimension, width, height);
 
   const SVG = (
@@ -51,6 +59,7 @@ interface IconProps extends PickedSVGProps {
   fill: string;
   width?: number;
   height?: number;
+  brand?: boolean;
 }
 
 export default Icon;
