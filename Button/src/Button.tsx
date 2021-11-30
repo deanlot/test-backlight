@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import {
   buttonStyles,
+  ButtonText,
   FlexContainer,
   flexVariants,
   IconContainer,
@@ -14,7 +15,7 @@ import Loading from './Loading/Loading';
  */
 const Button = ({
   children,
-  variant = 'primary',
+  variant = 'solid',
   disabled = false,
   iconPlacement = 'right',
   busy = false,
@@ -30,21 +31,21 @@ const Button = ({
       {...rest}
     >
       <FlexContainer className={flexVariants(!!icon && { iconPlacement })}>
-        {children && <span>{children}</span>}
+        {children && <ButtonText>{children}</ButtonText>}
         {icon && <IconContainer className={iconContainerStyles({ children: !!children })}>{icon}</IconContainer>}
       </FlexContainer>
     </StyledButton>
   );
 };
 
-type Variant = 'primary' | 'secondary' | 'ghost';
+type Variant = 'solid' | 'outline' | 'ghost';
 type IconPlacement = 'left' | 'right';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
   /**
    * Variant of the button
    */
-  variant: Variant;
+  variant?: Variant;
   /**
    * Icon to be placed in the button
    */
