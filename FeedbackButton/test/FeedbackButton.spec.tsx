@@ -4,8 +4,8 @@ import { fn } from 'jest-mock';
 import '../../jest.setup';
 import { FeedbackButton } from '../src';
 
-describe('FeedbackButton', function() {
-  it('should render the feedback button component', function() {
+describe('FeedbackButton', () => {
+  it('should render the feedback button component', () => {
     const { getByText } = render(<FeedbackButton data-testid={'test-button'}
                                                  variant={'primary'}
                                                  onClick={() => Promise.resolve()}>primary</FeedbackButton>);

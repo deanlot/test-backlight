@@ -9,7 +9,7 @@ export enum Theme {
 }
 
 type Themes = {
-  [key in Theme]: unknown;
+  [key in Theme]: string;
 };
 
 const themesConversion: Themes = {
@@ -19,7 +19,7 @@ const themesConversion: Themes = {
 
 type ThemeCtxConfig = {
   setTheme: (theme: Theme) => void;
-  theme: unknown;
+  theme: string;
 };
 
 const initialState = {
