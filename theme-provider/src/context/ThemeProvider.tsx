@@ -1,9 +1,9 @@
 import React, { createContext, PropsWithChildren, useContext, useMemo, useState } from 'react';
-import '../../layout/src/fonts.css';
+import '../../../layout/src/fonts.css';
 import { ThemeContextConfig } from '../types/themeContextConfig';
-import { themeList } from '../../theme-list';
+import { themeList } from '../../../theme-list';
 import { createStitches } from '@stitches/react';
-import { ThemeBase } from '../../theme';
+import { ThemeBase } from '../../../theme';
 import { WhiteLabelColors } from '../types/whiteLabelColors';
 import { composeTheme } from '../utils/composeTheme';
 
