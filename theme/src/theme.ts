@@ -1,4 +1,5 @@
-import { colors } from './colors';
+import { colorsLight } from './colorsLight';
+import { colorsDark } from './colorsDark';
 import { fonts } from './fonts';
 import { fontSizes } from './fontSizes';
 import { fontWeights } from './fontWeights';
@@ -11,8 +12,8 @@ import { ConfigType } from '@stitches/react/types/config';
 
 // Stitches takes an input object in the SystemUI standard format.
 // It returns an object in a slightly different format.
-export const baseTheme: ConfigType.Theme = {
-  colors,
+export const lightBaseTheme: ConfigType.Theme = {
+  colors: colorsLight,
   space,
   fonts,
   fontSizes,
@@ -21,4 +22,9 @@ export const baseTheme: ConfigType.Theme = {
   letterSpacings,
   radii,
   borderWidths,
+};
+
+export const darkBaseTheme: ConfigType.Theme = {
+  ...lightBaseTheme,
+  colors: colorsDark,
 };

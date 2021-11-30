@@ -1,13 +1,8 @@
 import { ThemeList } from './types/themeList';
-import { BenchDark } from './themes/bench-dark';
-import { BenchLight } from './themes/bench-light';
-
-export enum Themes {
-  Light = 'Light',
-  Dark = 'Dark',
-}
+import { darkBaseTheme, lightBaseTheme } from '../theme';
+import { ThemeBase } from '../theme';
 
 export const themeList: ThemeList = {
-  [Themes.Light]: BenchLight,
-  [Themes.Dark]: BenchDark,
+  [ThemeBase.Light]: lightBaseTheme,
+  [ThemeBase.Dark]: darkBaseTheme,
 };

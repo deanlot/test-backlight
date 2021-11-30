@@ -1,7 +1,7 @@
 import { critical, highlight, primary, secondary, success } from './variables';
 import { Colors } from './types/colors';
 
-export const colors: Colors = {
+export const colorsLight: Colors = {
   transparent: 'transparent',
 
   surface: secondary[0],

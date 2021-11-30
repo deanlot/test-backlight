@@ -1,34 +1,47 @@
-import React, { PropsWithChildren, useMemo, useState } from 'react';
-import { createContext, useContext } from 'react';
+import React, { createContext, PropsWithChildren, useContext, useMemo, useState } from 'react';
 import '../../layout/src/fonts.css';
 import { ThemeContextConfig } from '../types/themeContextConfig';
-import { themeList, Themes } from '../../theme-list/themeList';
-import { ConfigType } from '@stitches/react/types/config';
+import { themeList } from '../../theme-list';
 import { createStitches } from '@stitches/react';
+import { ThemeBase } from '../../theme';
+import { WhiteLabelColors } from '../types/whiteLabelColors';
+import { composeTheme } from '../utils/composeTheme';
 
 const ThemeContext = createContext<ThemeContextConfig>({
   setTheme: () => null,
-  theme: themeList[Themes.Light],
+  theme: themeList[ThemeBase.Light],
+  themeBase: ThemeBase.Light,
 });
 
 const { createTheme } = createStitches({
   theme: {},
 });
 
-export const ThemeProvider = ({ initialTheme, children }: PropsWithChildren<{ initialTheme: ConfigType.Theme }>) => {
-  // Console warn if initial theme changes
+export const ThemeProvider = ({
+  initialColors,
+  initialThemeBase = ThemeBase.Light,
+  children,
+}: PropsWithChildren<{ initialColors?: WhiteLabelColors; initialThemeBase?: ThemeBase }>) => {
+  // TODO: Console warn if initial theme changes
 
-  const [theme, setTheme] = useState<ConfigType.Theme>(initialTheme);
+  const [themeBase, setThemeBase] = useState<ThemeBase>(initialThemeBase);
+  const [colors, setColors] = useState<WhiteLabelColors>(initialColors);
+
+  const composedTheme = composeTheme(themeBase, colors);
 
   const state: ThemeContextConfig = useMemo(
     () => ({
-      setTheme,
-      theme,
+      setTheme: (themeBase: ThemeBase, colors: WhiteLabelColors) => {
+        setThemeBase(themeBase);
+        setColors(colors);
+      },
+      theme: composedTheme,
+      themeBase,
     }),
-    [theme]
+    [composedTheme, themeBase]
   );
 
-  const stitchesTheme = useMemo(() => createTheme(theme), [theme]);
+  const stitchesTheme = useMemo(() => createTheme(composedTheme), [composedTheme]);
 
   return (
     <ThemeContext.Provider value={state}>
