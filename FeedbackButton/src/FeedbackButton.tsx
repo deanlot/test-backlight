@@ -1,7 +1,7 @@
 import React, { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
 import Button, { ButtonProps } from '../../Button/src/Button';
 import { animated, useSpring } from 'react-spring';
-import CheckIcon from '../../icon/icons/CheckIcon/CheckIcon';
+import CheckIcon from '../../icon/icons/CheckIcon/src/CheckIcon';
 
 /**
  * The <FeedbackButton /> component should be used when there is an asynchronous call associated to a onClick event.

@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckIcon from '../icons/CheckIcon/CheckIcon';
+import CheckIcon from '../icons/CheckIcon/src/CheckIcon';
 import { layout } from '../../utils/src/story-decorator';
 export default layout;
 

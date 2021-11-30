@@ -1,13 +1,21 @@
 import React from 'react';
-import { icons } from '../../icons/icons';
-import Icon from '../../src/Icon';
-import { IconContainer } from './IconPreview.styles';
+import { GroupContainer, IconContainer, IconName } from './IconPreview.styles';
+import CheckIcon from '../../icons/CheckIcon/src/CheckIcon';
+import BenchIcon from '../../icons/BenchIcon/src/BenchIcon';
 
-const IconPreview = () =>
-  Object.keys(icons).map((icon) => (
-    <IconContainer>
-      <Icon icon={icon} key={icon} />
-    </IconContainer>
-  ));
+const IconPreview = () => {
+  return (
+    <GroupContainer>
+      <IconContainer>
+        <CheckIcon />
+        <IconName>CheckIcon</IconName>
+      </IconContainer>
+      <IconContainer>
+        <BenchIcon />
+        <IconName>BenchIcon</IconName>
+      </IconContainer>
+    </GroupContainer>
+  );
+};
 
 export default IconPreview;

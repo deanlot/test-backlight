@@ -50,7 +50,7 @@ const Icon = ({ path, label, color, fill, size, width = 12, height = 12, brand =
 interface IconProps extends PickedSVGProps {
   label: string;
   size: Sizes;
-  path: ReactNode;
+  path: ReactNode | ReactNode[];
   color: string;
   fill: string;
   width?: number;
