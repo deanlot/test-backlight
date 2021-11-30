@@ -1,4 +1,4 @@
-export const getScale = (selectedSize, width, height) => ({
-  width: selectedSize / width,
-  height: selectedSize / height,
+export const getScaleMultiplier = (selectedSize, width, height) => ({
+  widthMultiplier: selectedSize / width,
+  heightMultiplier: selectedSize / height,
 });

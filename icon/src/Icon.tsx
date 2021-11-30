@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
 import CustomIcon from '../../custom-icon/src/CustomIcon';
-import { PickedSVGProps, Sizes } from '../icons/icons';
 import { Svg } from './Icon.styles';
+import { PickedSVGProps, Sizes } from '../types';
+import { getScaleMultiplier } from './utils';
 
 const sizes = {
   s: 12,
@@ -16,11 +17,6 @@ const brandSizes = {
   l: 24,
   xl: 40,
 };
-
-export const getScaleMultiplier = (selectedSize, width, height) => ({
-  widthMultiplier: selectedSize / width,
-  heightMultiplier: selectedSize / height,
-});
 
 /**
  Icon component that renders SVGs from our icon library

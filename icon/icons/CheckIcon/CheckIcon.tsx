@@ -1,6 +1,6 @@
 import React from 'react';
-import { Sizes } from '../../icon/icons/icons';
-import Icon from '../../icon/src/Icon';
+import Icon from '../../src/Icon';
+import { Sizes } from '../../types';
 
 const path = (
   <path
@@ -17,9 +17,21 @@ const CheckIcon = ({ size = 'm', color, label, fill }: CheckIconProps) => {
 };
 
 type CheckIconProps = {
+  /**
+   * Use this to override the time that the success icon is displayed for
+   */
   label?: string;
+  /**
+   * Use this to override the time that the success icon is displayed for
+   */
   size?: Sizes;
+  /**
+   * Use this to override the time that the success icon is displayed for
+   */
   fill?: string;
+  /**
+   * Use this to override the time that the success icon is displayed for
+   */
   color?: string;
 };
 
