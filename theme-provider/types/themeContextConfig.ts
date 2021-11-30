@@ -1,5 +1,5 @@
 import { ConfigType } from '@stitches/react/types/config';
-import { ThemeBase } from '../../../theme';
+import { ThemeBase } from '../../theme';
 import { WhiteLabelColors } from './whiteLabelColors';
 
 export type ThemeContextConfig = {
