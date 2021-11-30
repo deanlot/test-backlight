@@ -38,14 +38,13 @@ The Icon components can be used inside other components as well, e.g. Button Com
 <Playground
   scope={{ CheckIcon, Button, ButtonPreviewContainer }}
   code={`
-  <ButtonPreviewContainer>
-         <Button size="m" icon={<CheckIcon />}>Submit</Button>
-        <Button size="m" icon={<CheckIcon />} iconPlacement="left">Submit</Button>
-        <Button size="m" icon={<CheckIcon />} />
-  </ButtonPreviewContainer>
+<ButtonPreviewContainer>
+   <Button size="m" icon={<CheckIcon />} >Submit</Button>
+   <Button size="m" icon={<CheckIcon />} iconPlacement="left" >Submit</Button>
+   <Button size="m" icon={<CheckIcon />} />
+</ButtonPreviewContainer>
 `}
 />
 
 ## Props
-We expose a subset of SVGProps to our component, along with some custom props
 <Props of={CheckIcon} />
