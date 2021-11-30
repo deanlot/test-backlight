@@ -32,6 +32,7 @@ export const inputStyles = css({
   variants: {
     error: {
       true: {
+        paddingRight: '$5',
         border: '2px solid $interactive-criticalHovered',
 
         '&:focus': {
@@ -69,4 +70,11 @@ export const Label = styled('label', {
   fontSize: '$fontSizes$1',
   textTransform: 'uppercase',
   letterSpacing: '0.12em',
+});
+
+export const IconPlaceholder = styled('div', {
+  width: 12,
+  height: 12,
+  position: 'relative',
+  marginLeft: '-40px',
 });
