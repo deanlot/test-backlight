@@ -1,32 +1,32 @@
 import { mdx } from '@mdx-js/react';
 import { Props, Description } from '@divriots/dockit-react/props';
-import { Playground } from '@divriots/dockit-react/playground';
-import { MdxButtonLayout } from '~/layout';
+import { MdxLayout } from '~/layout';
 import Button from '../src/Button';
-export default MdxButtonLayout;
+import ThemePlayground from '../../theme-playground/ThemePlayground';
+export default MdxLayout;
 
 # Button
 <Description of={Button} />
 
 ## Usage
-### Primary Button
-<Playground
+### Solid Button
+<ThemePlayground
   scope={{ Button }}
   code={`
-<Button variant='primary'>Primary</Button>
+<Button>Solid</Button>
   `}
 />
 
-### Secondary Button
-<Playground
+### Outline Button
+<ThemePlayground
   scope={{ Button }}
   code={`
-<Button variant='secondary'>Secondary</Button>
+<Button variant='outline'>Outline</Button>
   `}
 />
 
 ### Ghost Button
-<Playground
+<ThemePlayground
   scope={{ Button }}
   code={`
 <Button variant='ghost'>Ghost</Button>
@@ -34,19 +34,19 @@ export default MdxButtonLayout;
 />
 
 ### Busy State
-<Playground
+<ThemePlayground
   scope={{ Button }}
   code={`
-<Button variant='primary' busy>Primary</Button>
+<Button busy>Solid</Button>
   `}
 />
 
 ### Disabled State
 <p>Note how "disabled" state always takes priority over "busy" state.</p>
-<Playground
+<ThemePlayground
   scope={{ Button }}
   code={`
-<Button variant='primary' disabled busy>Primary</Button>
+<Button disabled busy>Solid</Button>
   `}
 />
 

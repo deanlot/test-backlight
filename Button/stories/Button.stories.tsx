@@ -1,37 +1,28 @@
 import React from 'react';
 import Button from '../src/Button';
-import { layout } from '../../utils/src/story-decorator';
+import { StoryLayout } from '../../layout';
 
-export default layout;
+export default StoryLayout;
 
-export const primaryReady = () => (
+export const solidReady = () => (
   <Button
-    variant={'primary'}
     onClick={(e) => {
       console.log('click');
     }}
   >
-    PRIMARY
+    SOLID
   </Button>
 );
 
-export const primaryBusy = () => (
-  <Button variant={'primary'} busy>
-    PRIMARY
-  </Button>
-);
+export const solidBusy = () => <Button busy>SOLID</Button>;
 
-export const primaryBusyIconOnly = () => <Button variant={'primary'} busy />;
+export const solidBusyIconOnly = () => <Button busy />;
 
-export const primaryDisabled = () => (
-  <Button variant={'primary'} disabled>
-    PRIMARY
-  </Button>
-);
+export const solidDisabled = () => <Button disabled>SOLID</Button>;
 
-export const secondaryReady = () => (
+export const outlineReady = () => (
   <Button
-    variant={'secondary'}
+    variant={'outline'}
     onClick={() =>
       new Promise<boolean>((resolve, reject) => {
         console.log('clicked promise');
@@ -39,34 +30,34 @@ export const secondaryReady = () => (
       })
     }
   >
-    SECONDARY
+    OUTLINE
   </Button>
 );
 
-export const secondaryBusy = () => (
-  <Button variant={'secondary'} busy>
-    SECONDARY
+export const outlineBusy = () => (
+  <Button variant={'outline'} busy>
+    OUTLINE
   </Button>
 );
 
-export const secondaryDisabled = () => (
-  <Button variant={'secondary'} disabled>
-    SECONDARY
+export const outlineDisabled = () => (
+  <Button variant={'outline'} disabled>
+    OUTLINE
   </Button>
 );
 
-export const ghostReady = () => <Button variant={'ghost'}>SECONDARY</Button>;
+export const ghostReady = () => <Button variant={'ghost'}>GHOST</Button>;
 
 export const ghostBusy = () => (
   <Button variant={'ghost'} busy>
-    SECONDARY
+    GHOST
   </Button>
 );
 
 export const ghostDisabled = () => (
   <Button variant={'ghost'} disabled>
-    SECONDARY
+    GHOST
   </Button>
 );
 
-// export const primaryWithIcon = () => <RadButton variant={'primary'} icon={<div>testCOmponent</div>}>PRIMARY ICON</RadButton>;
+// export const solidWithIcon = () => <RadButton icon={<div>testCOmponent</div>}>SOLID ICON</RadButton>;
