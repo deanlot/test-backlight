@@ -21,7 +21,7 @@ const Button = ({
   ...rest
 }: ButtonProps) => {
   const icon = !disabled && busy ? <Loading /> : rest.icon;
-  // added
+
   return (
     <StyledButton
       className={buttonStyles({ variant, icon: !children && !!icon, clickable: !busy })}
