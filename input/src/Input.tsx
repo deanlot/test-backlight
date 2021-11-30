@@ -1,14 +1,28 @@
-import React, { DetailedHTMLProps, forwardRef, InputHTMLAttributes, useState } from 'react';
+import React, { DetailedHTMLProps, forwardRef, InputHTMLAttributes, useEffect, useState } from 'react';
 import { errorStyles, helperStyles, InputContainer, inputStyles, Label, StyledInput } from './Input.styles';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({ id, onFocus, onBlur, helper, error, ...props }, ref) => {
   const helperMessage: Message = { type: 'helper', text: helper };
   const errorMessage: Message = { type: 'error', text: error };
 
-  const [message, setMessage] = useState<Message>(errorMessage && { type: 'error', text: error });
+  const [message, setMessage] = useState<Message>(error && errorMessage);
+
+  useEffect(() => {
+    if (error) {
+      setMessage(errorMessage);
+    }
+  }, [error, errorMessage]);
+
+  const getLabel = () => {
+    if (props.label.length > 30) {
+      console.warn('Input component with props');
+      return props.label.substring(0, 30);
+    }
+
+    return props.label;
+  };
 
   const messageStyles = message?.type === 'error' ? errorStyles : helperStyles;
-  const label = props.label.length > 30 ? props.label.substring(0, 30) : props.label;
 
   const handleFocus = (e) => {
     const newMessage = error ? errorMessage : helperMessage;
@@ -24,17 +38,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({ id, onFocus, onBlur, h
 
   return (
     <InputContainer>
-      <Label htmlFor={id}>{label}</Label>
+      <Label htmlFor={id}>{getLabel()}</Label>
       <StyledInput
         {...props}
         id={id}
-        className={`${inputStyles({ error: !!error })} ${props?.className}`}
+        className={`${inputStyles({ error: !!error })}`}
         onFocus={handleFocus}
         onBlur={handleBlur}
         ref={ref}
         type="text"
-        // @ts-expect-error: not sure why max length is giving a TS error, we can look into this later
-        maxLength="60"
+        maxLength={60}
       />
       <span className={messageStyles()}>{message?.text}</span>
     </InputContainer>
