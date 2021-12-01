@@ -9,6 +9,7 @@ const path = (
     fill="#F24D44"
   />
 );
+
 const WarningSymbol = ({ size = 'l', label }: SpecializedSymbolProps): ReactElement => {
   return <SymbolIcon label={label || 'warning-symbol'} size={size} path={path} height={7} width={8} />;
 };

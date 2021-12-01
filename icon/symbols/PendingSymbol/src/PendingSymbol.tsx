@@ -8,6 +8,7 @@ const path = (
     fill="#E5A139"
   />
 );
+
 const PendingSymbol = ({ size = 'l', label }: SpecializedSymbolProps): ReactElement => {
   return <SymbolIcon label={label || 'pending-symbol'} size={size} path={path} height={8} width={8} />;
 };

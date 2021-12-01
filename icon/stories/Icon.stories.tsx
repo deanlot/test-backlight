@@ -13,5 +13,3 @@ export const SymbolSmall = () => <WarningSymbol size="s" />;
 export const SymbolMedium = () => <WarningSymbol size="m" />;
 export const SymbolLarge = () => <WarningSymbol size="l" />;
 export const SymbolExtraLarge = () => <WarningSymbol size="xl" />;
-
-// pending symbol needs tlc
