@@ -25,6 +25,14 @@ const brandIconSizes: SizeBreakdown = {
   xl: 40,
 };
 
+export const SymbolIcon = ({ size, ...props }: IconVariant) => <IconBase {...props} size={symbolIconSizes[size]} />;
+const symbolIconSizes: SizeBreakdown = {
+  s: 6,
+  m: 10,
+  l: 12,
+  xl: 16,
+};
+
 type SizeBreakdown = {
   [key in Sizes]: number;
 };
