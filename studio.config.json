@@ -6,7 +6,9 @@
       [
         "Theme",
         [
-          "theme"
+          "theme",
+          "theme-provider",
+          "theme-list"
         ]
       ],
       [
@@ -14,6 +16,13 @@
         [
           "Button",
           "FeedbackButton"
+        ]
+      ],
+      [
+        "documentation components",
+        [
+          "theme-playground",
+          "theme-panel"
         ]
       ],
       [

@@ -1,1 +1,1 @@
-export * from './themeList';
+export { themeList } from './src/themeList';
