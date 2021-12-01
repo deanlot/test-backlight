@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoryLayout } from '../../layout';
 import BaseTypography from '../src/base-typography/BaseTypography';
-import { Actions, Header, Label, Paragraph, Title } from '../src';
+import { Actions, Header, Helper, Label, Paragraph, Title } from '../src';
 
 export default StoryLayout;
 
@@ -47,3 +47,5 @@ export const labelBoldUpper = () => (
     Label - Bold Uppercase
   </Label>
 );
+
+export const helper = () => <Helper>Helper</Helper>;
