@@ -3,7 +3,9 @@ import { TypographyProps } from '../base-typography/BaseTypography';
 import { headerStyles, StyledHeader } from './Header.styles';
 
 const Header = ({ children, variant = 'medium' }: HeaderProps) => (
-  <StyledHeader className={headerStyles({ variant })}>{children}</StyledHeader>
+  <StyledHeader as="h1" className={headerStyles({ variant })}>
+    {children}
+  </StyledHeader>
 );
 
 type Variant = 'small' | 'medium' | 'large';
