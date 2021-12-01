@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import Input from '../src/Input';
 import { StoryLayout } from '../../layout';
 
@@ -7,9 +7,11 @@ export default StoryLayout;
 export const primaryHelper = () => <Input helper="The first part of your name" label="First Name" />;
 
 export const primaryError = () => {
+  const [inputVal, setInputVal] = useState<string>('');
+
   const handleClear = useCallback(() => {
-    console.log('clear');
-  }, []);
+    setInputVal('');
+  }, [setInputVal]);
 
   return (
     <Input
@@ -17,10 +19,27 @@ export const primaryError = () => {
       error="This is field is required."
       label="First Name"
       onClear={handleClear}
+      value={inputVal}
+      onChange={useCallback((e) => setInputVal(e.target.value), [setInputVal])}
     />
   );
 };
 
-export const primaryDisabled = () => (
-  <Input helper="The first part of your name" label="First Name" value="Ram" disabled />
-);
+export const primaryDisabled = () => {
+  const [inputVal, setInputVal] = useState<string>('Ram');
+
+  const handleClear = useCallback(() => {
+    setInputVal('');
+  }, [setInputVal]);
+
+  return (
+    <Input
+      helper="The first part of your name"
+      label="First Name"
+      onClear={handleClear} // Note how the clear button is not rendered when disabled
+      value={inputVal}
+      disabled
+      onChange={useCallback((e) => setInputVal(e.target.value), [setInputVal])}
+    />
+  );
+};

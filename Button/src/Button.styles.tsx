@@ -9,7 +9,7 @@ export const buttonStyles = css({
   flexWrap: 'nowrap',
   justifyContent: 'center',
   alignItems: 'center',
-  minHeight: '40px',
+  minHeight: '32px',
 
   '&:disabled': {
     pointerEvents: 'none',
@@ -77,8 +77,8 @@ export const buttonStyles = css({
     icon: {
       true: {
         padding: 'inherit',
-        width: '40px',
-        height: '40px',
+        width: '32px',
+        height: '32px',
       },
       false: {
         paddingLeft: '24px',

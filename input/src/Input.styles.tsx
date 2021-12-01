@@ -39,6 +39,7 @@ export const errorStyles = css({
   lineHeight: '20px',
   fontStyle: 'italic',
   fontWeight: '$regular',
+  height: '20px', // matching lineheight to reserve the space
 });
 
 export const helperStyles = css({
@@ -47,6 +48,7 @@ export const helperStyles = css({
   lineHeight: '20px',
   fontStyle: 'italic',
   fontWeight: '$regular',
+  height: '20px', // matching lineheight to reserve the space
 });
 
 // this will be likely replaced by a typography component
@@ -112,8 +114,13 @@ export const inputContainerStyles = css({
 export const IconContainer = styled('div', {
   display: 'flex',
   flexDirection: 'row',
+  alignItems: 'center',
 });
 
-export const ClearContainer = styled('div', {
-  flex: '1',
+export const WarningSymbolContainer = styled('div', {
+  width: '32px',
+  height: '32px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 });

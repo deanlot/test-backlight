@@ -1,20 +1,22 @@
 import React, { DetailedHTMLProps, forwardRef, InputHTMLAttributes, useCallback, useEffect, useState } from 'react';
 import {
-  ClearContainer,
   Container,
   errorStyles,
   helperStyles,
   IconContainer,
-  IconPlaceholder,
   InputContainer,
   inputContainerStyles,
   inputStyles,
   Label,
   StyledInput,
+  WarningSymbolContainer,
 } from './Input.styles';
+import WarningSymbol from '../../icon/symbols/WarningSymbol/WarningSymbol';
+import Button from '../../Button/src/Button';
+import CloseIcon from '../../icon/icons/CloseIcon/src/CloseIcon';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ id, onFocus, onBlur, onClear, helper, error, ...props }, ref) => {
+  ({ id, onFocus, onBlur, onClear, disabled, helper, error, ...props }, ref) => {
     const helperMessage: Message = { type: 'helper', text: helper };
     const errorMessage: Message = { type: 'error', text: error };
 
@@ -27,7 +29,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       if (error) {
         setMessage(errorMessage);
       }
-    }, [error, errorMessage]);
+    }, [error]);
 
     const getLabel = () => {
       if (props.label.length > 30) {
@@ -60,6 +62,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <InputContainer className={`${inputContainerStyles({ error: !!error, focused })}`} tabIndex={0}>
           <StyledInput
             {...props}
+            disabled={disabled}
             className={inputStyles({ error: !!error })}
             id={id}
             onFocus={handleFocus}
@@ -70,15 +73,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             tabIndex={-1}
           />
           <IconContainer>
-            {onClear && (
-              <ClearContainer onClick={onClear}>
-                <IconPlaceholder />
-              </ClearContainer>
-            )}
+            {!disabled && onClear && <Button icon={<CloseIcon size="s" />} onClick={onClear} variant="ghost" />}
             {error && (
-              <div>
-                <IconPlaceholder />
-              </div>
+              <WarningSymbolContainer>
+                <WarningSymbol />
+              </WarningSymbolContainer>
             )}
           </IconContainer>
         </InputContainer>
