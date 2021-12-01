@@ -18,7 +18,7 @@ export const inputStyles = css({
   border: 'none',
 
   background: '#F7F8FA', // secondary[20]
-  outline: 'none',
+  outline: '2px solid transparent',
 
   '&: disabled': {
     color: '$onSurface-textDisabled', // secondary 600
@@ -39,7 +39,6 @@ export const errorStyles = css({
   lineHeight: '20px',
   fontStyle: 'italic',
   fontWeight: '$regular',
-  height: '20px', // matching lineheight to reserve the space
 });
 
 export const helperStyles = css({
@@ -48,7 +47,6 @@ export const helperStyles = css({
   lineHeight: '20px',
   fontStyle: 'italic',
   fontWeight: '$regular',
-  height: '20px', // matching lineheight to reserve the space
 });
 
 // this will be likely replaced by a typography component
@@ -76,26 +74,26 @@ export const inputContainerStyles = css({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  border: '2px solid rgba(0,0,0,0)', // secondary[20] not sure if this is meant to be transparent or not
+  border: 'none',
   // border radius in mockup is 4px but we dont have a 4px radius in our radii.ts
   borderRadius: '4px',
   background: '#F7F8FA', // secondary[20]
+  outline: '2px solid rgba(0,0,0,0)', // secondary[20] not sure if this is meant to be transparent or not
 
   variants: {
     error: {
       true: {
-        border: '2px solid red',
+        outline: '2px solid red',
 
         // this does nothing because its not focusing the div
         '&:focus': {
-          border: '2px solid red',
+          outline: '2px solid red',
         },
       },
     },
     focused: {
       true: {
-        border: '2px solid #CACDD2',
-        outline: 'none',
+        outline: '2px solid #CACDD2',
       },
     },
   },
@@ -104,8 +102,8 @@ export const inputContainerStyles = css({
       error: true,
       focused: true,
       css: {
-        border: '2px solid red',
-        outline: 'none',
+        border: 'none',
+        outline: '2px solid red',
       },
     },
   ],

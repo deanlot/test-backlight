@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import Input from '../src/Input';
 import { StoryLayout } from '../../layout';
+import { useForm } from 'react-hook-form';
 
 export default StoryLayout;
 
@@ -41,5 +42,32 @@ export const primaryDisabled = () => {
       disabled
       onChange={useCallback((e) => setInputVal(e.target.value), [setInputVal])}
     />
+  );
+};
+
+export const primaryRHF = () => {
+  type formType = {
+    firstName: string;
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<formType>({ defaultValues: { firstName: '' } });
+  const onSubmit = (data) => {
+    console.log('submitting', data);
+  };
+  console.log(errors);
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        label="firstName"
+        helper="Your first name."
+        {...register('firstName', { required: true })}
+        error={errors?.firstName && 'First Name is required.'}
+      />
+      <button type="submit">Submit</button>
+    </form>
   );
 };
