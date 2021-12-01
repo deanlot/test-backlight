@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import Icon from '../../../src/Icon';
 import { SpecializedIconProps } from '../../types';
+import { Icon } from '../../../src/IconVariants';
 
 const path = (
   <path
@@ -12,8 +12,8 @@ const path = (
   />
 );
 
-const CheckIcon = ({ size = 'm', color, label, fill }: SpecializedIconProps): ReactElement => {
-  return <Icon label={label || 'check'} size={size} path={path} color={color} fill={fill} />;
+const CheckIcon = ({ size = 'm', stroke, label, fill }: SpecializedIconProps): ReactElement => {
+  return <Icon label={label || 'check'} size={size} path={path} stroke={stroke} fill={fill} />;
 };
 
 export default CheckIcon;

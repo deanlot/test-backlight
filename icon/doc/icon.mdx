@@ -5,7 +5,7 @@ import { Playground } from '@divriots/dockit-react/playground';
 import CheckIcon from '../icons/CheckIcon/src/CheckIcon';
 import BenchIcon from '../icons/BenchIcon/src/BenchIcon';
 import Button from '../../Button/src/Button'
-import Icon from '../src/Icon';
+import { BrandIcon, Icon } from '../src/IconVariants';
 import IconPreview from './components/IconPreview';
 import { ButtonPreviewContainer } from './components/ButtonPreviewContainer.styles';
 export default MdxLayout;
@@ -52,7 +52,7 @@ The Icon components can be used inside other components as well, e.g. Button.
 />
 
 ### Brand Icon
-The Bench Brand icon has a different sizing breakdown to our other icons.
+<Description of={BrandIcon} />
 <Playground
   scope={{ BenchIcon, CheckIcon }}
   code={`

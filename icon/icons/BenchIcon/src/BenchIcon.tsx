@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon from '../../../src/Icon';
 import { SpecializedIconProps } from '../../types';
+import { BrandIcon } from '../../../src/IconVariants';
 
 const path = [
   <path d="M0.5 0.5H11.5V6C11.5 9.03757 9.03757 11.5 6 11.5C2.96243 11.5 0.5 9.03757 0.5 6V0.5Z" stroke="#121316" />,
@@ -12,8 +12,8 @@ const path = [
   />,
 ];
 
-const BenchIcon = ({ size = 'm', color, label, fill }: SpecializedIconProps) => {
-  return <Icon label={label || 'bench'} size={size} path={path} color={color} fill={fill} brand />;
+const BenchIcon = ({ size = 'm', stroke, label, fill }: SpecializedIconProps) => {
+  return <BrandIcon label={label || 'bench'} size={size} path={path} stroke={stroke} fill={fill} />;
 };
 
 export default BenchIcon;

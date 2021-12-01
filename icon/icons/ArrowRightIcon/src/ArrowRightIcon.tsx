@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import Icon from '../../../src/Icon';
 import { SpecializedIconProps } from '../../types';
+import { Icon } from '../../../src/IconVariants';
 
 const path = [
   <path d="M0.375 6.29688H11.625" stroke="#121316" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round" />,
@@ -13,8 +13,8 @@ const path = [
   />,
 ];
 
-const ArrowRightIcon = ({ size = 'm', color, label, fill }: SpecializedIconProps): ReactElement => {
-  return <Icon label={label || 'arrow-right'} size={size} path={path} color={color} fill={fill} />;
+const ArrowRightIcon = ({ size = 'm', stroke, label, fill }: SpecializedIconProps): ReactElement => {
+  return <Icon label={label || 'arrow-right'} size={size} path={path} stroke={stroke} fill={fill} />;
 };
 
 export default ArrowRightIcon;
