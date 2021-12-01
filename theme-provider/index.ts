@@ -1,1 +1,2 @@
-export * from './context/ThemeProvider';
+export { ThemeProvider, useTheme } from './src/ThemeProvider';
+export { WhiteLabelColors } from './src/types/whiteLabelColors';

@@ -1,11 +1,11 @@
 import React, { createContext, PropsWithChildren, useContext, useMemo, useState } from 'react';
 import '../../layout/src/fonts.css';
-import { ThemeContextConfig } from '../types/themeContextConfig';
+import { ThemeContextConfig } from './types/themeContextConfig';
 import { themeList } from '../../theme-list';
 import { createStitches } from '@stitches/react';
 import { ThemeBase } from '../../theme';
-import { WhiteLabelColors } from '../types/whiteLabelColors';
-import { composeTheme } from '../utils/composeTheme';
+import { WhiteLabelColors } from './types/whiteLabelColors';
+import { composeTheme } from './utils/composeTheme';
 
 const ThemeContext = createContext<ThemeContextConfig>({
   setTheme: () => null,
