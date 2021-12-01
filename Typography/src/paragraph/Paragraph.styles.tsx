@@ -10,15 +10,15 @@ export const paragraphStyles = css({
     variant: {
       small: {
         fontSize: '$fontSizes$2',
-        lineHeight: '18px', // TODO - THEME
+        lineHeight: '$lineHeights$2',
       },
       medium: {
         fontSize: '$fontSizes$3',
-        lineHeight: '20px', // TODO - THEME
+        lineHeight: '$lineHeights$3',
       },
       large: {
         fontSize: '$fontSizes$4',
-        lineHeight: '22px', // TODO - THEME
+        lineHeight: '$lineHeights$4',
       },
     },
   },

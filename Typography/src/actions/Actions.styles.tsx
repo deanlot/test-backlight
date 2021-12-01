@@ -5,17 +5,17 @@ export const StyledActions = styled(BaseTypography);
 export const actionsStyles = css({
   fontFamily: '$fonts$actions',
   fontWeight: '$fontWeights$bold',
-  letterSpacing: '6%', // TODO - THEME
+  letterSpacing: '6%', // TODO: REVIEW
 
   variants: {
     variant: {
       small: {
         fontSize: '$fontSizes$2',
-        lineHeight: '16px', // TODO - THEME
+        lineHeight: '$lineHeights$2',
       },
       medium: {
         fontSize: '$fontSizes$3',
-        lineHeight: '16px', // TODO - THEME
+        lineHeight: '$lineHeights$3',
       },
     },
     uppercase: {

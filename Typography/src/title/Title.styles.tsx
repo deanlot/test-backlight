@@ -10,15 +10,15 @@ export const titleStyles = css({
     variant: {
       small: {
         fontSize: '$fontSizes$4',
-        lineHeight: '20px', // TODO - THEME
+        lineHeight: '$lineHeights$4',
       },
       medium: {
         fontSize: '$fontSizes$6',
-        lineHeight: '25px', // TODO - THEME
+        lineHeight: '$lineHeights$6',
       },
       large: {
         fontSize: '$fontSizes$7',
-        lineHeight: '30px', // TODO - THEME
+        lineHeight: '$lineHeights$7',
       },
     },
   },

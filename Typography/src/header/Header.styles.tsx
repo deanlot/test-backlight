@@ -10,15 +10,15 @@ export const headerStyles = css({
     variant: {
       small: {
         fontSize: '$fontSizes$8',
-        lineHeight: '56px', // TODO - THEME
+        lineHeight: '$lineHeights$8',
       },
       medium: {
         fontSize: '$fontSizes$9',
-        lineHeight: '56px', // TODO - THEME
+        lineHeight: '$lineHeights$9',
       },
       large: {
         fontSize: '$fontSizes$11',
-        lineHeight: '60px', // TODO - THEME
+        lineHeight: '$lineHeights$11',
       },
     },
   },
