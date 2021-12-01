@@ -1,10 +1,13 @@
-import React, { DetailedHTMLProps, forwardRef, InputHTMLAttributes, useEffect, useState } from 'react';
+import React, { DetailedHTMLProps, forwardRef, InputHTMLAttributes, useCallback, useEffect, useState } from 'react';
 import {
+  ClearContainer,
   Container,
   errorStyles,
   helperStyles,
+  IconContainer,
   IconPlaceholder,
   InputContainer,
+  inputContainerStyles,
   inputStyles,
   Label,
   StyledInput,
@@ -16,6 +19,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     const errorMessage: Message = { type: 'error', text: error };
 
     const [message, setMessage] = useState<Message>(error && errorMessage);
+    const [focused, setFocused] = useState<boolean>(false);
+
+    // TODO: we should wrap onClear in useCallback if we can so the consumer doesnt need to worry about it
 
     useEffect(() => {
       if (error) {
@@ -37,33 +43,47 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     const handleFocus = (e) => {
       const newMessage = error ? errorMessage : helperMessage;
       setMessage(newMessage);
+      setFocused(true);
       onFocus && onFocus(e);
     };
 
     const handleBlur = (e) => {
       const newMessage = error ? errorMessage : undefined;
       setMessage(newMessage);
+      setFocused(false);
       onBlur && onBlur(e);
     };
 
     return (
-      <InputContainer>
+      <Container>
         <Label htmlFor={id}>{getLabel()}</Label>
-        <Container>
+        <InputContainer className={`${inputContainerStyles({ error: !!error, focused })}`} tabIndex={0}>
           <StyledInput
             {...props}
+            className={inputStyles({ error: !!error })}
             id={id}
-            className={`${inputStyles({ error: !!error })}`}
             onFocus={handleFocus}
             onBlur={handleBlur}
             ref={ref}
             type="text"
             maxLength={60}
+            tabIndex={-1}
           />
-          {error && <IconPlaceholder />}
-        </Container>
+          <IconContainer>
+            {onClear && (
+              <ClearContainer onClick={onClear}>
+                <IconPlaceholder />
+              </ClearContainer>
+            )}
+            {error && (
+              <div>
+                <IconPlaceholder />
+              </div>
+            )}
+          </IconContainer>
+        </InputContainer>
         <span className={messageStyles()}>{message?.text}</span>
-      </InputContainer>
+      </Container>
     );
   }
 );

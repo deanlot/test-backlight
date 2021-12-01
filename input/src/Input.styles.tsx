@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, styled } from '@stitches/react';
 
-export const InputContainer = styled('div', {
+export const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
 });
@@ -15,48 +15,21 @@ export const inputStyles = css({
   // these need to be replaced with tokens
   lineHeight: '20px',
   color: '#2D3036', // secondary[800]
-  border: '2px solid rgba(0,0,0,0)', // secondary[20] not sure if this is meant to be transparent or not
-  // border radius in mockup is 4px but we dont have a 4px radius in our radii.ts
-  borderRadius: '4px',
+  border: 'none',
+
   background: '#F7F8FA', // secondary[20]
+  outline: 'none',
 
   '&: disabled': {
     color: '$onSurface-textDisabled', // secondary 600
   },
-
-  '&:focus': {
-    border: '2px solid #CACDD2',
-    outline: 'none',
-  },
-
   variants: {
     error: {
       true: {
-        paddingRight: '$6',
-        border: '2px solid $interactive-criticalHovered',
-
-        '&:focus': {
-          border: '2px solid $interactive-criticalHovered',
-          outline: 'none',
-        },
-      },
-    },
-    clear: {
-      true: {
-        paddingRight: '$6',
+        paddingRight: 0,
       },
     },
   },
-  // TODO: this is going to get a PR comment, maybe we should just do a div instead of this
-  compoundVariants: [
-    {
-      error: true,
-      clear: true,
-      css: {
-        paddingRight: '$8',
-      },
-    },
-  ],
 });
 
 // likely replaced by some kind of typography component
@@ -87,15 +60,60 @@ export const Label = styled('label', {
   letterSpacing: '0.12em',
 });
 
-export const IconPlaceholder = styled('span', {
+export const IconPlaceholder = styled('div', {
+  display: 'inline-block',
   width: 12,
   height: 12,
-  position: 'absolute',
-  bottom: '14px',
-  right: '12px',
   background: 'red',
+  marginLeft: '$3',
+  marginRight: '$3',
 });
 
-export const Container = styled('div', {
-  position: 'relative',
+export const InputContainer = styled('div');
+export const inputContainerStyles = css({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  border: '2px solid rgba(0,0,0,0)', // secondary[20] not sure if this is meant to be transparent or not
+  // border radius in mockup is 4px but we dont have a 4px radius in our radii.ts
+  borderRadius: '4px',
+  background: '#F7F8FA', // secondary[20]
+
+  variants: {
+    error: {
+      true: {
+        border: '2px solid red',
+
+        // this does nothing because its not focusing the div
+        '&:focus': {
+          border: '2px solid red',
+        },
+      },
+    },
+    focused: {
+      true: {
+        border: '2px solid #CACDD2',
+        outline: 'none',
+      },
+    },
+  },
+  compoundVariants: [
+    {
+      error: true,
+      focused: true,
+      css: {
+        border: '2px solid red',
+        outline: 'none',
+      },
+    },
+  ],
+});
+
+export const IconContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+});
+
+export const ClearContainer = styled('div', {
+  flex: '1',
 });
