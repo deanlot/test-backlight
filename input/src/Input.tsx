@@ -46,7 +46,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const getLabel = () => {
       if (props?.label.length > 30) {
-        console.warn('Input component with props');
+        console.warn('Input component label cannot exceed 30 characters.');
         return props.label.substring(0, 30);
       }
 
