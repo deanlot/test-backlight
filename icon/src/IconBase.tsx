@@ -1,11 +1,12 @@
 import React, { ReactNode } from 'react';
 import AccessibleIcon from '../../AccessibleIcon/src/AccessibleIcon';
 import { Svg } from './Icon.styles';
-import { getScaleMultiplier } from './utils';
+import { getCenteringTranslationValues, getScaleMultiplier } from './utils';
 import { PickedSVGProps } from '../types';
 
 export const IconBase = ({ path, label, stroke, fill, size, width = 12, height = 12 }: IconBaseProps) => {
-  const { widthMultiplier, heightMultiplier } = getScaleMultiplier(size, width, height);
+  const scaleMultiplier = getScaleMultiplier(size, width, height);
+  const { translateX, translateY } = getCenteringTranslationValues(size, width, height, scaleMultiplier);
 
   const SVG = (
     <Svg
@@ -21,13 +22,7 @@ export const IconBase = ({ path, label, stroke, fill, size, width = 12, height =
         },
       }}
     >
-      <g
-        transform={`translate(${(size - width * widthMultiplier) / 2}, ${
-          (size - height * heightMultiplier) / 2
-        }) scale(${widthMultiplier}, ${heightMultiplier})`}
-      >
-        {path}
-      </g>
+      <g transform={`translate(${translateX}, ${translateY}) scale(${scaleMultiplier}, ${scaleMultiplier})`}>{path}</g>
     </Svg>
   );
 
