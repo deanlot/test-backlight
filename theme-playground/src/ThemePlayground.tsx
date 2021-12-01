@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactElement } from 'react';
-import ThemePanel from '../../theme-panel/ThemePanel';
+import { ThemePanel } from '../../theme-panel';
 import { Playground } from '@divriots/dockit-react/playground';
 
 // These are the props of the divriots Playground.
