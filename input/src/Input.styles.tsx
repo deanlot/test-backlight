@@ -32,7 +32,7 @@ export const inputStyles = css({
   variants: {
     error: {
       true: {
-        paddingRight: '$5',
+        paddingRight: '$6',
         border: '2px solid $interactive-criticalHovered',
 
         '&:focus': {
@@ -41,12 +41,27 @@ export const inputStyles = css({
         },
       },
     },
+    clear: {
+      true: {
+        paddingRight: '$6',
+      },
+    },
   },
+  // TODO: this is going to get a PR comment, maybe we should just do a div instead of this
+  compoundVariants: [
+    {
+      error: true,
+      clear: true,
+      css: {
+        paddingRight: '$8',
+      },
+    },
+  ],
 });
 
 // likely replaced by some kind of typography component
 export const errorStyles = css({
-  color: '$onSurface-iconCritical',
+  color: '$interactive-criticalHovered',
   fontSize: '$2',
   lineHeight: '20px',
   fontStyle: 'italic',
