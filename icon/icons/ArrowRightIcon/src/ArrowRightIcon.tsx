@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import Icon from '../../../src/Icon';
-import { IconProps } from '../../types';
+import { SpecializedIconProps } from '../../types';
 
 const path = [
   <path d="M0.375 6.29688H11.625" stroke="#121316" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round" />,
@@ -13,7 +13,7 @@ const path = [
   />,
 ];
 
-const ArrowRightIcon = ({ size = 'm', color, label, fill }: IconProps): ReactElement => {
+const ArrowRightIcon = ({ size = 'm', color, label, fill }: SpecializedIconProps): ReactElement => {
   return <Icon label={label || 'arrow-right'} size={size} path={path} color={color} fill={fill} />;
 };
 

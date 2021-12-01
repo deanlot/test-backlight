@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import Icon from '../../../src/Icon';
-import { IconProps } from '../../types';
+import { SpecializedIconProps } from '../../types';
 
 const path = (
   <path
@@ -11,7 +11,7 @@ const path = (
   />
 );
 
-const CloseIcon = ({ size = 'm', color, label, fill }: IconProps): ReactElement => {
+const CloseIcon = ({ size = 'm', color, label, fill }: SpecializedIconProps): ReactElement => {
   return <Icon label={label || 'close'} size={size} path={path} color={color} fill={fill} />;
 };
 

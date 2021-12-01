@@ -1,6 +1,6 @@
 import { Sizes } from '../../types';
 
-export type IconProps = {
+export type SpecializedIconProps = {
   /**
    * an accessible label for your icon, a default one will be given if not specified
    */

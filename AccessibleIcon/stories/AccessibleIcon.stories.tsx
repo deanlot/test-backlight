@@ -1,7 +1,7 @@
 import React from 'react';
-import CustomIcon from '../src/CustomIcon';
-import { layout } from '../../utils/src/story-decorator';
-export default layout;
+import AccessibleIcon from '../src/AccessibleIcon';
+import { StoryLayout } from '~/layout';
+export default StoryLayout;
 
 const SVG = (
   <svg width="24px" height="24px">
@@ -17,4 +17,4 @@ const SVG = (
   </svg>
 );
 
-export const CustomIconOne = () => <CustomIcon label="home" svg={SVG} />;
+export const AccessibleIconOne = () => <AccessibleIcon label="home" svg={SVG} />;
