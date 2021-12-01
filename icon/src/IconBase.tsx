@@ -21,7 +21,13 @@ export const IconBase = ({ path, label, stroke, fill, size, width = 12, height =
         },
       }}
     >
-      <g transform={`scale(${widthMultiplier}, ${heightMultiplier})`}>{path}</g>
+      <g
+        transform={`translate(${(size - width * widthMultiplier) / 2}, ${
+          (size - height * heightMultiplier) / 2
+        }) scale(${widthMultiplier}, ${heightMultiplier})`}
+      >
+        {path}
+      </g>
     </Svg>
   );
 

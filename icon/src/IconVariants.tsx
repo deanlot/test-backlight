@@ -25,12 +25,17 @@ const brandIconSizes: SizeBreakdown = {
   xl: 40,
 };
 
-export const SymbolIcon = ({ size, ...props }: IconVariant) => <IconBase {...props} size={symbolIconSizes[size]} />;
+/**
+ Icon component that renders Symbols used in other components
+ */
+export const SymbolIcon = ({ size, ...props }: IconVariant) => (
+  <IconBase height={6} width={6} {...props} size={symbolIconSizes[size]} />
+);
 const symbolIconSizes: SizeBreakdown = {
-  s: 6,
-  m: 10,
-  l: 12,
-  xl: 16,
+  s: 8,
+  m: 12,
+  l: 16,
+  xl: 20,
 };
 
 type SizeBreakdown = {
@@ -40,4 +45,6 @@ type SizeBreakdown = {
 type IconVariant = {
   path: ReactNode | ReactNode[];
   label: string;
+  height?: number;
+  width?: number;
 } & Omit<SpecializedIconProps, 'label'>;

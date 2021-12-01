@@ -1,7 +1,7 @@
 import React from 'react';
 import CheckIcon from '../icons/CheckIcon/src/CheckIcon';
 import { StoryLayout } from '~/layout';
-import WarningSymbol from '../symbols/WarningSymbol/WarningSymbol';
+import WarningSymbol from '../symbols/WarningSymbol/src/WarningSymbol';
 export default StoryLayout;
 
 export const IconSmall = () => <CheckIcon size="s" />;
