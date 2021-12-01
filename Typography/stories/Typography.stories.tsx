@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoryLayout } from '../../layout';
 import BaseTypography from '../src/base-typography/BaseTypography';
-import { Actions, Header, Helper, Label, Paragraph, Title } from '../src';
+import { Actions, Header, Helper, Label, Numeric, Paragraph, Title } from '../src';
 
 export default StoryLayout;
 
@@ -49,3 +49,9 @@ export const labelBoldUpper = () => (
 );
 
 export const helper = () => <Helper>Helper</Helper>;
+
+export const numericXSmall = () => <Numeric variant={'xsmall'}>Numeric - XSmall $100.00</Numeric>;
+export const numericSmall = () => <Numeric variant={'small'}>Numeric - Small $100.00</Numeric>;
+export const numericMedium = () => <Numeric variant={'medium'}>Numeric - Medium $100.00</Numeric>;
+export const numericLarge = () => <Numeric variant={'large'}>Numeric - Large $100.00</Numeric>;
+export const numericXLarge = () => <Numeric variant={'large'}>Numeric - XLarge $100.00</Numeric>;
