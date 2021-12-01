@@ -2,10 +2,6 @@ import React from 'react';
 import { styled } from '@stitches/react';
 import * as RadixDialog from '@radix-ui/react-dialog';
 
-export const Root = styled(RadixDialog.Root, {
-  backgroundColor: 'red',
-});
-
 export const Container = styled(RadixDialog.Content, {
   position: 'fixed',
   display: 'flex',
@@ -21,6 +17,7 @@ export const Container = styled(RadixDialog.Content, {
 });
 
 export const Overlay = styled(RadixDialog.Overlay, {
+  position: 'fixed',
   width: '100vw',
   height: '100vh',
   filter: 'blur(4px)',
