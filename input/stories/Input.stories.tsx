@@ -2,10 +2,21 @@ import React, { useCallback, useState } from 'react';
 import Input from '../src/Input';
 import { StoryLayout } from '../../layout';
 import { useForm } from 'react-hook-form';
+import CheckIcon from '../../icon/icons/CheckIcon/src/CheckIcon';
+import Button from '../../Button/src/Button';
 
 export default StoryLayout;
 
 export const primaryHelper = () => <Input helper="The first part of your name" label="First Name" />;
+export const primaryTextRightHelper = () => (
+  <Input helper="The first part of your name" label="First Name" textAlign="right" />
+);
+export const primaryIconRight = () => (
+  <Input helper="The first part of your name" label="First Name" icon={<CheckIcon />} />
+);
+export const primaryIconLeft = () => (
+  <Input helper="The first part of your name" label="First Name" icon={<CheckIcon />} iconPlacement="left" />
+);
 
 export const primaryError = () => {
   const [inputVal, setInputVal] = useState<string>('');
@@ -66,8 +77,9 @@ export const primaryRHF = () => {
         helper="Your first name."
         {...register('firstName', { required: true })}
         error={errors?.firstName && 'First Name is required.'}
+        icon={<CheckIcon />}
       />
-      <button type="submit">Submit</button>
+      <Button type="submit">Submit</Button>
     </form>
   );
 };

@@ -1,22 +1,28 @@
-import React, { DetailedHTMLProps, forwardRef, InputHTMLAttributes, useCallback, useEffect, useState } from 'react';
+import React, { DetailedHTMLProps, forwardRef, InputHTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import {
   Container,
   errorStyles,
   helperStyles,
   IconContainer,
+  iconContainerStyles,
   InputContainer,
   inputContainerStyles,
   inputStyles,
   Label,
+  MessageContainer,
   StyledInput,
   WarningSymbolContainer,
 } from './Input.styles';
 import WarningSymbol from '../../icon/symbols/WarningSymbol/WarningSymbol';
 import Button from '../../Button/src/Button';
 import CloseIcon from '../../icon/icons/CloseIcon/src/CloseIcon';
+import BlockSymbol from '../../icon/symbols/BlockSymbol/BlockSymbol';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ id, onFocus, onBlur, onClear, disabled, helper, error, ...props }, ref) => {
+  (
+    { id, onFocus, onBlur, onClear, disabled, helper, error, icon, iconPlacement, textAlign = 'left', ...props },
+    ref
+  ) => {
     const helperMessage: Message = { type: 'helper', text: helper };
     const errorMessage: Message = { type: 'error', text: error };
 
@@ -26,13 +32,20 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     // TODO: we should wrap onClear in useCallback if we can so the consumer doesnt need to worry about it
 
     useEffect(() => {
+      // TODO: this can be neatened
       if (error) {
-        setMessage(errorMessage);
+        error && setMessage(errorMessage);
+      } else {
+        if (helper) {
+          setMessage(helperMessage);
+        } else {
+          setMessage(undefined);
+        }
       }
     }, [error]);
 
     const getLabel = () => {
-      if (props.label.length > 30) {
+      if (props?.label.length > 30) {
         console.warn('Input component with props');
         return props.label.substring(0, 30);
       }
@@ -58,12 +71,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <Container>
-        <Label htmlFor={id}>{getLabel()}</Label>
-        <InputContainer className={`${inputContainerStyles({ error: !!error, focused })}`} tabIndex={0}>
+        {props.label && <Label htmlFor={id}>{getLabel()}</Label>}
+        <InputContainer className={`${inputContainerStyles({ error: !!error, focused, iconPlacement })}`} tabIndex={0}>
           <StyledInput
             {...props}
             disabled={disabled}
             className={inputStyles({ error: !!error })}
+            css={{ textAlign: textAlign }}
             id={id}
             onFocus={handleFocus}
             onBlur={handleBlur}
@@ -72,16 +86,17 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             maxLength={60}
             tabIndex={-1}
           />
-          <IconContainer>
-            {!disabled && onClear && <Button icon={<CloseIcon size="s" />} onClick={onClear} variant="ghost" />}
-            {error && (
-              <WarningSymbolContainer>
-                <WarningSymbol />
-              </WarningSymbolContainer>
-            )}
-          </IconContainer>
+          {icon && (
+            <IconContainer className={iconContainerStyles({ iconPlacement })}>
+              {/*{!disabled && onClear && <Button icon={<CloseIcon size="s" />} onClick={onClear} variant="ghost" />}*/}
+              {icon}
+            </IconContainer>
+          )}
         </InputContainer>
-        <span className={messageStyles()}>{message?.text}</span>
+        <MessageContainer>
+          {error && <BlockSymbol />}
+          {message && <span className={messageStyles()}>{message?.text}</span>}
+        </MessageContainer>
       </Container>
     );
   }
@@ -89,12 +104,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
 export type InputProps = {
   // label cannot be over 30 chars
-  label: string;
-  helper: string;
+  label?: string;
+  helper?: string;
   // should id or name be made required, since it would affect accessibility for the "htmlFor" attribute
   id?: string;
   error?: string;
   onClear?: () => void;
+  textAlign?: 'left' | 'right';
+  iconPlacement?: 'left' | 'right';
+  icon?: ReactNode;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 type Message =

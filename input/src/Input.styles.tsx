@@ -11,13 +11,12 @@ export const inputStyles = css({
   fontFamily: '$input',
   fontWeight: '$regular',
   fontSize: '$4',
-  padding: '$2 $3',
   // these need to be replaced with tokens
   lineHeight: '20px',
   color: '#2D3036', // secondary[800]
   border: 'none',
 
-  background: '#F7F8FA', // secondary[20]
+  background: 'transparent', // secondary[20]
   outline: '2px solid transparent',
 
   '&: disabled': {
@@ -39,6 +38,7 @@ export const errorStyles = css({
   lineHeight: '20px',
   fontStyle: 'italic',
   fontWeight: '$regular',
+  paddingLeft: '$2',
 });
 
 export const helperStyles = css({
@@ -47,6 +47,14 @@ export const helperStyles = css({
   lineHeight: '20px',
   fontStyle: 'italic',
   fontWeight: '$regular',
+  paddingLeft: '$2',
+});
+
+export const MessageContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  paddingTop: '$1',
 });
 
 // this will be likely replaced by a typography component
@@ -77,8 +85,10 @@ export const inputContainerStyles = css({
   border: 'none',
   // border radius in mockup is 4px but we dont have a 4px radius in our radii.ts
   borderRadius: '4px',
-  background: '#F7F8FA', // secondary[20]
+  background: '$surface-muted',
+
   outline: '2px solid rgba(0,0,0,0)', // secondary[20] not sure if this is meant to be transparent or not
+  padding: '$2 $4',
 
   variants: {
     error: {
@@ -93,7 +103,20 @@ export const inputContainerStyles = css({
     },
     focused: {
       true: {
-        outline: '2px solid #CACDD2',
+        outline: '2px solid #256AF4',
+        background: '$surface',
+      },
+    },
+    iconPlacement: {
+      // This is a little icky
+      left: {
+        flexDirection: 'row-reverse',
+      },
+      right: {
+        flexDirection: 'row',
+      },
+      undefined: {
+        flexDirection: 'row',
       },
     },
   },
@@ -109,10 +132,23 @@ export const inputContainerStyles = css({
   ],
 });
 
-export const IconContainer = styled('div', {
+export const IconContainer = styled('div');
+export const iconContainerStyles = css({
   display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
+
+  variants: {
+    iconPlacement: {
+      left: {
+        paddingRight: '$2',
+      },
+      right: {
+        paddingLeft: '$2',
+      },
+      undefined: {
+        paddingLeft: '$2',
+      },
+    },
+  },
 });
 
 export const WarningSymbolContainer = styled('div', {
