@@ -1,8 +1,8 @@
 import React from 'react';
 import Input from '../src/Input';
-import { layout } from '../../utils/src/story-decorator';
+import { StoryLayout } from '../../layout';
 
-export default layout;
+export default StoryLayout;
 
 export const primaryHelper = () => <Input helper="The first part of your name" label="First Name" />;
 

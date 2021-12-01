@@ -72,9 +72,15 @@ export const Label = styled('label', {
   letterSpacing: '0.12em',
 });
 
-export const IconPlaceholder = styled('div', {
+export const IconPlaceholder = styled('span', {
   width: 12,
   height: 12,
+  position: 'absolute',
+  bottom: '14px',
+  right: '12px',
+  background: 'red',
+});
+
+export const Container = styled('div', {
   position: 'relative',
-  marginLeft: '-40px',
 });

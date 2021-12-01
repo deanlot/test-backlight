@@ -1,5 +1,6 @@
 import React, { DetailedHTMLProps, forwardRef, InputHTMLAttributes, useEffect, useState } from 'react';
 import {
+  Container,
   errorStyles,
   helperStyles,
   IconPlaceholder,
@@ -48,17 +49,19 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <InputContainer>
         <Label htmlFor={id}>{getLabel()}</Label>
-        <StyledInput
-          {...props}
-          id={id}
-          className={`${inputStyles({ error: !!error })}`}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          ref={ref}
-          type="text"
-          maxLength={60}
-        />
-        <IconPlaceholder>C</IconPlaceholder>
+        <Container>
+          <StyledInput
+            {...props}
+            id={id}
+            className={`${inputStyles({ error: !!error })}`}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            ref={ref}
+            type="text"
+            maxLength={60}
+          />
+          {error && <IconPlaceholder />}
+        </Container>
         <span className={messageStyles()}>{message?.text}</span>
       </InputContainer>
     );
@@ -68,11 +71,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 export type InputProps = {
   // label cannot be over 30 chars
   label: string;
+  helper: string;
   // should id or name be made required, since it would affect accessibility for the "htmlFor" attribute
   id?: string;
   error?: string;
-  helper: string;
-  onClear: () => void;
+  onClear?: () => void;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 type Message =
