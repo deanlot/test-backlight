@@ -5,3 +5,4 @@ export { default as Actions } from './actions/Actions';
 export { default as Label } from './label/Label';
 export { default as Helper } from './helper/Helper';
 export { default as Numeric } from './numeric/Numeric';
+export { default as Disclaimer } from './disclaimer/Disclaimer';

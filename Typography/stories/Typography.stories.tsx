@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoryLayout } from '../../layout';
 import BaseTypography from '../src/base-typography/BaseTypography';
-import { Actions, Header, Helper, Label, Numeric, Paragraph, Title } from '../src';
+import { Actions, Disclaimer, Header, Helper, Label, Numeric, Paragraph, Title } from '../src';
 
 export default StoryLayout;
 
@@ -55,3 +55,5 @@ export const numericSmall = () => <Numeric variant={'small'}>Numeric - Small $10
 export const numericMedium = () => <Numeric variant={'medium'}>Numeric - Medium $100.00</Numeric>;
 export const numericLarge = () => <Numeric variant={'large'}>Numeric - Large $100.00</Numeric>;
 export const numericXLarge = () => <Numeric variant={'large'}>Numeric - XLarge $100.00</Numeric>;
+
+export const disclaimer = () => <Disclaimer>disclaimer</Disclaimer>;
