@@ -1,29 +1,31 @@
 import React, { ReactElement, ReactNode } from 'react';
 import * as RadixDialog from '@radix-ui/react-dialog';
 import { Container, Content, Header, Overlay } from './Modal.styles';
-import { useTheme } from '../../utils/src/ThemeProvider';
 import Button from '../../Button/src/Button';
 import { Cross2Icon } from '@radix-ui/react-icons';
+import { useTheme } from '../../theme-provider';
 
 /**
  * The modal component is used to hoist content over the primary content.
  */
-const Modal = ({ children, trigger, open, title, showClose = true, ...rest }: ModalProps): ReactElement => {
-  const { theme } = useTheme();
+const Modal = ({ children, trigger, title, showClose = true, ...rest }: ModalProps): ReactElement => {
+  const { stitchesTheme: theme } = useTheme();
   return (
-    <RadixDialog.Root modal={true} open={open} {...rest}>
-      <Overlay className={theme} />
+    <RadixDialog.Root {...rest}>
+      <RadixDialog.Overlay asChild className={theme}>
+        <Overlay />
+      </RadixDialog.Overlay>
       {trigger && <RadixDialog.Trigger asChild={!!trigger}>{trigger || 'Open'}</RadixDialog.Trigger>}
       <Container className={theme}>
         <Header>
-          {title && <RadixDialog.Title>{title}</RadixDialog.Title>}
-          {showClose && <RadixDialog.Close asChild={showClose}>
-            <Button variant={'ghost'} icon={<Cross2Icon />} />
-          </RadixDialog.Close>}
+          <RadixDialog.Title>{title}</RadixDialog.Title>
+          {showClose && (
+            <RadixDialog.Close asChild={showClose}>
+              <Button variant={'ghost'} icon={<Cross2Icon />} />
+            </RadixDialog.Close>
+          )}
         </Header>
-        <Content>
-          {children}
-        </Content>
+        <Content>{children}</Content>
       </Container>
     </RadixDialog.Root>
   );

@@ -6,4 +6,5 @@ export type ThemeContextConfig = {
   setTheme: (themeBase: ThemeBase, colors?: WhiteLabelColors) => void;
   theme: ConfigType.Theme;
   themeBase: ThemeBase;
+  stitchesTheme?: string;
 };
