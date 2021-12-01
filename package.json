@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@radix-ui/react-accessible-icon": "^0.1.1",
     "@radix-ui/react-alert-dialog": "^0.1.1",
     "@stitches/react": "^1.2.5",
     "@streamlinehq/streamline-wrapper-react": "^1.3.4",

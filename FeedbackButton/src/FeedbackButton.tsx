@@ -1,6 +1,7 @@
 import React, { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
 import Button, { ButtonProps } from '../../Button/src/Button';
 import { animated, useSpring } from 'react-spring';
+import CheckIcon from '../../icon/icons/CheckIcon/src/CheckIcon';
 
 /**
  * The <FeedbackButton /> component should be used when there is an asynchronous call associated to a onClick event.
@@ -24,7 +25,7 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
     config: { duration: 200 },
     onRest: () => {
       setFailed(false);
-    }
+    },
   });
 
   useEffect(() => {
@@ -34,7 +35,8 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
     };
   }, [timer]);
 
-  const handleClick = useCallback((e) => {
+  const handleClick = useCallback(
+    (e) => {
       if (clickable && !busy) {
         const updateButtonToNotClickableAndInvokeOnClick = (e) => {
           inferBusy && setBusy(true);
@@ -47,13 +49,15 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
             setBusy(rest.busy);
           }
           setClickable(true);
-          return setTimer(setTimeout(() => {
-            setIcon(rest.icon);
-          }, delay || 1200));
+          return setTimer(
+            setTimeout(() => {
+              setIcon(rest.icon);
+            }, delay || 1200)
+          );
         };
 
         const showSuccessIcon = () => {
-          return setIcon(<div>done</div>);
+          return setIcon(<CheckIcon size={'l'} />);
         };
 
         const shakeButton = (e) => {
@@ -71,16 +75,20 @@ const FeedbackButton = ({ onClick, delay, inferBusy, ...rest }: FeedbackButtonPr
     [onClick, clickable, busy, inferBusy, setFailed, setIcon]
   );
 
-  return <animated.div
-    style={{
-      transform: x
-        .to({
-          range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
-          output: [0, 5, -5, 5, -5, 5, -5, 0]
-        })
-        .to(x => `translate3d(${x}px, 0px, 0px)`)
-    }}
-  ><Button {...rest} onClick={handleClick} icon={icon} busy={busy} /></animated.div>;
+  return (
+    <animated.div
+      style={{
+        transform: x
+          .to({
+            range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
+            output: [0, 5, -5, 5, -5, 5, -5, 0],
+          })
+          .to((x) => `translate3d(${x}px, 0px, 0px)`),
+      }}
+    >
+      <Button {...rest} onClick={handleClick} icon={icon} busy={busy} />
+    </animated.div>
+  );
 };
 
 type OnClickAsync<T = any> = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<T>;
