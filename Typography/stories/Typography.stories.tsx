@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoryLayout } from '../../layout';
 import BaseTypography from '../src/base-typography/BaseTypography';
-import { Header, Title } from '../src';
+import { Header, Paragraph, Title } from '../src';
 
 export default StoryLayout;
 
@@ -19,3 +19,7 @@ export const headerLarge = () => <Header variant={'large'}>Header - Large</Heade
 export const titleSmall = () => <Title variant={'small'}>Title - Small</Title>;
 export const titleMedium = () => <Title variant={'medium'}>Title - Medium</Title>;
 export const titleLarge = () => <Title variant={'large'}>Title - Large</Title>;
+
+export const paragraphSmall = () => <Paragraph variant={'small'}>Paragraph - Small</Paragraph>;
+export const paragraphMedium = () => <Paragraph variant={'medium'}>Paragraph - Medium</Paragraph>;
+export const paragraphLarge = () => <Paragraph variant={'large'}>Paragraph - Large</Paragraph>;
