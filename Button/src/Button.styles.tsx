@@ -2,7 +2,7 @@ import { css, styled } from '@stitches/react';
 
 export const StyledButton = styled('button');
 export const buttonStyles = css({
-  borderRadius: '32px',
+  borderRadius: '$radii$4',
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
@@ -17,56 +17,52 @@ export const buttonStyles = css({
 
   variants: {
     variant: {
-      primary: {
-        backgroundColor: '$surface-primary',
-        border: '3px solid $primary',
+      solid: {
+        backgroundColor: '$interactive-primary',
+        color: '$onSurface-onPrimary',
+        border: 'none',
 
         '&:disabled': {
-          backgroundColor: '$disabled',
-          border: '3px solid $disabled',
+          color: '$onSurface-textMuted',
+          backgroundColor: '$interactive-disabled',
         },
         '&:hover': {
-          border: '3px solid $outlinePrimary',
+          backgroundColor: '$interactive-primaryHovered',
         },
         '&:active': {
-          backgroundColor: '$activePrimary',
-          border: '3px solid $activePrimary',
+          backgroundColor: '$interactive-primaryPressed',
         },
       },
-      secondary: {
-        backgroundColor: 'rgba(255, 255, 255, 0)',
-        color: '#000000',
-        border: '2px solid #000000',
+      outline: {
+        backgroundColor: '$transparent',
+        color: '$interactive-secondary',
+        boxShadow: 'inset 0 0 0 $borderWidths$medium $colors$interactive-secondary',
+        border: 'none',
 
         '&:disabled': {
-          color: '#565960',
-          border: '2px solid #565960',
+          color: '$onSurface-textDisabled',
+          boxShadow: 'inset 0 0 0 $borderWidths$medium $colors$interactive-disabled',
         },
         '&:hover': {
-          border: '2px solid #000000',
-          // this allows the button to appear as if the border is 3px without increasing the border by 1px
-          // increasing the border will increase space occupied by the button
-          // and could possibly cause surrounding elements to shift
-          boxShadow: 'inset 0 0 0 1px #000000',
+          backgroundColor: '$interactive-hovered',
         },
         '&:active': {
-          color: '#484B50',
-          border: '2px solid #484B50',
+          boxShadow: 'inset 0 0 0 $borderWidths$medium $colors$onSurface-textMuted',
         },
       },
       ghost: {
-        backgroundColor: 'rgba(255,255, 255, 0)',
+        backgroundColor: '$transparent',
+        color: '$onSurface-text',
         border: 'none',
-        color: '000',
 
         '&:disabled': {
-          color: '#565960',
+          color: '$onSurface-textDisabled',
         },
         '&:hover': {
-          color: '000',
+          backgroundColor: '$interactive-hovered',
         },
         '&:active': {
-          color: '#565960',
+          backgroundColor: '$interactive-pressed',
         },
       },
     },
@@ -93,17 +89,15 @@ export const buttonStyles = css({
 });
 
 export const ButtonText = styled('span', {
-  fontFamily: 'LLCircularWeb',
-  fontStyle: 'normal',
-  fontWeight: 'bold',
-  fontSize: '14px',
+  fontSize: '$fontSizes$3',
+  fontFamily: '$fonts$actions',
+  fontWeight: '$regular',
   lineHeight: '16px',
   display: 'flex',
   alignItems: 'center',
   textAlign: 'right',
   letterSpacing: '0.06em',
   textTransform: 'uppercase',
-  color: '#472300',
 });
 
 export const FlexContainer = styled('div');

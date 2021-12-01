@@ -1,16 +1,15 @@
 import React from 'react';
 import FeedbackButton from '../src/FeedbackButton';
-import { layout } from '../../utils/src/story-decorator';
+import { StoryLayout } from '~/layout';
 
-export default layout;
+export default StoryLayout;
 
-export const primaryReady = () => (
+export const solidReady = () => (
   <FeedbackButton
-    variant={'primary'}
     onClick={(e) => {
       return Promise.resolve();
     }}
   >
-    PRIMARY
+    SOLID
   </FeedbackButton>
 );
