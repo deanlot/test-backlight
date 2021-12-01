@@ -1,7 +1,7 @@
 import { WhiteLabelColors } from '../types/whiteLabelColors';
-import { ThemeBase } from '../../theme';
+import { ThemeBase } from '../../../theme';
 import { ConfigType } from '@stitches/react/types/config';
-import { themeList } from '../../theme-list';
+import { themeList } from '../../../theme-list';
 
 // Composing a theme requires mering a customer's colors (WhiteLabelColors) over top of
 // a specific base theme (light/dark). However we expect a much smaller list of colors from the customer
