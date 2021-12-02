@@ -3,23 +3,23 @@ import BaseTypography from '../base-typography/BaseTypography';
 
 export const StyledLabel = styled(BaseTypography);
 export const labelStyles = css({
-  fontFamily: '$fonts$label',
-  fontWeight: '$fontWeights$regular',
+  fontFamily: '$label',
+  fontWeight: '$regular',
   letterSpacing: '12%', // TODO: REVIEW
 
   variants: {
     variant: {
       small: {
-        fontSize: '$fontSizes$2',
-        lineHeight: '$lineHeights$2',
+        fontSize: '$2',
+        lineHeight: '$2',
       },
       medium: {
-        fontSize: '$fontSizes$3',
-        lineHeight: '$lineHeights$3',
+        fontSize: '$3',
+        lineHeight: '$3',
       },
       large: {
-        fontSize: '$fontSizes$4',
-        lineHeight: '$lineHeights$4',
+        fontSize: '$4',
+        lineHeight: '$4',
       },
     },
     uppercase: {
@@ -29,7 +29,7 @@ export const labelStyles = css({
     },
     bold: {
       true: {
-        fontWeight: '$fontWeights$bold',
+        fontWeight: '$bold',
       },
     },
   },

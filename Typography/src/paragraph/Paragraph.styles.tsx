@@ -3,22 +3,22 @@ import BaseTypography from '../base-typography/BaseTypography';
 
 export const StyledParagraph = styled(BaseTypography);
 export const paragraphStyles = css({
-  fontFamily: '$fonts$paragraph',
-  fontWeight: '$fontWeights$regular',
+  fontFamily: '$paragraph',
+  fontWeight: '$regular',
 
   variants: {
     variant: {
       small: {
-        fontSize: '$fontSizes$2',
-        lineHeight: '$lineHeights$2',
+        fontSize: '$2',
+        lineHeight: '$2',
       },
       medium: {
-        fontSize: '$fontSizes$3',
-        lineHeight: '$lineHeights$3',
+        fontSize: '$3',
+        lineHeight: '$3',
       },
       large: {
-        fontSize: '$fontSizes$4',
-        lineHeight: '$lineHeights$4',
+        fontSize: '$4',
+        lineHeight: '$4',
       },
     },
   },

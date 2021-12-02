@@ -3,22 +3,22 @@ import BaseTypography from '../base-typography/BaseTypography';
 
 export const StyledTitle = styled(BaseTypography);
 export const titleStyles = css({
-  fontFamily: '$fonts$title',
-  fontWeight: '$fontWeights$bold',
+  fontFamily: '$title',
+  fontWeight: '$bold',
 
   variants: {
     variant: {
       small: {
-        fontSize: '$fontSizes$4',
-        lineHeight: '$lineHeights$4',
+        fontSize: '$4',
+        lineHeight: '$4',
       },
       medium: {
-        fontSize: '$fontSizes$6',
-        lineHeight: '$lineHeights$6',
+        fontSize: '$6',
+        lineHeight: '$6',
       },
       large: {
-        fontSize: '$fontSizes$7',
-        lineHeight: '$lineHeights$7',
+        fontSize: '$7',
+        lineHeight: '$7',
       },
     },
   },

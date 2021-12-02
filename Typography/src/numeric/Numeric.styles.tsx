@@ -3,31 +3,31 @@ import BaseTypography from '../base-typography/BaseTypography';
 
 export const StyledNumeric = styled(BaseTypography);
 export const numericStyles = css({
-  fontFamily: '$fonts$numeric',
-  fontWeight: '$fontWeights$bold',
+  fontFamily: '$numeric',
+  fontWeight: '$bold',
   letterSpacing: '4%', // TODO: REVIEW
 
   variants: {
     variant: {
       xsmall: {
-        fontSize: '$fontSizes$3',
-        lineHeight: '$lineHeights$3',
+        fontSize: '$3',
+        lineHeight: '$3',
       },
       small: {
-        fontSize: '$fontSizes$5',
-        lineHeight: '$lineHeights$5',
+        fontSize: '$5',
+        lineHeight: '$5',
       },
       medium: {
-        fontSize: '$fontSizes$6',
-        lineHeight: '$lineHeights$6',
+        fontSize: '$6',
+        lineHeight: '$6',
       },
       large: {
-        fontSize: '$fontSizes$8',
-        lineHeight: '$lineHeights$8',
+        fontSize: '$8',
+        lineHeight: '$8',
       },
       xlarge: {
-        fontSize: '$fontSizes$10',
-        lineHeight: '$lineHeights$10',
+        fontSize: '$10',
+        lineHeight: '$10',
       },
     },
   },
