@@ -56,7 +56,7 @@ export const primaryDisabled = () => {
   );
 };
 
-export const primaryRHF = () => {
+export const reactHookForm = () => {
   type formType = {
     firstName: string;
   };

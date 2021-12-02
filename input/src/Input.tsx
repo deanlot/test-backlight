@@ -10,11 +10,7 @@ import {
   Label,
   MessageContainer,
   StyledInput,
-  WarningSymbolContainer,
 } from './Input.styles';
-import WarningSymbol from '../../icon/symbols/WarningSymbol/WarningSymbol';
-import Button from '../../Button/src/Button';
-import CloseIcon from '../../icon/icons/CloseIcon/src/CloseIcon';
 import BlockSymbol from '../../icon/symbols/BlockSymbol/BlockSymbol';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -31,30 +27,28 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       icon,
       iconPlacement,
       textAlign = 'left',
+      value,
       ...props
     },
     ref
   ) => {
-    const helperMessage: Message = { type: 'helper', text: helper };
-    const errorMessage: Message = { type: 'error', text: error };
-
-    const [message, setMessage] = useState<Message>(error && errorMessage);
+    const [message, setMessage] = useState<Message>();
     const [focused, setFocused] = useState<boolean>(false);
 
-    // TODO: we should wrap onClear in useCallback if we can so the consumer doesnt need to worry about it
-
     useEffect(() => {
-      // TODO: this can be neatened
+      const helperMessage: Message = { type: 'helper', text: helper };
+      const errorMessage: Message = { type: 'error', text: error };
+
       if (error) {
         error && setMessage(errorMessage);
       } else {
-        if (helper) {
+        if (focused && helper) {
           setMessage(helperMessage);
         } else {
           setMessage(undefined);
         }
       }
-    }, [error]);
+    }, [error, focused, setMessage]);
 
     const getLabel = () => {
       if (props?.label.length > 30) {
@@ -68,15 +62,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     const messageStyles = message?.type === 'error' ? errorStyles : helperStyles;
 
     const handleFocus = (e) => {
-      const newMessage = error ? errorMessage : helperMessage;
-      setMessage(newMessage);
       setFocused(true);
       onFocus && onFocus(e);
     };
 
     const handleBlur = (e) => {
-      const newMessage = error ? errorMessage : undefined;
-      setMessage(newMessage);
       setFocused(false);
       onBlur && onBlur(e);
     };
@@ -85,12 +75,20 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <Container>
         {props.label && <Label htmlFor={id}>{getLabel()}</Label>}
         <InputContainer
-          className={`${inputContainerStyles({ variant, error: !!error, focused, iconPlacement })}`}
+          className={`${inputContainerStyles({
+            variant,
+            focused: true,
+            disabled,
+            error: !!error,
+            empty: !value,
+            ...(iconPlacement && { iconPlacement }),
+          })}`}
           tabIndex={0}
         >
           <StyledInput
             {...props}
             disabled={disabled}
+            value={value}
             css={{ textAlign: textAlign }}
             id={id}
             onFocus={handleFocus}
@@ -100,12 +98,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             maxLength={60}
             tabIndex={-1}
           />
-          {icon && (
-            <IconContainer className={iconContainerStyles({ iconPlacement })}>
-              {/*{!disabled && onClear && <Button icon={<CloseIcon size="s" />} onClick={onClear} variant="ghost" />}*/}
-              {icon}
-            </IconContainer>
-          )}
+          {icon && <IconContainer className={iconContainerStyles({ iconPlacement })}>{icon}</IconContainer>}
         </InputContainer>
         <MessageContainer>
           {error && <BlockSymbol />}
@@ -116,7 +109,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-export type InputProps = {
+export interface InputProps extends HTMLInputProps {
   // label cannot be over 30 chars
   label?: string;
   helper?: string;
@@ -128,7 +121,9 @@ export type InputProps = {
   iconPlacement?: 'left' | 'right';
   icon?: ReactNode;
   variant?: Variants;
-} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+}
+
+type HTMLInputProps = Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'style'>;
 
 type Variants = 'text' | 'amount';
 

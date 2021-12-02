@@ -10,23 +10,26 @@ export const StyledInput = styled('input', {
   fontFamily: '$input',
   fontWeight: '$regular',
   fontSize: '$4',
-  // these need to be replaced with tokens
   lineHeight: '20px',
-  color: '#2D3036', // secondary[800]
+  color: '$onSurface-text',
   border: 'none',
-  padding: 0,
+  padding: '$2 $4',
 
-  background: 'transparent', // secondary[20]
+  background: 'transparent',
   outline: '2px solid transparent',
 
-  '&: disabled': {
-    color: '$onSurface-textDisabled', // secondary 600
+  '&:disabled': {
+    color: '$onSurface-textDisabled',
+  },
+
+  '&::placeholder': {
+    color: '$onSurface-border',
   },
 });
 
 // likely replaced by some kind of typography component
 export const errorStyles = css({
-  color: '$interactive-criticalHovered',
+  color: '$interactive-critical',
   fontSize: '$2',
   lineHeight: '20px',
   fontStyle: 'italic',
@@ -40,7 +43,6 @@ export const helperStyles = css({
   lineHeight: '20px',
   fontStyle: 'italic',
   fontWeight: '$regular',
-  paddingLeft: '$2',
 });
 
 export const MessageContainer = styled('div', {
@@ -61,94 +63,96 @@ export const Label = styled('label', {
   letterSpacing: '0.12em',
 });
 
-export const IconPlaceholder = styled('div', {
-  display: 'inline-block',
-  width: 12,
-  height: 12,
-  background: 'red',
-  marginLeft: '$3',
-  marginRight: '$3',
-});
-
 export const InputContainer = styled('div');
 export const inputContainerStyles = css({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   border: 'none',
-  // border radius in mockup is 4px but we dont have a 4px radius in our radii.ts
-  borderRadius: '4px',
-  background: '$surface-muted',
-
-  outline: '2px solid rgba(0,0,0,0)', // secondary[20] not sure if this is meant to be transparent or not
-  padding: '$2 $4',
+  borderRadius: '$1',
+  backgroundColor: '$surface',
+  outline: '1px solid $onSurface-border', // color hex needs to be changed in token
   maxWidth: '65ch',
 
-  variants: {
-    error: {
-      true: {
-        outline: '2px solid red',
+  '&:hover': {
+    backgroundColor: '$surface',
+  },
 
-        // this does nothing because its not focusing the div
-        '&:focus': {
-          outline: '2px solid red',
-        },
+  compoundVariants: [
+    // when error states occur along side other variant states always show error state
+    {
+      error: true,
+      focused: true,
+      css: {
+        border: 'none',
+        outline: '2px solid $interactive-critical',
+      },
+    },
+    {
+      error: true,
+      empty: true,
+      css: {
+        border: 'none',
+        outline: '2px solid $interactive-critical',
+      },
+    },
+  ],
+  variants: {
+    empty: {
+      true: {
+        backgroundColor: '$surface-background',
+        outline: '1px solid $onSurface-border',
+      },
+      false: {
+        backgroundColor: '$surface',
       },
     },
     focused: {
       true: {
-        outline: '2px solid #256AF4',
-        background: '$surface',
+        backgroundColor: '$surface',
+        outline: '2px solid $interactive-highlight',
+      },
+    },
+    error: {
+      true: {
+        border: 'none',
+        outline: '2px solid $interactive-critical',
       },
     },
     iconPlacement: {
-      // This is a little icky
       left: {
         flexDirection: 'row-reverse',
       },
       right: {
         flexDirection: 'row',
       },
-      undefined: {
-        flexDirection: 'row',
+    },
+
+    disabled: {
+      true: {
+        backgroundColor: '$interactive-disabled',
+        outline: '1px solid $onSurface-border',
+        pointerEvents: 'none',
       },
     },
   },
-  compoundVariants: [
-    {
-      error: true,
-      focused: true,
-      css: {
-        border: 'none',
-        outline: '2px solid red',
-      },
-    },
-  ],
 });
 
 export const IconContainer = styled('div');
 export const iconContainerStyles = css({
   display: 'flex',
+  height: '100%',
+  flexGrow: '1',
+  padding: '0 $4 0 0',
 
   variants: {
     iconPlacement: {
       left: {
-        paddingRight: '$2',
+        padding: '0 0 0 $4',
       },
       right: {
-        paddingLeft: '$2',
-      },
-      undefined: {
-        paddingLeft: '$2',
+        padding: '0 $4 0 0',
       },
     },
   },
-});
-
-export const WarningSymbolContainer = styled('div', {
-  width: '32px',
-  height: '32px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
 });
