@@ -14,6 +14,7 @@ export const StyledInput = styled('input', {
   color: '$onSurface-text',
   border: 'none',
   padding: '$2 $4',
+  flex: 1,
 
   background: 'transparent',
   outline: '2px solid transparent',
@@ -88,14 +89,14 @@ export const inputContainerStyles = css({
         outline: '2px solid $interactive-critical',
       },
     },
-    {
-      error: true,
-      empty: true,
-      css: {
-        border: 'none',
-        outline: '2px solid $interactive-critical',
-      },
-    },
+    // {
+    //   error: true,
+    //   empty: true,
+    //   css: {
+    //     border: 'none',
+    //     outline: '2px solid $interactive-critical',
+    //   },
+    // },
   ],
   variants: {
     empty: {
@@ -119,6 +120,7 @@ export const inputContainerStyles = css({
         outline: '2px solid $interactive-critical',
       },
     },
+
     iconPlacement: {
       left: {
         flexDirection: 'row-reverse',

@@ -11,11 +11,14 @@ const ThemeContext = createContext<ThemeContextConfig>({
   setTheme: () => null,
   theme: themeList[ThemeBase.Light],
   themeBase: ThemeBase.Light,
+  getCssText: () => null,
 });
 
-const { createTheme } = createStitches({
+const { createTheme, getCssText } = createStitches({
   theme: {},
 });
+
+export { getCssText };
 
 export const ThemeProvider = ({
   initialColors,
@@ -37,6 +40,7 @@ export const ThemeProvider = ({
       },
       theme: composedTheme,
       themeBase,
+      getCssText,
     }),
     [composedTheme, themeBase]
   );

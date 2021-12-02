@@ -15,21 +15,7 @@ import BlockSymbol from '../../icon/symbols/BlockSymbol/BlockSymbol';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    {
-      id,
-      variant = 'text',
-      onFocus,
-      onBlur,
-      onClear,
-      disabled,
-      helper,
-      error,
-      icon,
-      iconPlacement,
-      textAlign = 'left',
-      value,
-      ...props
-    },
+    { id, onFocus, onBlur, onClear, disabled, helper, error, icon, iconPlacement, textAlign = 'left', value, ...props },
     ref
   ) => {
     const [message, setMessage] = useState<Message>();
@@ -76,7 +62,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {props.label && <Label htmlFor={id}>{getLabel()}</Label>}
         <InputContainer
           className={`${inputContainerStyles({
-            variant,
             focused,
             disabled,
             error: !!error,
@@ -120,12 +105,9 @@ export interface InputProps extends HTMLInputProps {
   textAlign?: 'left' | 'right';
   iconPlacement?: 'left' | 'right';
   icon?: ReactNode;
-  variant?: Variants;
 }
 
 type HTMLInputProps = Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'style'>;
-
-type Variants = 'text' | 'amount';
 
 type Message =
   | {
