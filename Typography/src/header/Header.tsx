@@ -3,7 +3,7 @@ import { TypographyProps } from '../base-typography/BaseTypography';
 import { headerStyles, StyledHeader } from './Header.styles';
 
 const Header = ({ children, variant = 'medium' }: HeaderProps) => (
-  <StyledHeader as="h1" className={headerStyles({ variant })}>
+  <StyledHeader as={getTagForVariant(variant)} className={headerStyles({ variant })}>
     {children}
   </StyledHeader>
 );
@@ -16,5 +16,9 @@ export interface HeaderProps extends TypographyProps {
    */
   variant?: Variant;
 }
+
+type Tags = 'h1' | 'h2' | 'h3';
+
+const getTagForVariant = (variant: Variant): Tags => ({ small: 'h3', medium: 'h2', large: 'h1' }[variant] as Tags);
 
 export default Header;

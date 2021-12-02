@@ -3,7 +3,7 @@ import { TypographyProps } from '../base-typography/BaseTypography';
 import { titleStyles, StyledTitle } from './Title.styles';
 
 const Title = ({ children, variant = 'medium' }: TitleProps) => (
-  <StyledTitle as="h4" className={titleStyles({ variant })}>
+  <StyledTitle as={getTagForVariant(variant)} className={titleStyles({ variant })}>
     {children}
   </StyledTitle>
 );
@@ -16,5 +16,10 @@ export interface TitleProps extends TypographyProps {
    */
   variant?: Variant;
 }
+
+type Variant = 'small' | 'medium' | 'large';
+type Tags = 'h4' | 'h5' | 'h6';
+
+const getTagForVariant = (variant: Variant): Tags => ({ small: 'h6', medium: 'h5', large: 'h4' }[variant] as Tags);
 
 export default Title;
