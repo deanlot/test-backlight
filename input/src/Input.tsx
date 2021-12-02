@@ -77,7 +77,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <InputContainer
           className={`${inputContainerStyles({
             variant,
-            focused: true,
+            focused,
             disabled,
             error: !!error,
             empty: !value,
