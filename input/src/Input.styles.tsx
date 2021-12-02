@@ -6,8 +6,7 @@ export const Container = styled('div', {
   flexDirection: 'column',
 });
 
-export const StyledInput = styled('input');
-export const inputStyles = css({
+export const StyledInput = styled('input', {
   fontFamily: '$input',
   fontWeight: '$regular',
   fontSize: '$4',
@@ -15,19 +14,13 @@ export const inputStyles = css({
   lineHeight: '20px',
   color: '#2D3036', // secondary[800]
   border: 'none',
+  padding: 0,
 
   background: 'transparent', // secondary[20]
   outline: '2px solid transparent',
 
   '&: disabled': {
     color: '$onSurface-textDisabled', // secondary 600
-  },
-  variants: {
-    error: {
-      true: {
-        paddingRight: 0,
-      },
-    },
   },
 });
 
@@ -89,6 +82,7 @@ export const inputContainerStyles = css({
 
   outline: '2px solid rgba(0,0,0,0)', // secondary[20] not sure if this is meant to be transparent or not
   padding: '$2 $4',
+  maxWidth: '65ch',
 
   variants: {
     error: {

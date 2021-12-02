@@ -7,7 +7,6 @@ import {
   iconContainerStyles,
   InputContainer,
   inputContainerStyles,
-  inputStyles,
   Label,
   MessageContainer,
   StyledInput,
@@ -20,7 +19,20 @@ import BlockSymbol from '../../icon/symbols/BlockSymbol/BlockSymbol';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    { id, onFocus, onBlur, onClear, disabled, helper, error, icon, iconPlacement, textAlign = 'left', ...props },
+    {
+      id,
+      variant = 'text',
+      onFocus,
+      onBlur,
+      onClear,
+      disabled,
+      helper,
+      error,
+      icon,
+      iconPlacement,
+      textAlign = 'left',
+      ...props
+    },
     ref
   ) => {
     const helperMessage: Message = { type: 'helper', text: helper };
@@ -72,11 +84,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <Container>
         {props.label && <Label htmlFor={id}>{getLabel()}</Label>}
-        <InputContainer className={`${inputContainerStyles({ error: !!error, focused, iconPlacement })}`} tabIndex={0}>
+        <InputContainer
+          className={`${inputContainerStyles({ variant, error: !!error, focused, iconPlacement })}`}
+          tabIndex={0}
+        >
           <StyledInput
             {...props}
             disabled={disabled}
-            className={inputStyles({ error: !!error })}
             css={{ textAlign: textAlign }}
             id={id}
             onFocus={handleFocus}
@@ -113,7 +127,10 @@ export type InputProps = {
   textAlign?: 'left' | 'right';
   iconPlacement?: 'left' | 'right';
   icon?: ReactNode;
+  variant?: Variants;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+
+type Variants = 'text' | 'amount';
 
 type Message =
   | {
