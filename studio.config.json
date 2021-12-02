@@ -6,7 +6,9 @@
       [
         "Theme",
         [
-          "theme"
+          "theme",
+          "theme-provider",
+          "theme-list"
         ]
       ],
       [
@@ -20,6 +22,20 @@
         "modal",
         [
           "Modal"
+        ]
+      ],
+      [
+        "documentation components",
+        [
+          "theme-playground",
+          "theme-panel"
+        ]
+      ],
+      [
+        "icons",
+        [
+          "icon",
+          "custom-icon"
         ]
       ],
       [
