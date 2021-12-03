@@ -5,55 +5,77 @@ import { Actions, Disclaimer, Header, Helper, Label, Numeric, Paragraph, Title }
 
 export default StoryLayout;
 
-export const baseTypography = () => (
-  <BaseTypography>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua.
-  </BaseTypography>
+const Grid = ({ children, gap = 0 }) => <div style={{ display: 'grid', gridAutoFlow: 'row', gap }}>{children}</div>;
+
+export const header = () => (
+  <Grid>
+    <Header variant={'small'}>Header - Small</Header>
+    <Header variant={'medium'}>Header - Medium</Header>
+    <Header variant={'large'}>Header - Large</Header>
+  </Grid>
 );
 
-export const headerSmall = () => <Header variant={'small'}>Header - Small</Header>;
-export const headerMedium = () => <Header variant={'medium'}>Header - Medium</Header>;
-export const headerLarge = () => <Header variant={'large'}>Header - Large</Header>;
-
-export const titleSmall = () => <Title variant={'small'}>Title - Small</Title>;
-export const titleMedium = () => <Title variant={'medium'}>Title - Medium</Title>;
-export const titleLarge = () => <Title variant={'large'}>Title - Large</Title>;
-
-export const paragraphSmall = () => <Paragraph variant={'small'}>Paragraph - Small</Paragraph>;
-export const paragraphMedium = () => <Paragraph variant={'medium'}>Paragraph - Medium</Paragraph>;
-export const paragraphLarge = () => <Paragraph variant={'large'}>Paragraph - Large</Paragraph>;
-
-export const actionsLowerSmall = () => <Actions variant={'small'}>Actions Lower - Small</Actions>;
-export const actionsLowerMedium = () => <Actions variant={'medium'}>Actions Lower - Medium</Actions>;
-export const actionsUpperSmall = () => (
-  <Actions variant={'small'} uppercase>
-    Actions Upper - Small
-  </Actions>
-);
-export const actionsUpperMedium = () => (
-  <Actions variant={'medium'} uppercase>
-    Actions Upper - Medium
-  </Actions>
+export const title = () => (
+  <Grid>
+    <Title variant={'small'}>Title - Small</Title>
+    <Title variant={'medium'}>Title - Medium</Title>
+    <Title variant={'large'}>Title - Large</Title>
+  </Grid>
 );
 
-export const labelSmall = () => <Label variant={'small'}>Label - Small</Label>;
-export const labelMedium = () => <Label variant={'medium'}>Label - Medium</Label>;
-export const labelLarge = () => <Label variant={'large'}>Label - Large</Label>;
-export const labelBoldSmall = () => <Label bold>Label - Bold</Label>;
-export const labelUpper = () => <Label uppercase>Label - Uppercase</Label>;
-export const labelBoldUpper = () => (
-  <Label bold uppercase>
-    Label - Bold Uppercase
-  </Label>
+export const paragraph = () => (
+  <Grid>
+    <Paragraph variant={'small'}>
+      Paragraph - Small, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua.
+    </Paragraph>
+    <Paragraph variant={'medium'}>
+      Paragraph - Medium, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua.
+    </Paragraph>
+    <Paragraph variant={'large'}>
+      Paragraph - Large, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua.
+    </Paragraph>
+  </Grid>
+);
+
+export const action = () => (
+  <Grid gap={24}>
+    <Actions variant={'small'}>Actions Lower - Small</Actions>
+    <Actions variant={'medium'}>Actions Lower - Medium</Actions>
+    <Actions variant={'small'} uppercase>
+      Actions Upper - Small
+    </Actions>
+    <Actions variant={'medium'} uppercase>
+      Actions Upper - Medium
+    </Actions>
+  </Grid>
+);
+
+export const label = () => (
+  <Grid gap={24}>
+    <Label variant={'small'}>Label - Small</Label>
+    <Label variant={'medium'}>Label - Medium</Label>
+    <Label variant={'large'}>Label - Large</Label>
+    <Label bold>Label - Bold</Label>
+    <Label uppercase>Label - Uppercase</Label>
+    <Label bold uppercase>
+      Label - Bold Uppercase
+    </Label>
+  </Grid>
+);
+
+export const numeric = () => (
+  <Grid gap={24}>
+    <Numeric variant={'xsmall'}>Numeric - XSmall $100.00</Numeric>
+    <Numeric variant={'small'}>Numeric - Small $100.00</Numeric>
+    <Numeric variant={'medium'}>Numeric - Medium $100.00</Numeric>
+    <Numeric variant={'large'}>Numeric - Large $100.00</Numeric>
+    <Numeric variant={'large'}>Numeric - XLarge $100.00</Numeric>
+  </Grid>
 );
 
 export const helper = () => <Helper>Helper</Helper>;
 
-export const numericXSmall = () => <Numeric variant={'xsmall'}>Numeric - XSmall $100.00</Numeric>;
-export const numericSmall = () => <Numeric variant={'small'}>Numeric - Small $100.00</Numeric>;
-export const numericMedium = () => <Numeric variant={'medium'}>Numeric - Medium $100.00</Numeric>;
-export const numericLarge = () => <Numeric variant={'large'}>Numeric - Large $100.00</Numeric>;
-export const numericXLarge = () => <Numeric variant={'large'}>Numeric - XLarge $100.00</Numeric>;
-
-export const disclaimer = () => <Disclaimer>disclaimer</Disclaimer>;
+export const disclaimer = () => <Disclaimer>Disclaimer</Disclaimer>;
