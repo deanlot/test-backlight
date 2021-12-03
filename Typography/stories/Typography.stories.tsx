@@ -1,7 +1,6 @@
 import React from 'react';
 import { StoryLayout } from '../../layout';
-import BaseTypography from '../src/base-typography/BaseTypography';
-import { Actions, Disclaimer, Header, Helper, Label, Numeric, Paragraph, Title } from '../src';
+import { Action, Disclaimer, Header, Helper, Label, Numeric, Paragraph, Title } from '../src';
 
 export default StoryLayout;
 
@@ -42,14 +41,14 @@ export const paragraph = () => (
 
 export const action = () => (
   <Grid gap={24}>
-    <Actions variant={'small'}>Actions Lower - Small</Actions>
-    <Actions variant={'medium'}>Actions Lower - Medium</Actions>
-    <Actions variant={'small'} uppercase>
+    <Action variant={'small'}>Actions Lower - Small</Action>
+    <Action variant={'medium'}>Actions Lower - Medium</Action>
+    <Action variant={'small'} uppercase>
       Actions Upper - Small
-    </Actions>
-    <Actions variant={'medium'} uppercase>
+    </Action>
+    <Action variant={'medium'} uppercase>
       Actions Upper - Medium
-    </Actions>
+    </Action>
   </Grid>
 );
 

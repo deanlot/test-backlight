@@ -1,9 +1,9 @@
 import React from 'react';
 import { TypographyProps } from '../base-typography/BaseTypography';
-import { actionsStyles, StyledActions } from './Actions.styles';
+import { actionStyles, StyledActions } from './Action.styles';
 
-const Actions = ({ children, variant = 'medium', uppercase = false }: ActionsProps) => (
-  <StyledActions className={actionsStyles({ variant, uppercase })}>{children}</StyledActions>
+const Action = ({ children, variant = 'medium', uppercase = false }: ActionsProps) => (
+  <StyledActions className={actionStyles({ variant, uppercase })}>{children}</StyledActions>
 );
 
 type Variant = 'small' | 'medium';
@@ -20,4 +20,4 @@ export interface ActionsProps extends TypographyProps {
   uppercase?: boolean;
 }
 
-export default Actions;
+export default Action;

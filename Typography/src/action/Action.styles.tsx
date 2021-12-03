@@ -2,7 +2,7 @@ import { css, styled } from '@stitches/react';
 import BaseTypography from '../base-typography/BaseTypography';
 
 export const StyledActions = styled(BaseTypography);
-export const actionsStyles = css({
+export const actionStyles = css({
   fontFamily: '$actions',
   fontWeight: '$bold',
   letterSpacing: '6%', // TODO: REVIEW
