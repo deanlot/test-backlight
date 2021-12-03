@@ -6,5 +6,5 @@ export const StyledDisclaimer = styled(BaseTypography, {
   fontWeight: '$regular',
   fontStyle: 'italic',
   fontSize: '$2',
-  lineHeight: '$5', // TODO: REVIEW - This is not line height #2. Figma says 5 which is much larger.
+  lineHeight: '$5',
 });
