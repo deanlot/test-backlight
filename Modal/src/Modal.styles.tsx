@@ -20,15 +20,7 @@ export const Overlay = styled(RadixDialog.Overlay, {
   position: 'fixed',
   width: '100vw',
   height: '100vh',
-  filter: 'blur($space$6)',
-  '&::after': {
-    content: `''`,
-    display: 'block',
-    backgroundImage: 'linear-gradient(to left, rgba(0,0,0,0.3), transparent)',
-    position: 'absolute',
-    width: '100vw',
-    height: '100vh',
-  },
+  backdropFilter: 'blur(6px) brightness(0.2)',
 });
 
 export const Header = styled('div', {
@@ -44,9 +36,9 @@ export const Content = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignSelf: 'stretch',
-  borderWidth: '$borderWidths$1',
-  borderStyle: 'dashed',
-  borderColor: '$onSurface-borderMuted',
+  // borderWidth: '$borderWidths$1',
+  // borderStyle: 'dashed',
+  // borderColor: '$onSurface-borderMuted',
   borderRadius: '$1',
   margin: '$0 $5 $5 $5',
   flexGrow: 1,
