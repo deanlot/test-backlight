@@ -5,7 +5,7 @@ export const StyledActions = styled(BaseTypography);
 export const actionStyles = css({
   fontFamily: '$actions',
   fontWeight: '$bold',
-  letterSpacing: '6%', // TODO: REVIEW
+  letterSpacing: '$2',
 
   variants: {
     variant: {

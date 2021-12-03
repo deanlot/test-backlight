@@ -5,7 +5,7 @@ export const StyledLabel = styled(BaseTypography);
 export const labelStyles = css({
   fontFamily: '$label',
   fontWeight: '$regular',
-  letterSpacing: '12%', // TODO: REVIEW
+  letterSpacing: '$3',
 
   variants: {
     variant: {

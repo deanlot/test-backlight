@@ -5,7 +5,7 @@ export const StyledNumeric = styled(BaseTypography);
 export const numericStyles = css({
   fontFamily: '$numeric',
   fontWeight: '$bold',
-  letterSpacing: '4%', // TODO: REVIEW
+  letterSpacing: '$1',
 
   variants: {
     variant: {
