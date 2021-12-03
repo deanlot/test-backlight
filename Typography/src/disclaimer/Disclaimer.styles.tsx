@@ -1,8 +1,7 @@
-import { css, styled } from '@stitches/react';
+import { styled } from '@stitches/react';
 import BaseTypography from '../base-typography/BaseTypography';
 
-export const StyledDisclaimer = styled(BaseTypography);
-export const disclaimerStyles = css({
+export const StyledDisclaimer = styled(BaseTypography, {
   fontFamily: '$disclaimer',
   fontWeight: '$regular',
   fontStyle: 'italic',

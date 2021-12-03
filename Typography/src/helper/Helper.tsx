@@ -1,8 +1,8 @@
 import React from 'react';
 import { TypographyProps } from '../base-typography/BaseTypography';
-import { helperStyles, StyledHelper } from './Helper.styles';
+import { StyledHelper } from './Helper.styles';
 
-const Helper = ({ children }: HelperProps) => <StyledHelper className={helperStyles()}>{children}</StyledHelper>;
+const Helper = ({ children }: HelperProps) => <StyledHelper>{children}</StyledHelper>;
 
 export interface HelperProps extends TypographyProps {}
 

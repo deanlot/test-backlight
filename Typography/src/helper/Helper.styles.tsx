@@ -1,8 +1,7 @@
-import { css, styled } from '@stitches/react';
+import { styled } from '@stitches/react';
 import BaseTypography from '../base-typography/BaseTypography';
 
-export const StyledHelper = styled(BaseTypography);
-export const helperStyles = css({
+export const StyledHelper = styled(BaseTypography, {
   fontFamily: '$helper',
   fontWeight: '$regular',
   fontStyle: 'italic',
