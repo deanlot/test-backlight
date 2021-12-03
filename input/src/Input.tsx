@@ -15,7 +15,20 @@ import BlockSymbol from '../../icon/symbols/BlockSymbol/BlockSymbol';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    { id, onFocus, onBlur, onClear, disabled, helper, error, icon, iconPlacement, textAlign = 'left', value, ...props },
+    {
+      id,
+      onFocus,
+      onBlur,
+      onClear,
+      disabled,
+      helper,
+      error,
+      iconSuffix,
+      iconPrefix,
+      textAlign = 'left',
+      value,
+      ...props
+    },
     ref
   ) => {
     const [message, setMessage] = useState<Message>();
@@ -66,10 +79,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             disabled,
             error: !!error,
             empty: !value,
-            ...(iconPlacement && { iconPlacement }),
           })}`}
           tabIndex={0}
         >
+          {iconPrefix && (
+            <IconContainer className={iconContainerStyles({ iconPlacement: 'left' })}>{iconPrefix}</IconContainer>
+          )}
           <StyledInput
             {...props}
             disabled={disabled}
@@ -83,7 +98,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             maxLength={60}
             tabIndex={-1}
           />
-          {icon && <IconContainer className={iconContainerStyles({ iconPlacement })}>{icon}</IconContainer>}
+          {iconSuffix && (
+            <IconContainer className={iconContainerStyles({ iconPlacement: 'right' })}>{iconSuffix}</IconContainer>
+          )}
         </InputContainer>
         <MessageContainer>
           {error && <BlockSymbol />}
@@ -103,8 +120,8 @@ export interface InputProps extends HTMLInputProps {
   error?: string;
   onClear?: () => void;
   textAlign?: 'left' | 'right';
-  iconPlacement?: 'left' | 'right';
-  icon?: ReactNode;
+  iconPrefix?: ReactNode;
+  iconSuffix?: ReactNode;
 }
 
 type HTMLInputProps = Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'style'>;

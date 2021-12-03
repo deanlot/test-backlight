@@ -1,9 +1,10 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import Input from '../src/Input';
 import { StoryLayout } from '../../layout';
 import { useForm } from 'react-hook-form';
 import CheckIcon from '../../icon/icons/CheckIcon/src/CheckIcon';
 import Button from '../../Button/src/Button';
+import ArrowRightIcon from '../../icon/icons/ArrowRightIcon/src/ArrowRightIcon';
 
 export default StoryLayout;
 
@@ -42,7 +43,7 @@ export const primaryIconRight = () => {
       helper="The first part of your name"
       label="First Name"
       value={text}
-      icon={<CheckIcon />}
+      iconSuffix={<CheckIcon />}
       onChange={(e) => setText(e.target.value)}
     />
   );
@@ -56,8 +57,22 @@ export const primaryIconLeft = () => {
       helper="The first part of your name"
       label="First Name"
       value={text}
-      icon={<CheckIcon />}
-      iconPlacement="left"
+      iconPrefix={<CheckIcon />}
+      onChange={(e) => setText(e.target.value)}
+    />
+  );
+};
+
+export const primaryIconLeftAndRight = () => {
+  const [text, setText] = useState<string>('');
+
+  return (
+    <Input
+      helper="The first part of your name"
+      label="First Name"
+      value={text}
+      iconPrefix={<CheckIcon />}
+      iconSuffix={<ArrowRightIcon />}
       onChange={(e) => setText(e.target.value)}
     />
   );
@@ -72,8 +87,7 @@ export const primaryError = () => {
       label="First Name"
       error="First Name is required."
       value={text}
-      icon={<CheckIcon />}
-      iconPlacement="left"
+      iconPrefix={<CheckIcon />}
       onChange={(e) => setText(e.target.value)}
     />
   );
@@ -115,7 +129,7 @@ export const reactHookForm = () => {
         helper="Your first name."
         {...register('firstName', { required: true })}
         error={errors?.firstName && 'First Name is required.'}
-        icon={<CheckIcon />}
+        iconSuffix={<CheckIcon />}
       />
       <Button type="submit">Submit</Button>
     </form>
