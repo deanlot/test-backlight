@@ -8,8 +8,8 @@ export const Container = styled(RadixDialog.Content, {
   flexDirection: 'column',
   background: '$surface',
   borderRadius: '$4 $0 $0 $4',
-  minWidth: 311,
-  maxWidth: 311,
+  minWidth: 480,
+  maxWidth: 480,
   height: '100vh',
   minHeight: '100vh',
   maxHeight: '100vh',
@@ -20,8 +20,15 @@ export const Overlay = styled(RadixDialog.Overlay, {
   position: 'fixed',
   width: '100vw',
   height: '100vh',
-  filter: 'blur(4px)',
-  backgroundColor: 'rgba(0,0,0,.2)',
+  filter: 'blur($space$6)',
+  '&::after': {
+    content: `''`,
+    display: 'block',
+    backgroundImage: 'linear-gradient(to left, rgba(0,0,0,0.3), transparent)',
+    position: 'absolute',
+    width: '100vw',
+    height: '100vh',
+  },
 });
 
 export const Header = styled('div', {

@@ -6,19 +6,20 @@ import Modal from '../src/Modal';
 import Button from '~/Button/src/Button';
 export default MdxLayout;
 
+
 # Modal
 <Description of={Modal} />
 
-### Open
+### Uncontrolled
 <p>
-Uncontrolled modal with custom button.
+  Uncontrolled modal with customised button.
 </p>
 <Playground
   scope={{ Modal, Button }}
   code={`
   <Modal
    defaultOpen={false}
-   trigger={<Button variant="primary">Open me</Button>}
+   trigger={<Button variant="solid">Open me</Button>}
   >
     Here's some modal content
   </Modal>

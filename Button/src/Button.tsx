@@ -25,7 +25,7 @@ const Button = ({
 
   return (
     <StyledButton
-      className={buttonStyles({ variant, icon: !children && !!icon, clickable: !busy })}
+      className={buttonStyles({ variant, icon: !children && !!icon, clickable: !busy, children: !!children })}
       disabled={disabled}
       role="button"
       {...rest}

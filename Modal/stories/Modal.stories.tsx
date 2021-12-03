@@ -5,6 +5,10 @@ import Button from '../../Button/src/Button';
 
 export default StoryLayout;
 
+export const uncontrolled = () => {
+  return <Modal>uncontrolled</Modal>;
+};
+
 export const controlled = () => {
   const [open, setOpen] = useState(false);
   return (
@@ -25,7 +29,7 @@ export const controlled = () => {
 };
 
 export const embeddedTrigger = () => {
-  return <Modal trigger={<Button variant={'outline'}>Click here</Button>}>Some modal content</Modal>;
+  return <Modal trigger={<Button variant={'outline'}>Click here</Button>}>controlled</Modal>;
 };
 
 export const title = () => {
