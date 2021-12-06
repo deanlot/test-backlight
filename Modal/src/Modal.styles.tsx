@@ -14,6 +14,10 @@ export const Container = styled(RadixDialog.Content, {
   minHeight: '100vh',
   maxHeight: '100vh',
   right: 0,
+  '@media screen and (max-width: 480px)': {
+    minWidth: '100vw',
+    maxWidth: '100vw',
+  },
 });
 
 export const Overlay = styled(RadixDialog.Overlay, {

@@ -25,9 +25,6 @@ const Modal = ({ children, trigger, title, open, showClose = true, ...rest }: Mo
     config: { duration: 700 },
     immediate: rest.defaultOpen,
     reset: isOpen,
-    onRest: () => {
-      console.info('FAARK!');
-    },
   });
   return (
     <RadixDialog.Root modal={true} open={isOpen} onOpenChange={onOpenChange} {...rest}>
