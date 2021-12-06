@@ -16,6 +16,7 @@ export const primaryHelper = () => {
       helper="The first part of your name"
       label="First Name"
       value={text}
+      placeholder="First Name"
       onChange={(e) => setText(e.target.value)}
     />
   );
@@ -30,6 +31,7 @@ export const primaryTextRightHelper = () => {
       label="First Name"
       value={text}
       textAlign="right"
+      placeholder="First Name"
       onChange={(e) => setText(e.target.value)}
     />
   );
@@ -44,6 +46,7 @@ export const primaryIconRight = () => {
       label="First Name"
       value={text}
       iconSuffix={<CheckIcon />}
+      placeholder="First Name"
       onChange={(e) => setText(e.target.value)}
     />
   );
@@ -58,6 +61,7 @@ export const primaryIconLeft = () => {
       label="First Name"
       value={text}
       iconPrefix={<CheckIcon />}
+      placeholder="First Name"
       onChange={(e) => setText(e.target.value)}
     />
   );
@@ -73,6 +77,7 @@ export const primaryIconLeftAndRight = () => {
       value={text}
       iconPrefix={<CheckIcon />}
       iconSuffix={<ArrowRightIcon />}
+      placeholder="First Name"
       onChange={(e) => setText(e.target.value)}
     />
   );
@@ -88,6 +93,7 @@ export const primaryError = () => {
       error="First Name is required."
       value={text}
       iconPrefix={<CheckIcon />}
+      placeholder="First Name"
       onChange={(e) => setText(e.target.value)}
     />
   );
@@ -102,6 +108,7 @@ export const primaryDisabled = () => {
       label="First Name"
       value={text}
       disabled
+      placeholder="First Name"
       onChange={(e) => setText(e.target.value)}
     />
   );
@@ -129,6 +136,7 @@ export const reactHookForm = () => {
         helper="Your first name."
         {...register('firstName', { required: true })}
         error={errors?.firstName && 'First Name is required.'}
+        placeholder="First Name"
         iconSuffix={<CheckIcon />}
       />
       <Button type="submit">Submit</Button>

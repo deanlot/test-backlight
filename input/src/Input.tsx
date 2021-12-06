@@ -19,8 +19,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       id,
       onFocus,
       onBlur,
-      onClear,
       disabled,
+      onClick,
       helper,
       error,
       iconSuffix,
@@ -70,6 +70,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       onBlur && onBlur(e);
     };
 
+    const handleClick = (e) => {
+      setFocused(true);
+      onClick && onClick(e);
+    };
+
     return (
       <Container>
         {props.label && <Label htmlFor={id}>{getLabel()}</Label>}
@@ -81,6 +86,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             empty: !value,
           })}`}
           tabIndex={0}
+          data-testid="input-test-container"
+          onClick={handleClick}
         >
           {iconPrefix && (
             <IconContainer className={iconContainerStyles({ iconPlacement: 'left' })}>{iconPrefix}</IconContainer>
@@ -97,6 +104,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             type="text"
             maxLength={60}
             tabIndex={-1}
+            data-testid="input"
           />
           {iconSuffix && (
             <IconContainer className={iconContainerStyles({ iconPlacement: 'right' })}>{iconSuffix}</IconContainer>
@@ -118,7 +126,6 @@ export interface InputProps extends HTMLInputProps {
   // should id or name be made required, since it would affect accessibility for the "htmlFor" attribute
   id?: string;
   error?: string;
-  onClear?: () => void;
   textAlign?: 'left' | 'right';
   iconPrefix?: ReactNode;
   iconSuffix?: ReactNode;
