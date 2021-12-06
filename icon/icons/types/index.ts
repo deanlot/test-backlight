@@ -9,4 +9,8 @@ export interface SpecializedIconProps extends PickedSVGProps {
    * for normal icons s=12, m=16, l=20 xl=24, for brand icons s=12, m=16, l=24, xl=40
    */
   size?: Sizes;
+  /**
+   * stroke color of the icon
+   */
+  color?: string;
 }

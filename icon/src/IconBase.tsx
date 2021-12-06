@@ -4,7 +4,7 @@ import { Svg } from './Icon.styles';
 import { getCenteringTranslationValues, getScaleMultiplier } from './utils';
 import { PickedSVGProps } from '../types';
 
-export const IconBase = ({ path, label, stroke, fill, size, width = 12, height = 12 }: IconBaseProps) => {
+export const IconBase = ({ path, label, color, fill, size, width = 12, height = 12 }: IconBaseProps) => {
   const scaleMultiplier = getScaleMultiplier(size, width, height);
   const { translateX, translateY } = getCenteringTranslationValues(size, width, height, scaleMultiplier);
 
@@ -17,7 +17,7 @@ export const IconBase = ({ path, label, stroke, fill, size, width = 12, height =
       xmlns="http://www.w3.org/2000/svg"
       css={{
         '& g > path': {
-          ...(stroke && { stroke }),
+          ...(color && { stroke: color }),
           ...(fill && { fill }),
         },
       }}
@@ -35,4 +35,5 @@ interface IconBaseProps extends PickedSVGProps {
   path: ReactNode | ReactNode[];
   width?: number;
   height?: number;
+  color?: string;
 }

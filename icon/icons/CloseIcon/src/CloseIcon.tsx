@@ -11,8 +11,8 @@ const path = (
   />
 );
 
-const CloseIcon = ({ size = 'm', stroke, label, fill }: SpecializedIconProps): ReactElement => {
-  return <Icon label={label || 'close'} size={size} path={path} stroke={stroke} fill={fill} />;
+const CloseIcon = ({ size = 'm', color, label, fill }: SpecializedIconProps): ReactElement => {
+  return <Icon label={label || 'close'} size={size} path={path} color={color} fill={fill} />;
 };
 
 export default CloseIcon;

@@ -12,8 +12,8 @@ const path = [
   />,
 ];
 
-const BenchIcon = ({ size = 'm', stroke, label, fill }: SpecializedIconProps) => {
-  return <BrandIcon label={label || 'bench'} size={size} path={path} stroke={stroke} fill={fill} />;
+const BenchIcon = ({ size = 'm', color, label, fill }: SpecializedIconProps) => {
+  return <BrandIcon label={label || 'bench'} size={size} path={path} color={color} fill={fill} />;
 };
 
 export default BenchIcon;

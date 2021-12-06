@@ -47,4 +47,5 @@ type IconVariant = {
   label: string;
   height?: number;
   width?: number;
+  color?: string;
 } & Omit<SpecializedIconProps, 'label'>;
