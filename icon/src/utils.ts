@@ -2,12 +2,12 @@
 export const getScaleMultiplier = (selectedSize, width, height): number =>
   Math.min(selectedSize / width, selectedSize / height);
 
-type CenteringTranslationValues = {
+type TranslationValues = {
   translateX: number;
   translateY: number;
 };
 
-export const getCenteringTranslationValues = (size, width, height, scaleMultiplier): CenteringTranslationValues => ({
+export const getCenteringTranslationValues = (size, width, height, scaleMultiplier): TranslationValues => ({
   translateX: (size - width * scaleMultiplier) / 2,
   translateY: (size - height * scaleMultiplier) / 2,
 });
