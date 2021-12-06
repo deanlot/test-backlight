@@ -1,5 +1,5 @@
 import { css, styled } from '@stitches/react';
-import BaseTypography from '../base-typography/BaseTypography';
+import BaseTypography from '../../base-typography/src/BaseTypography';
 
 export const StyledNumeric = styled(BaseTypography);
 export const numericStyles = css({
