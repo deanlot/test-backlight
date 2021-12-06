@@ -1,5 +1,5 @@
 import { css, styled } from '@stitches/react';
-import BaseTypography from '../base-typography/BaseTypography';
+import BaseTypography from '../../base-typography/src/BaseTypography';
 
 export const StyledTitle = styled(BaseTypography);
 export const titleStyles = css({
