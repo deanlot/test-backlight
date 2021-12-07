@@ -1,6 +1,6 @@
-import { PickedSVGProps, Sizes } from '../../types';
+import { Sizes } from '../../types';
 
-export interface SpecializedIconProps extends PickedSVGProps {
+export interface SpecializedIconProps {
   /**
    * an accessible label for your icon, a default one will be given if not specified
    */
@@ -13,4 +13,5 @@ export interface SpecializedIconProps extends PickedSVGProps {
    * stroke color of the icon
    */
   color?: string;
+  fill?: string;
 }
