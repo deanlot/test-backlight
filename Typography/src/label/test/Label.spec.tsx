@@ -9,33 +9,17 @@ describe('Label Typography', () => {
     expect(container.firstChild.nodeName).toBe('SPAN');
   });
 
-  test('it should render the label uppercase', async () => {
+  // FIXME: This doesn't actually test that it's uppercase, only that the variant named uppercase is applied.
+  // FIXME: It would be great if we could figure out how to get access to the styles -OR- see them applied and verify "Test" becomes "TEST".
+  test('it should render the label uppercase', () => {
     render(<Label uppercase>Test</Label>);
     expect(screen.getByText('Test').className).toMatch(/uppercase\-true/);
   });
 
-  test('it should render the label bold', async () => {
+  // FIXME: This doesn't actually test that it's bold, only that the variant named bold is applied.
+  // FIXME: It would be great if we could figure out how to get access to the styles.
+  test('it should render the label bold', () => {
     render(<Label bold>Test</Label>);
     expect(screen.getByText('Test').className).toMatch(/bold\-true/);
-  });
-
-  test('it should apply the large variant', async () => {
-    render(<Label variant="large">Test</Label>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-large/);
-  });
-
-  test('it should apply the medium variant', async () => {
-    render(<Label variant="medium">Test</Label>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-medium/);
-  });
-
-  test('it should apply the small variant', async () => {
-    render(<Label variant="small">Test</Label>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-small/);
-  });
-
-  test('it should apply the medium variant by default', async () => {
-    render(<Label>Test</Label>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-medium/);
   });
 });

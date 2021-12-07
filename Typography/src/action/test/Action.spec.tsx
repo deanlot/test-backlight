@@ -9,23 +9,10 @@ describe('Action Typography', () => {
     expect(container.firstChild.nodeName).toBe('SPAN');
   });
 
-  test('it should render the action uppercase', async () => {
+  // FIXME: This doesn't actually test that it's uppercase, only that the variant named uppercase is applied.
+  // FIXME: It would be great if we could figure out how to get access to the styles -OR- see them applied and verify "Test" becomes "TEST".
+  test('it should render the action uppercase', () => {
     render(<Action uppercase>Test</Action>);
     expect(screen.getByText('Test').className).toMatch(/uppercase\-true/);
-  });
-
-  test('it should apply the medium variant', async () => {
-    render(<Action variant="medium">Test</Action>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-medium/);
-  });
-
-  test('it should apply the small variant', async () => {
-    render(<Action variant="small">Test</Action>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-small/);
-  });
-
-  test('it should apply the medium variant by default', async () => {
-    render(<Action>Test</Action>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-medium/);
   });
 });

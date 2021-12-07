@@ -18,24 +18,4 @@ describe('Header Typography', () => {
     const { container } = render(<Header variant="small">Test</Header>);
     expect(container.firstChild.nodeName).toBe('H3');
   });
-
-  test('it should apply the large variant', async () => {
-    render(<Header variant="large">Test</Header>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-large/);
-  });
-
-  test('it should apply the medium variant', async () => {
-    render(<Header variant="medium">Test</Header>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-medium/);
-  });
-
-  test('it should apply the small variant', async () => {
-    render(<Header variant="small">Test</Header>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-small/);
-  });
-
-  test('it should apply the medium variant by default', async () => {
-    render(<Header>Test</Header>);
-    expect(screen.getByText('Test').className).toMatch(/variant\-medium/);
-  });
 });
