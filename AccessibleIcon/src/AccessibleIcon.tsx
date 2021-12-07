@@ -9,8 +9,8 @@ export type AccessibleIconProps = {
 /**
   Custom Icon will render an SVG adding some accessibility labels
  */
-const AccessibleIcon = ({ label, children }: AccessibleIconProps) => {
-  return <AccessibleIconPrimitive.Root label={label}>{children}</AccessibleIconPrimitive.Root>;
-};
+const AccessibleIcon = ({ label, children }: AccessibleIconProps) => (
+  <AccessibleIconPrimitive.Root label={label}>{children}</AccessibleIconPrimitive.Root>
+);
 
 export default AccessibleIcon;
