@@ -7,7 +7,7 @@
   "homepage": "{{ homepage }}",
   "scripts": {
     "serve": "npx backlight@latest serve lxtixWR1OMmjT0avEfJm --open",
-    "prepare": "husky install"
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@radix-ui/react-accessible-icon": "^0.1.1",
