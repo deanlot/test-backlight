@@ -1,14 +1,16 @@
 import React from 'react';
-import { fireEvent, getByTestId, render, waitFor, within } from '@testing-library/react';
-import Input from '../src/Input';
+import { fireEvent, getByTestId, render, waitFor } from '@testing-library/react';
+import TextInput from '../src/TextInput';
 import '../../jest.setup';
 
-describe('Input', function () {
+describe('TextInput', function () {
   const helperText = 'helper text';
   const errorText = 'required field';
 
   it('should render the input and display an error if an error is passed without displaying helper text', async function () {
-    const { getByTestId, getByText, queryByText, rerender } = render(<Input error={errorText} helper={helperText} />);
+    const { getByTestId, getByText, queryByText, rerender } = render(
+      <TextInput error={errorText} helper={helperText} />
+    );
     const inputContainer = getByTestId('input-test-container');
 
     //idk how to make this work lol
@@ -22,7 +24,7 @@ describe('Input', function () {
       expect(inputContainer.className).toMatch(/error\-true/);
     });
 
-    rerender(<Input helper={'helper text'} />);
+    rerender(<TextInput helper={'helper text'} />);
 
     fireEvent.click(inputContainer);
 
@@ -34,7 +36,7 @@ describe('Input', function () {
 
   it('should render an outline when focused', async function () {
     const { getByTestId, getByText } = render(
-      <Input helper={helperText} label="First Name" placeholder="First Name" />
+      <TextInput helper={helperText} label="First Name" placeholder="First Name" />
     );
     const inputContainer = getByTestId('input-test-container');
 

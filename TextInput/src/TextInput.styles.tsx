@@ -49,7 +49,7 @@ export const helperStyles = css({
 export const MessageContainer = styled('div', {
   display: 'flex',
   flexDirection: 'row',
-  alignItems: 'center',
+  alignItems: 'baseline',
   paddingTop: '$1',
 });
 

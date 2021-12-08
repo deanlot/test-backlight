@@ -111,7 +111,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           )}
         </InputContainer>
         <MessageContainer>
-          {error && <WarningSymbol />}
+          {error && <WarningSymbol size="m" />}
           {message && <span className={messageStyles()}>{message?.text}</span>}
         </MessageContainer>
       </Container>
