@@ -8,6 +8,11 @@ import Button from '../../Button/src/Button'
 import { BrandIcon, Icon } from '../src/IconVariants';
 import IconPreview from './components/IconPreview';
 import { ButtonPreviewContainer } from './components/ButtonPreviewContainer.styles';
+import BlockSymbol from '../symbols/BlockSymbol/src/BlockSymbol';
+import PendingSymbol from '../symbols/PendingSymbol/src/PendingSymbol';
+import QASymbol from '../symbols/QASymbol/src/QASymbol';
+import WarningSymbol from '../symbols/WarningSymbol/src/WarningSymbol';
+import DoneSymbol from '../symbols/DoneSymbol/src/DoneSymbol';
 export default MdxLayout;
 
 # Icon
@@ -66,6 +71,19 @@ The Icon components can be used inside other components as well, e.g. Button.
 <CheckIcon size="m" />
 <CheckIcon size="l" />
 <CheckIcon size="xl"/>
+`}
+/>
+
+### Symbol Icons
+These symbols are used within other components. Will add more description at a later date.
+<Playground
+  scope={{ BlockSymbol, PendingSymbol, QASymbol, WarningSymbol, DoneSymbol }}
+  code={`
+<BlockSymbol />
+<PendingSymbol />
+<QASymbol />
+<WarningSymbol />
+<DoneSymbol />
 `}
 />
 

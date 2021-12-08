@@ -1,37 +1,30 @@
 import React, { ReactNode } from 'react';
 import AccessibleIcon from '../../AccessibleIcon/src/AccessibleIcon';
-import { Svg } from './Icon.styles';
-import { getScaleMultiplier } from './utils';
-import { PickedSVGProps } from '../types';
+import { IconContainer } from './Icon.styles';
 
-export const IconBase = ({ path, label, stroke, fill, size, width = 12, height = 12 }: IconBaseProps) => {
-  const { widthMultiplier, heightMultiplier } = getScaleMultiplier(size, width, height);
-
-  const SVG = (
-    <Svg
-      width={`${size}px`}
-      height={`${size}px`}
-      viewBox={`0 0 ${size} ${size}`}
-      fill={fill || 'none'}
-      xmlns="http://www.w3.org/2000/svg"
+export const IconBase = ({ label, color, fill, size, children }: IconBaseProps) => (
+  <AccessibleIcon label={label}>
+    <IconContainer
       css={{
-        '& g > path': {
-          ...(stroke && { stroke }),
+        width: size,
+        height: size,
+        'svg > path': {
+          ...(color && { stroke: color }),
           ...(fill && { fill }),
         },
       }}
     >
-      <g transform={`scale(${widthMultiplier}, ${heightMultiplier})`}>{path}</g>
-    </Svg>
-  );
+      {children}
+    </IconContainer>
+  </AccessibleIcon>
+);
 
-  return <AccessibleIcon label={label} svg={SVG} />;
-};
-
-interface IconBaseProps extends PickedSVGProps {
+interface IconBaseProps {
   label: string;
   size: number;
-  path: ReactNode | ReactNode[];
+  children: ReactNode;
   width?: number;
   height?: number;
+  color?: string;
+  fill?: string;
 }
