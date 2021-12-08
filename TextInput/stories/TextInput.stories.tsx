@@ -1,57 +1,115 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import TextInput from '../src/TextInput';
 import { StoryLayout } from '../../layout';
 import { useForm } from 'react-hook-form';
 import CheckIcon from '../../icon/icons/CheckIcon/src/CheckIcon';
 import Button from '../../Button/src/Button';
+import ArrowRightIcon from '../../icon/icons/ArrowRightIcon/src/ArrowRightIcon';
 
 export default StoryLayout;
 
-export const primaryHelper = () => <TextInput helper="The first part of your name" label="First Name" />;
-export const primaryTextRightHelper = () => (
-  <TextInput helper="The first part of your name" label="First Name" textAlign="right" />
-);
-export const primaryIconRight = () => (
-  <TextInput helper="The first part of your name" label="First Name" icon={<CheckIcon />} />
-);
-export const primaryIconLeft = () => (
-  <TextInput helper="The first part of your name" label="First Name" icon={<CheckIcon />} iconPlacement="left" />
-);
-
-export const primaryError = () => {
-  const [inputVal, setInputVal] = useState<string>('');
-
-  const handleClear = useCallback(() => {
-    setInputVal('');
-  }, [setInputVal]);
+export const primaryHelper = () => {
+  const [text, setText] = useState<string>('');
 
   return (
     <TextInput
       helper="The first part of your name"
-      error="This is field is required."
       label="First Name"
-      onClear={handleClear}
-      value={inputVal}
-      onChange={useCallback((e) => setInputVal(e.target.value), [setInputVal])}
+      value={text}
+      placeholder="First Name"
+      onChange={(e) => setText(e.target.value)}
+    />
+  );
+};
+
+export const primaryTextRightHelper = () => {
+  const [text, setText] = useState<string>('');
+
+  return (
+    <TextInput
+      helper="The first part of your name"
+      label="First Name"
+      value={text}
+      textAlign="right"
+      placeholder="First Name"
+      onChange={(e) => setText(e.target.value)}
+    />
+  );
+};
+
+export const primaryIconRight = () => {
+  const [text, setText] = useState<string>('');
+
+  return (
+    <TextInput
+      helper="The first part of your name"
+      label="First Name"
+      value={text}
+      iconSuffix={<CheckIcon />}
+      placeholder="First Name"
+      onChange={(e) => setText(e.target.value)}
+    />
+  );
+};
+
+export const primaryIconLeft = () => {
+  const [text, setText] = useState<string>('');
+
+  return (
+    <TextInput
+      helper="The first part of your name"
+      label="First Name"
+      value={text}
+      iconPrefix={<CheckIcon />}
+      placeholder="First Name"
+      onChange={(e) => setText(e.target.value)}
+    />
+  );
+};
+
+export const primaryIconLeftAndRight = () => {
+  const [text, setText] = useState<string>('');
+
+  return (
+    <TextInput
+      helper="The first part of your name"
+      label="First Name"
+      value={text}
+      iconPrefix={<CheckIcon />}
+      iconSuffix={<ArrowRightIcon />}
+      placeholder="First Name"
+      onChange={(e) => setText(e.target.value)}
+    />
+  );
+};
+
+export const primaryError = () => {
+  const [text, setText] = useState<string>('');
+
+  return (
+    <TextInput
+      helper="The first part of your name"
+      label="First Name"
+      error="First Name is required."
+      value={text}
+      iconPrefix={<CheckIcon />}
+      placeholder="First Name"
+      onChange={(e) => setText(e.target.value)}
     />
   );
 };
 
 export const primaryDisabled = () => {
-  const [inputVal, setInputVal] = useState<string>('Ram');
-
-  const handleClear = useCallback(() => {
-    setInputVal('');
-  }, [setInputVal]);
+  const [text, setText] = useState<string>('Ram');
 
   return (
     <TextInput
       helper="The first part of your name"
       label="First Name"
-      onClear={handleClear} // Note how the clear button is not rendered when disabled
-      value={inputVal}
+      value={text}
       disabled
-      onChange={useCallback((e) => setInputVal(e.target.value), [setInputVal])}
+      placeholder="First Name"
+      onChange={(e) => setText(e.target.value)}
     />
   );
 };
@@ -78,7 +136,8 @@ export const reactHookForm = () => {
         helper="Your first name."
         {...register('firstName', { required: true })}
         error={errors?.firstName && 'First Name is required.'}
-        icon={<CheckIcon />}
+        placeholder="First Name"
+        iconSuffix={<CheckIcon />}
       />
       <Button type="submit">Submit</Button>
     </form>
