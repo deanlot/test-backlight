@@ -55,4 +55,5 @@ type SizeBreakdown = {
 type IconVariant = {
   children: ReactNode;
   label: string;
+  fill?: string;
 } & Omit<SpecializedIconProps, 'label'>;
