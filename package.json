@@ -6,8 +6,7 @@
   "type": "module",
   "homepage": "{{ homepage }}",
   "scripts": {
-    "serve": "npx backlight@latest serve lxtixWR1OMmjT0avEfJm --open",
-    "postinstall": "husky install"
+    "serve": "npx backlight@latest serve lxtixWR1OMmjT0avEfJm --open"
   },
   "dependencies": {
     "@radix-ui/react-accessible-icon": "^0.1.1",
@@ -31,7 +30,6 @@
     "@types/styled-components": "^5.1.10",
     "chai": "^4.3.4",
     "deepmerge": "^4.2.2",
-    "husky": "^7.0.0",
     "jest": "^27.3.1",
     "jest-mock": "^27.3.0",
     "lint-staged": "^12.1.2",
