@@ -1,0 +1,143 @@
+import { mdx } from '@mdx-js/react';
+import { Props, Description } from '@divriots/dockit-react/props';
+import { MdxLayout } from '~/layout';
+import { Action, Disclaimer, Header, Helper, Label, Numeric, Paragraph, Title } from '../';
+import { ThemePlayground } from '../../theme-playground';
+import { ComponentTable } from './components/component-table/ComponentTable';
+import { Rule } from './components/rule/Rule';
+export default MdxLayout;
+
+# Typography
+
+Typography is a set of components that display simple text formatted for different uses within the app.
+It provides the following components, rendering the specified tag.
+
+<ComponentTable/>
+
+<Rule/>
+
+# Header
+<Description of={Header} />
+
+## Usage
+<ThemePlayground
+  scope={{ Header }}
+  code={`
+<Header variant="medium">Header</Header>
+  `}
+/>
+
+## Props
+<Props of={Header} />
+
+<Rule/>
+
+# Title
+<Description of={Title} />
+
+## Usage
+<ThemePlayground
+  scope={{ Title }}
+  code={`
+<Title variant="medium">Title</Title>
+  `}
+/>
+
+## Props
+<Props of={Title} />
+
+<Rule/>
+
+# Label
+<Description of={Label} />
+
+## Usage
+<ThemePlayground
+  scope={{ Label }}
+  code={`
+<Label variant="medium" uppercase bold>Label</Label>
+  `}
+/>
+
+## Props
+<Props of={Label} />
+
+<Rule/>
+
+# Numeric
+<Description of={Numeric} />
+
+## Usage
+<ThemePlayground
+  scope={{ Numeric }}
+  code={`
+<Numeric variant="medium">$1,000.00</Numeric>
+  `}
+/>
+
+## Props
+<Props of={Numeric} />
+
+<Rule/>
+
+# Paragraph
+<Description of={Paragraph} />
+
+## Usage
+<ThemePlayground
+  scope={{ Paragraph }}
+  code={`
+<Paragraph variant="medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Paragraph>
+  `}
+/>
+
+## Props
+<Props of={Paragraph} />
+
+<Rule/>
+
+# Action
+<Description of={Action} />
+
+## Usage
+<ThemePlayground
+  scope={{ Action }}
+  code={`
+<Action variant="medium" uppercase>Action</Action>
+  `}
+/>
+
+## Props
+<Props of={Action} />
+
+<Rule/>
+
+# Helper
+<Description of={Helper} />
+
+## Usage
+<ThemePlayground
+  scope={{ Helper }}
+  code={`
+<Helper>This is some helper text</Helper>
+  `}
+/>
+
+## Props
+Helper text has no props.
+
+<Rule/>
+
+# Disclaimer
+<Description of={Disclaimer} />
+
+## Usage
+<ThemePlayground
+  scope={{ Disclaimer }}
+  code={`
+<Disclaimer>This is some disclaimer text</Disclaimer>
+  `}
+/>
+
+## Props
+Disclaimer text has no props.
