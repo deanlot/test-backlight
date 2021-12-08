@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import AccessibleIcon from '../../AccessibleIcon/src/AccessibleIcon';
 import { IconContainer } from './Icon.styles';
-import { PickedSVGProps } from '../types';
 
 export const IconBase = ({ label, color, fill, size, children }: IconBaseProps) => (
   <AccessibleIcon label={label}>
@@ -20,11 +19,12 @@ export const IconBase = ({ label, color, fill, size, children }: IconBaseProps) 
   </AccessibleIcon>
 );
 
-interface IconBaseProps extends PickedSVGProps {
+interface IconBaseProps {
   label: string;
   size: number;
   children: ReactNode;
   width?: number;
   height?: number;
   color?: string;
+  fill?: string;
 }
