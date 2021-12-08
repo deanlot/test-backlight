@@ -11,7 +11,7 @@ import {
   MessageContainer,
   StyledInput,
 } from './TextInput.styles';
-import WarningSymbol from '../../icon/symbols/WarningSymbol/WarningSymbol';
+import WarningSymbol from '../../icon/symbols/WarningSymbol/src/WarningSymbol';
 
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
