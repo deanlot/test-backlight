@@ -14,7 +14,15 @@ export const buttonStyles = css({
   '&:disabled': {
     pointerEvents: 'none',
   },
-
+  compoundVariants: [
+    {
+      icon: true,
+      children: false,
+      css: {
+        padding: 'unset',
+      },
+    },
+  ],
   variants: {
     variant: {
       solid: {
@@ -83,6 +91,11 @@ export const buttonStyles = css({
       false: {
         paddingLeft: '24px',
         paddingRight: '24px',
+      },
+    },
+    children: {
+      false: {
+        padding: 'unset',
       },
     },
   },
