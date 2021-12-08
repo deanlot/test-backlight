@@ -1,7 +1,10 @@
 import React from 'react';
-import { TypographyProps } from '../base-typography/BaseTypography';
+import { TypographyProps } from '../../base-typography/src/BaseTypography';
 import { numericStyles, StyledNumeric } from './Numeric.styles';
 
+/**
+ * Numeric description goes here
+ */
 const Numeric = ({ children, variant = 'medium' }: NumericProps) => (
   <StyledNumeric className={numericStyles({ variant })}>{children}</StyledNumeric>
 );

@@ -1,7 +1,10 @@
 import React from 'react';
-import { TypographyProps } from '../base-typography/BaseTypography';
+import { TypographyProps } from '../../base-typography/src/BaseTypography';
 import { labelStyles, StyledLabel } from './Label.styles';
 
+/**
+ * Label description goes here
+ */
 const Label = ({ children, variant = 'medium', uppercase = false, bold = false }: LabelProps) => (
   <StyledLabel className={labelStyles({ variant, bold, uppercase })}>{children}</StyledLabel>
 );
