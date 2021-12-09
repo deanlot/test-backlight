@@ -7,7 +7,7 @@
   "homepage": "{{ homepage }}",
   "scripts": {
     "serve": "npx backlight@latest serve lxtixWR1OMmjT0avEfJm --open",
-    "build:watch": "rm -rf ./dist && yarn tsc --watch"
+    "build:watch": "yarn tsc --watch"
   },
   "dependencies": {
     "@radix-ui/react-accessible-icon": "^0.1.1",
