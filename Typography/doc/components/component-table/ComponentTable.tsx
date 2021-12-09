@@ -1,11 +1,11 @@
 import React from 'react';
-import { Title } from '../../../';
+import { TitleText } from '../../../';
 import { StyledComponentTable } from './ComponentTable.styles';
 
 export const ComponentTable = () => (
   <StyledComponentTable>
-    <Title variant="small">Component</Title>
-    <Title variant="small">Tag</Title>
+    <TitleText variant="small">Component</TitleText>
+    <TitleText variant="small">Tag</TitleText>
     <div>HeaderText</div>
     <div>h1 / h2 / h3</div>
     <div>TitleText</div>
