@@ -9,6 +9,7 @@ export const MdxLayout = ({ components = {}, __context, ...rest }) => (
     <MDXProvider components={{ ...components }}>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css/out/light.min.css" />
       <CoreLayout
+        // @ts-expect-error no type def for logo
         logo={<img src={BENCH_LOGO} width="180px" />}
         // Hack the left-menu generation.
         // Remove the theme page and replace it with individual pages for each part of the theme.
