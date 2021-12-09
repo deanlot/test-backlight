@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "es6",
     "allowJs": false,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+    ],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "jsx": "react",
@@ -11,6 +16,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "declaration": true,
+    "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
       "~/*": [
