@@ -3,7 +3,7 @@ import BaseTypography from '../../base-typography/src/BaseTypography';
 
 export const StyledActionText = styled(BaseTypography);
 export const actionTextStyles = css({
-  fontFamily: '$actions',
+  fontFamily: '$action',
   fontWeight: '$bold',
   letterSpacing: '$2',
 
