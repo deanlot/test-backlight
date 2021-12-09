@@ -6,9 +6,11 @@ import { FeedbackButton } from '../src';
 
 describe('FeedbackButton', () => {
   it('should render the feedback button component', () => {
-    const { getByText } = render(<FeedbackButton data-testid={'test-button'}
-                                                 variant={'primary'}
-                                                 onClick={() => Promise.resolve()}>primary</FeedbackButton>);
+    const { getByText } = render(
+      <FeedbackButton data-testid={'test-button'} variant={'solid'} onClick={() => Promise.resolve()}>
+        primary
+      </FeedbackButton>
+    );
     expect(getByText('primary')).toBeInTheDocument();
   });
 
@@ -16,7 +18,7 @@ describe('FeedbackButton', () => {
     const { getByText, getByTestId } = render(
       <FeedbackButton
         data-testid={'test-button'}
-        variant={'primary'}
+        variant={'solid'}
         delay={10}
         onClick={() =>
           new Promise<void>((resolve) => {
@@ -41,7 +43,7 @@ describe('FeedbackButton', () => {
     const { getByText, getByTestId } = render(
       <FeedbackButton
         data-testid={'test-button'}
-        variant={'primary'}
+        variant={'solid'}
         delay={10}
         inferBusy
         onClick={() =>
@@ -73,7 +75,7 @@ describe('FeedbackButton', () => {
     const { getByTestId } = render(
       <FeedbackButton
         data-testid={'test-button'}
-        variant={'primary'}
+        variant={'solid'}
         onClick={() =>
           new Promise<void>((resolve) => {
             return setTimeout(() => {
@@ -101,7 +103,7 @@ describe('FeedbackButton', () => {
     const { getByTestId } = render(
       <FeedbackButton
         data-testid={'save-button'}
-        variant={'primary'}
+        variant={'solid'}
         onClick={() => Promise.reject('Failed message here!!!').catch(failFn).finally(finalFn)}
       >
         primary
