@@ -103,7 +103,7 @@ export const buttonStyles = css({
 
 export const ButtonText = styled('span', {
   fontSize: '$fontSizes$3',
-  fontFamily: '$fonts$actions',
+  fontFamily: '$fonts$action',
   fontWeight: '$regular',
   lineHeight: '16px',
   display: 'flex',
