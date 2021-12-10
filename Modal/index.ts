@@ -1,1 +1,3 @@
-export * from './src/Modal';
+import Modal from './src/Modal';
+
+export default Modal;
