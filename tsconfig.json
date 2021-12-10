@@ -16,7 +16,6 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "declaration": true,
-    "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
       "~/*": [

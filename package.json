@@ -7,13 +7,18 @@
   "homepage": "{{ homepage }}",
   "scripts": {
     "serve": "npx backlight@latest serve lxtixWR1OMmjT0avEfJm --open",
-    "build:watch": "yarn tsc --watch"
+    "build:watch": "yarn tsc --watch",
+    "build": "yarn tsc"
   },
   "dependencies": {
     "@radix-ui/react-accessible-icon": "^0.1.1",
     "@radix-ui/react-alert-dialog": "^0.1.1",
     "@radix-ui/react-dialog": "^0.1.1",
     "@stitches/react": "^1.2.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@divriots/dockit-react": "^0.0.70",
