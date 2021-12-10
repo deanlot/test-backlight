@@ -14,7 +14,7 @@ export const ContentContainer = styled(RadixDialog.Content, {
   minWidth: 480,
   maxWidth: 480,
   height: '100%',
-  zIndex: '31', // TODO: this z-index implementation might need to be improved
+  zIndex: '200',
   '@media screen and (max-width: 480px)': {
     minWidth: '100vw',
     maxWidth: '100vw',
@@ -25,7 +25,7 @@ export const Overlay = styled(RadixDialog.Overlay, {
   position: 'fixed',
   inset: 0,
   backdropFilter: 'blur(6px) brightness(0.2)',
-  zIndex: '30', // TODO: this z-index implementation might need to be improved
+  zIndex: '3',
 });
 
 export const Header = styled('div', {
