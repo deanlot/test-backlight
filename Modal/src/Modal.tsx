@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode, useCallback, useState } from 'react';
 import * as RadixDialog from '@radix-ui/react-dialog';
-import { Container, Content, Header, Overlay } from './Modal.styles';
+import { Content, ContentContainer, Header, Overlay } from './Modal.styles';
 import Button from '../../Button/src/Button';
 import { useTheme } from '../../theme-provider';
 import CloseIcon from '../../icon/icons/CloseIcon/src/CloseIcon';
@@ -28,25 +28,27 @@ const Modal = ({ children, trigger, title, open, showClose = true, ...rest }: Mo
   });
   return (
     <RadixDialog.Root modal={true} open={isOpen} onOpenChange={onOpenChange} {...rest}>
-      <RadixDialog.Overlay asChild className={theme}>
-        <Overlay />
-      </RadixDialog.Overlay>
       {open === undefined && (
         <RadixDialog.Trigger asChild>{trigger || <Button variant={'outline'}>Open</Button>}</RadixDialog.Trigger>
       )}
-      <animated.div style={spring}>
-        <Container className={theme}>
-          <Header>
-            <RadixDialog.Title>{title}</RadixDialog.Title>
-            {showClose && (
-              <RadixDialog.Close asChild={showClose}>
-                <Button variant={'ghost'} icon={<CloseIcon size={'m'} />} />
-              </RadixDialog.Close>
-            )}
-          </Header>
-          <Content>{children}</Content>
-        </Container>
-      </animated.div>
+      <RadixDialog.Portal container={document.body}>
+        <animated.div style={spring}>
+          <RadixDialog.Overlay asChild className={theme}>
+            <Overlay />
+          </RadixDialog.Overlay>
+          <ContentContainer className={theme}>
+            <Header>
+              <RadixDialog.Title>{title}</RadixDialog.Title>
+              {showClose && (
+                <RadixDialog.Close asChild={showClose}>
+                  <Button variant={'ghost'} icon={<CloseIcon size={'m'} />} />
+                </RadixDialog.Close>
+              )}
+            </Header>
+            <Content>{children}</Content>
+          </ContentContainer>
+        </animated.div>
+      </RadixDialog.Portal>
     </RadixDialog.Root>
   );
 };
