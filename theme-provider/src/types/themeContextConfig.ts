@@ -7,5 +7,4 @@ export type ThemeContextConfig = {
   theme: ConfigType.Theme;
   themeBase: ThemeBase;
   themeClass?: string;
-  getCssText: () => string;
 };
