@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "allowJs": true,
+    "allowJs": false,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+    ],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "jsx": "react",
@@ -9,9 +14,23 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "sourceMap": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "baseUrl": "./",
     "paths": {
-      "~/*": ["*"],
-      "@divriots/starter-react-sui/*": ["*"]
+      "~/*": [
+        "*"
+      ],
+      "@divriots/starter-react-sui/*": [
+        "*"
+      ]
     }
-  }
+  },
+  "exclude": [
+    "node_modules/**/*",
+    "theme-playground/**/*",
+    "ShadowPlaygroundStitches/**/*",
+    "**/*/test/*.*",
+    "dist"
+  ]
 }

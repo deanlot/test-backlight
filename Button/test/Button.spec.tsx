@@ -4,25 +4,29 @@ import Button from '../src/Button';
 import '../../jest.setup';
 import { fn } from 'jest-mock';
 
-describe('Button', function() {
-  it('should render the button component as primary variant', function() {
-    const { getByTestId } = render(<Button data-testid={'save-button'} variant={'primary'}>primary</Button>);
-    expect(getByTestId('save-button').className).toMatch(/variant\-primary/);
+describe('Button', function () {
+  it('should render the button component as primary variant', function () {
+    const { getByTestId } = render(
+      <Button data-testid={'save-button'} variant={'solid'}>
+        primary
+      </Button>
+    );
+    expect(getByTestId('save-button').className).toMatch(/variant\-solid/);
   });
 
-  it('should render the button component as secondary variant', function() {
-    const { getByTestId } = render(<Button data-testid={'save-button'} variant={'secondary'}>secondary</Button>);
-    expect(getByTestId('save-button').className).toMatch(/variant\-secondary/);
+  it('should render the button component as secondary variant', function () {
+    const { getByTestId } = render(
+      <Button data-testid={'save-button'} variant={'outline'}>
+        secondary
+      </Button>
+    );
+    expect(getByTestId('save-button').className).toMatch(/variant\-outline/);
   });
 
   it('should invoke the onClick when clicked', async () => {
     const clickFn = fn();
     const { getByText, getByTestId } = render(
-      <Button
-        data-testid={'save-button'}
-        variant={'primary'}
-        onClick={clickFn}
-      >
+      <Button data-testid={'save-button'} variant={'solid'} onClick={clickFn}>
         primary
       </Button>
     );

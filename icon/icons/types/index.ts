@@ -13,5 +13,4 @@ export interface SpecializedIconProps {
    * stroke color of the icon
    */
   color?: string;
-  fill?: string;
 }

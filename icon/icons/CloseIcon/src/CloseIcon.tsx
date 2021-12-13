@@ -2,8 +2,8 @@ import React, { ReactElement } from 'react';
 import { SpecializedIconProps } from '../../types';
 import { Icon } from '../../../src/IconVariants';
 
-const CloseIcon = ({ size = 'm', color, label, fill }: SpecializedIconProps): ReactElement => (
-  <Icon label={label || 'close'} size={size} color={color} fill={fill}>
+const CloseIcon = ({ size = 'm', color, label }: SpecializedIconProps): ReactElement => (
+  <Icon label={label || 'close'} size={size} color={color}>
     <svg width="100%" height="100%" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         fillRule="evenodd"

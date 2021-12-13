@@ -11,6 +11,7 @@ const ThemeContext = createContext<ThemeContextConfig>({
   setTheme: () => null,
   theme: themeList[ThemeBase.Light],
   themeBase: ThemeBase.Light,
+  themeClass: undefined,
   getCssText: () => null,
 });
 
@@ -32,6 +33,10 @@ export const ThemeProvider = ({
 
   const composedTheme = composeTheme(themeBase, colors);
 
+  const stitchesTheme = useMemo(() => createTheme(composedTheme), [composedTheme]);
+
+  const { className } = stitchesTheme;
+
   const state: ThemeContextConfig = useMemo(
     () => ({
       setTheme: (themeBase: ThemeBase, colors: WhiteLabelColors) => {
@@ -41,15 +46,14 @@ export const ThemeProvider = ({
       theme: composedTheme,
       themeBase,
       getCssText,
+      themeClass: className,
     }),
     [composedTheme, themeBase]
   );
 
-  const stitchesTheme = useMemo(() => createTheme(composedTheme), [composedTheme]);
-
   return (
     <ThemeContext.Provider value={state}>
-      <div className={stitchesTheme.className}>{children}</div>
+      <div className={className}>{children}</div>
     </ThemeContext.Provider>
   );
 };

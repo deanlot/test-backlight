@@ -6,11 +6,11 @@ export const fonts = {
   header: untitled,
   title: circular,
   paragraph: circular,
-  actions: circular,
-  labels: circular,
+  action: circular,
+  label: circular,
   input: circular,
   helper: circular,
   numerical: pppanagram,
   disclaimer: circular,
-  link: circular
+  link: circular,
 };

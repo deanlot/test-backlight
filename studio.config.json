@@ -25,6 +25,12 @@
         ]
       ],
       [
+        "modal",
+        [
+          "Modal"
+        ]
+      ],
+      [
         "documentation components",
         [
           "theme-playground",

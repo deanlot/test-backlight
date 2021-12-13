@@ -14,7 +14,15 @@ export const buttonStyles = css({
   '&:disabled': {
     pointerEvents: 'none',
   },
-
+  compoundVariants: [
+    {
+      icon: true,
+      children: false,
+      css: {
+        padding: 'unset',
+      },
+    },
+  ],
   variants: {
     variant: {
       solid: {
@@ -85,12 +93,17 @@ export const buttonStyles = css({
         paddingRight: '24px',
       },
     },
+    children: {
+      false: {
+        padding: 'unset',
+      },
+    },
   },
 });
 
 export const ButtonText = styled('span', {
   fontSize: '$fontSizes$3',
-  fontFamily: '$fonts$actions',
+  fontFamily: '$fonts$action',
   fontWeight: '$regular',
   lineHeight: '16px',
   display: 'flex',
