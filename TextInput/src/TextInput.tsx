@@ -1,17 +1,16 @@
 import React, { DetailedHTMLProps, forwardRef, InputHTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import {
   Container,
-  errorStyles,
-  helperStyles,
   IconContainer,
   iconContainerStyles,
   InputContainer,
   inputContainerStyles,
-  Label,
   MessageContainer,
   StyledInput,
+  SymbolContainer,
 } from './TextInput.styles';
 import WarningSymbol from '../../icon/symbols/WarningSymbol/src/WarningSymbol';
+import { HelperText, LabelText } from '~/Typography';
 
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
@@ -27,6 +26,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       iconPrefix,
       textAlign = 'left',
       value,
+      label,
       ...props
     },
     ref
@@ -50,15 +50,13 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     }, [error, focused, setMessage]);
 
     const getLabel = () => {
-      if (props?.label.length > 30) {
+      if (label.length > 30) {
         console.warn('Input component label cannot exceed 30 characters.');
-        return props.label.substring(0, 30);
+        return label.substring(0, 30);
       }
 
-      return props.label;
+      return label;
     };
-
-    const messageStyles = message?.type === 'error' ? errorStyles : helperStyles;
 
     const handleFocus = (e) => {
       setFocused(true);
@@ -77,7 +75,13 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     return (
       <Container>
-        {props.label && <Label htmlFor={id}>{getLabel()}</Label>}
+        {label && (
+          <label htmlFor={id}>
+            <LabelText uppercase bold variant="small" color="$onSurface-textMuted">
+              {getLabel()}
+            </LabelText>
+          </label>
+        )}
         <InputContainer
           className={`${inputContainerStyles({
             focused,
@@ -85,7 +89,6 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             error: !!error,
             empty: !value,
           })}`}
-          tabIndex={0}
           data-testid="input-test-container"
           onClick={handleClick}
         >
@@ -103,7 +106,6 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             ref={ref}
             type="text"
             maxLength={60}
-            tabIndex={-1}
             data-testid="input"
           />
           {iconSuffix && (
@@ -111,8 +113,12 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           )}
         </InputContainer>
         <MessageContainer>
-          {error && <WarningSymbol size="m" />}
-          {message && <span className={messageStyles()}>{message?.text}</span>}
+          {error && (
+            <SymbolContainer>
+              <WarningSymbol size="m" />
+            </SymbolContainer>
+          )}
+          <HelperText variant={error ? 'error' : null}>{message?.text}</HelperText>
         </MessageContainer>
       </Container>
     );
@@ -122,7 +128,6 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 export interface TextInputProps extends HTMLInputProps {
   label?: string;
   helper?: string;
-  // should id or name be made required, since it would affect accessibility for the "htmlFor" attribute
   id?: string;
   error?: string;
   textAlign?: 'left' | 'right';

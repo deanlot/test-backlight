@@ -2,8 +2,9 @@ import React from 'react';
 import { css, styled } from '@stitches/react';
 
 export const Container = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
+  display: 'grid',
+  gridAutoFlow: 'row',
+  gap: '4px',
 });
 
 export const StyledInput = styled('input', {
@@ -13,7 +14,7 @@ export const StyledInput = styled('input', {
   lineHeight: '20px',
   color: '$onSurface-text',
   border: 'none',
-  padding: '$2 $4',
+  padding: '$2 $3',
   flex: 1,
 
   background: 'transparent',
@@ -24,44 +25,14 @@ export const StyledInput = styled('input', {
   },
 
   '&::placeholder': {
-    color: '$onSurface-border',
+    color: '$onSurface-text',
   },
-});
-
-// likely replaced by some kind of typography component
-export const errorStyles = css({
-  color: '$interactive-critical',
-  fontSize: '$2',
-  lineHeight: '20px',
-  fontStyle: 'italic',
-  fontWeight: '$regular',
-  paddingLeft: '$2',
-});
-
-export const helperStyles = css({
-  color: '$onSurface-textDisabled',
-  fontSize: '$2',
-  lineHeight: '20px',
-  fontStyle: 'italic',
-  fontWeight: '$regular',
 });
 
 export const MessageContainer = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'baseline',
-  paddingTop: '$1',
-});
-
-// this will be likely replaced by a typography component
-export const Label = styled('label', {
-  fontFamily: '$labels',
-  color: '$onSurface-textMuted',
-  fontWeight: '$bold',
-  lineHeight: '16px',
-  fontSize: '$fontSizes$1',
-  textTransform: 'uppercase',
-  letterSpacing: '0.12em',
 });
 
 export const InputContainer = styled('div');
@@ -69,6 +40,7 @@ export const inputContainerStyles = css({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
+  justifyContent: 'space-between',
   border: 'none',
   borderRadius: '$1',
   backgroundColor: '$surface',
@@ -81,22 +53,15 @@ export const inputContainerStyles = css({
 
   compoundVariants: [
     // when error states occur along side other variant states always show error state
+    // technically not required but it's more explicit than how stitches works under the hood
     {
-      error: true,
+      empty: true,
       focused: true,
       css: {
         border: 'none',
-        outline: '2px solid $interactive-critical',
+        outline: '2px solid $interactive-highlight',
       },
     },
-    // {
-    //   error: true,
-    //   empty: true,
-    //   css: {
-    //     border: 'none',
-    //     outline: '2px solid $interactive-critical',
-    //   },
-    // },
   ],
   variants: {
     empty: {
@@ -144,17 +109,21 @@ export const IconContainer = styled('div');
 export const iconContainerStyles = css({
   display: 'flex',
   height: '100%',
-  flexGrow: '1',
-  padding: '0 $4 0 0',
+  margin: '0 $3 0 0',
+  alignItems: 'center',
 
   variants: {
     iconPlacement: {
       left: {
-        padding: '0 0 0 $4',
+        margin: '0 0 0 $3',
       },
       right: {
-        padding: '0 $4 0 0',
+        margin: '0 $3 0 0',
       },
     },
   },
+});
+
+export const SymbolContainer = styled('div', {
+  marginRight: '$2',
 });

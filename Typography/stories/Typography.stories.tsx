@@ -85,5 +85,6 @@ export const numeric = () => (
 );
 
 export const helper = () => <HelperText>Helper</HelperText>;
+export const helperError = () => <HelperText variant="error">Helper</HelperText>;
 
 export const disclaimer = () => <DisclaimerText>Disclaimer</DisclaimerText>;

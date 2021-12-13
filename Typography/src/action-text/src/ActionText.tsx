@@ -5,8 +5,10 @@ import { actionTextStyles, StyledActionText } from './ActionText.styles';
 /**
  * Action description goes here
  */
-export const ActionText = ({ children, variant = 'medium', uppercase = false }: ActionTextProps) => (
-  <StyledActionText className={actionTextStyles({ variant, uppercase })}>{children}</StyledActionText>
+export const ActionText = ({ children, variant = 'medium', uppercase = false, color }: ActionTextProps) => (
+  <StyledActionText className={actionTextStyles({ variant, uppercase })} css={{ ...(color && { color }) }}>
+    {children}
+  </StyledActionText>
 );
 
 type Variant = 'small' | 'medium';
