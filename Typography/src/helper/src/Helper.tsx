@@ -5,8 +5,10 @@ import { StyledHelper } from './Helper.styles';
 /**
  * Helper description goes here
  */
-const Helper = ({ children }: HelperProps) => <StyledHelper>{children}</StyledHelper>;
+const Helper = ({ variant, children }: HelperProps) => <StyledHelper variant={variant}>{children}</StyledHelper>;
 
-export interface HelperProps extends TypographyProps {}
+export interface HelperProps extends TypographyProps {
+  variant?: 'error';
+}
 
 export default Helper;

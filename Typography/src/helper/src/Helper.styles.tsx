@@ -7,4 +7,12 @@ export const StyledHelper = styled(BaseTypography, {
   fontStyle: 'italic',
   fontSize: '$2',
   lineHeight: '$4',
+
+  variants: {
+    variant: {
+      error: {
+        color: '$interactive-critical',
+      },
+    },
+  },
 });

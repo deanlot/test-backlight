@@ -76,5 +76,6 @@ export const numeric = () => (
 );
 
 export const helper = () => <Helper>Helper</Helper>;
+export const helperError = () => <Helper variant="error">Helper</Helper>;
 
 export const disclaimer = () => <Disclaimer>Disclaimer</Disclaimer>;

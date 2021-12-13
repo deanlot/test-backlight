@@ -119,12 +119,13 @@ It provides the following components, rendering the specified tag.
 <ThemePlayground
   scope={{ Helper }}
   code={`
-<Helper>This is some helper text</Helper>
+<Helper>This is some helper text. </Helper>
+<Helper variant="error">This is some error helper text. </Helper>
   `}
 />
 
 ## Props
-Helper text has no props.
+<Props of={Helper} />
 
 <Rule/>
 
