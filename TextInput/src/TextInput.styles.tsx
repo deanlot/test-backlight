@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, styled } from '@stitches/react';
 
-export const Container = styled('div', {
+export const LayoutContainer = styled('div', {
   display: 'grid',
   gridAutoFlow: 'row',
   gap: '4px',

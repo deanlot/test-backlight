@@ -1,10 +1,10 @@
 import React, { DetailedHTMLProps, forwardRef, InputHTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import {
-  Container,
   IconContainer,
   iconContainerStyles,
   InputContainer,
   inputContainerStyles,
+  LayoutContainer,
   MessageContainer,
   StyledInput,
   SymbolContainer,
@@ -74,7 +74,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     };
 
     return (
-      <Container>
+      <LayoutContainer>
         {label && (
           <label htmlFor={id}>
             <LabelText uppercase bold variant="small" color="$onSurface-textMuted">
@@ -120,7 +120,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           )}
           <HelperText variant={error ? 'error' : null}>{message?.text}</HelperText>
         </MessageContainer>
-      </Container>
+      </LayoutContainer>
     );
   }
 );
