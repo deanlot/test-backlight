@@ -10,7 +10,7 @@ export const fonts = {
   label: circular,
   input: circular,
   helper: circular,
-  numerical: pppanagram,
+  numeric: pppanagram,
   disclaimer: circular,
   link: circular,
 };

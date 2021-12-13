@@ -80,7 +80,7 @@ export const numeric = () => (
     <NumericText variant={'small'}>Numeric - Small $100.00</NumericText>
     <NumericText variant={'medium'}>Numeric - Medium $100.00</NumericText>
     <NumericText variant={'large'}>Numeric - Large $100.00</NumericText>
-    <NumericText variant={'large'}>Numeric - XLarge $100.00</NumericText>
+    <NumericText variant={'xlarge'}>Numeric - XLarge $100.00</NumericText>
   </Grid>
 );
 
