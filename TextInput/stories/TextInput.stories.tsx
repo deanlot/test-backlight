@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TextInput from '../src/TextInput';
+import { TextInput } from '../src';
 import { StoryLayout } from '../../layout';
 import { useForm } from 'react-hook-form';
 import CheckIcon from '../../icon/icons/CheckIcon/src/CheckIcon';

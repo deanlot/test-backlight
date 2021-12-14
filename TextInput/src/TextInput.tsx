@@ -12,7 +12,7 @@ import {
 import WarningSymbol from '../../icon/symbols/WarningSymbol/src/WarningSymbol';
 import { HelperText, LabelText } from '../../Typography';
 
-const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
     {
       id,
@@ -143,5 +143,3 @@ type Message =
       text: string;
     }
   | undefined;
-
-export default TextInput;
