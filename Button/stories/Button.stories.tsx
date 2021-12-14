@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from '../src/Button';
 import { StoryLayout } from '../../layout';
+import CloseIcon from '~/icon/icons/CloseIcon/src/CloseIcon';
+import ArrowRightIcon from '~/icon/icons/ArrowRightIcon/src/ArrowRightIcon';
 
 export default StoryLayout;
 
@@ -16,7 +18,9 @@ export const solidReady = () => (
 
 export const solidBusy = () => <Button busy>SOLID</Button>;
 
-export const solidBusyIconOnly = () => <Button busy />;
+export const solidIconWithText = () => <Button icon={<ArrowRightIcon />}>solid</Button>;
+
+export const solidIconOnly = () => <Button icon={<CloseIcon />} />;
 
 export const solidDisabled = () => <Button disabled>SOLID</Button>;
 
@@ -59,5 +63,3 @@ export const ghostDisabled = () => (
     GHOST
   </Button>
 );
-
-// export const solidWithIcon = () => <RadButton icon={<div>testCOmponent</div>}>SOLID ICON</RadButton>;

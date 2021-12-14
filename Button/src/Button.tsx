@@ -1,7 +1,6 @@
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import {
   buttonStyles,
-  ButtonText,
   FlexContainer,
   flexVariants,
   IconContainer,
@@ -9,12 +8,12 @@ import {
   StyledButton,
 } from './Button.styles';
 import Loading from './Loading/Loading';
+import { ActionText } from '~/Typography';
 
 /**
  Button component that the user can press to trigger an action.
  */
 const Button = ({
-  children,
   variant = 'solid',
   disabled = false,
   iconPlacement = 'right',
@@ -22,6 +21,7 @@ const Button = ({
   ...rest
 }: ButtonProps) => {
   const icon = !disabled && busy ? <Loading /> : rest.icon;
+  const children = busy ? null : rest.children;
 
   return (
     <StyledButton
@@ -31,7 +31,11 @@ const Button = ({
       {...rest}
     >
       <FlexContainer className={flexVariants(!!icon && { iconPlacement })}>
-        {children && <ButtonText>{children}</ButtonText>}
+        {children && (
+          <ActionText variant="medium" uppercase>
+            {children}
+          </ActionText>
+        )}
         {icon && <IconContainer className={iconContainerStyles({ children: !!children })}>{icon}</IconContainer>}
       </FlexContainer>
     </StyledButton>

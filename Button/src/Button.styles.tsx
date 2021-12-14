@@ -101,18 +101,6 @@ export const buttonStyles = css({
   },
 });
 
-export const ButtonText = styled('span', {
-  fontSize: '$fontSizes$3',
-  fontFamily: '$fonts$action',
-  fontWeight: '$regular',
-  lineHeight: '16px',
-  display: 'flex',
-  alignItems: 'center',
-  textAlign: 'right',
-  letterSpacing: '0.06em',
-  textTransform: 'uppercase',
-});
-
 export const FlexContainer = styled('div');
 export const flexVariants = css({
   display: 'flex',
