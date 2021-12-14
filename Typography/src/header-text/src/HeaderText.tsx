@@ -5,8 +5,12 @@ import { headerTextStyles, StyledHeaderText } from './HeaderText.styles';
 /**
  * Header description goes here
  */
-export const HeaderText = ({ children, variant = 'medium' }: HeaderTextProps) => (
-  <StyledHeaderText as={getTagForVariant(variant)} className={headerTextStyles({ variant })}>
+export const HeaderText = ({ children, variant = 'medium', color }: HeaderTextProps) => (
+  <StyledHeaderText
+    as={getTagForVariant(variant)}
+    className={headerTextStyles({ variant })}
+    css={{ ...(color && { color }) }}
+  >
     {children}
   </StyledHeaderText>
 );

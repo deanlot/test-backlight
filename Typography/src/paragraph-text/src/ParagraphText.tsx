@@ -5,8 +5,8 @@ import { paragraphTextStyles, StyledParagraphText } from './ParagraphText.styles
 /**
  * Paragraph description goes here
  */
-export const ParagraphText = ({ children, variant = 'medium' }: ParagraphTextProps) => (
-  <StyledParagraphText as="p" className={paragraphTextStyles({ variant })}>
+export const ParagraphText = ({ children, variant = 'medium', color }: ParagraphTextProps) => (
+  <StyledParagraphText as="p" className={paragraphTextStyles({ variant })} css={{ ...(color && { color }) }}>
     {children}
   </StyledParagraphText>
 );

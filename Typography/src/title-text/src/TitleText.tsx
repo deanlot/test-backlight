@@ -5,8 +5,12 @@ import { titleTextStyles, StyledTitleText } from './TitleText.styles';
 /**
  * Title description goes here
  */
-export const TitleText = ({ children, variant = 'medium' }: TitleTextProps) => (
-  <StyledTitleText as={getTagForVariant(variant)} className={titleTextStyles({ variant })}>
+export const TitleText = ({ children, variant = 'medium', color }: TitleTextProps) => (
+  <StyledTitleText
+    as={getTagForVariant(variant)}
+    className={titleTextStyles({ variant })}
+    css={{ ...(color && { color }) }}
+  >
     {children}
   </StyledTitleText>
 );
