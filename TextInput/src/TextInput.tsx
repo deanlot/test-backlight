@@ -10,7 +10,7 @@ import {
   SymbolContainer,
 } from './TextInput.styles';
 import WarningSymbol from '../../icon/symbols/WarningSymbol/src/WarningSymbol';
-import { HelperText, LabelText } from '~/Typography';
+import { HelperText, LabelText } from '../../Typography';
 
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (

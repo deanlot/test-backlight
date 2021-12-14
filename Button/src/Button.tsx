@@ -8,7 +8,7 @@ import {
   StyledButton,
 } from './Button.styles';
 import Loading from './Loading/Loading';
-import { ActionText } from '~/Typography';
+import { ActionText } from '../../Typography';
 
 /**
  Button component that the user can press to trigger an action.
