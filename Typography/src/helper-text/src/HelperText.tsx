@@ -5,6 +5,12 @@ import { StyledHelperText } from './HelperText.styles';
 /**
  * Helper description goes here
  */
-export const HelperText = ({ children }: HelperTextProps) => <StyledHelperText>{children}</StyledHelperText>;
+export const HelperText = ({ variant, children, color }: HelperTextProps) => (
+  <StyledHelperText variant={variant} css={{ ...(color && { color }) }}>
+    {children}
+  </StyledHelperText>
+);
 
-export interface HelperTextProps extends TypographyProps {}
+export interface HelperTextProps extends TypographyProps {
+  variant?: 'error';
+}
