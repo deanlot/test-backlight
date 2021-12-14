@@ -15,9 +15,10 @@ export const ContentContainer = styled(RadixDialog.Content, {
   maxWidth: 480,
   height: '100%',
   zIndex: '200',
-  '@media screen and (max-width: 480px)': {
+  '@media(max-width: 640px)': {
     minWidth: '100vw',
     maxWidth: '100vw',
+    borderRadius: '0',
   },
 });
 
