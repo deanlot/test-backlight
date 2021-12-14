@@ -5,7 +5,6 @@ export const StyledLabelText = styled(BaseTypography);
 export const labelTextStyles = css({
   fontFamily: '$label',
   fontWeight: '$regular',
-  letterSpacing: '$3',
 
   variants: {
     variant: {
@@ -25,6 +24,7 @@ export const labelTextStyles = css({
     uppercase: {
       true: {
         textTransform: 'uppercase',
+        letterSpacing: '$3',
       },
     },
     bold: {
