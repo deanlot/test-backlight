@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, getByTestId, render, waitFor } from '@testing-library/react';
-import TextInput from '../src/TextInput';
+import { TextInput } from '../src';
 import '../../jest.setup';
 
 describe('TextInput', function () {
