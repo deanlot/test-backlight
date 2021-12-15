@@ -5,8 +5,14 @@ import { labelTextStyles, StyledLabelText } from './LabelText.styles';
 /**
  * Label description goes here
  */
-export const LabelText = ({ children, variant = 'medium', uppercase = false, bold = false, color }: LabelTextProps) => (
-  <StyledLabelText className={labelTextStyles({ variant, bold, uppercase })} css={{ ...(color && { color }) }}>
+export const LabelText = ({
+  children,
+  variant = 'medium',
+  uppercase = false,
+  bold = false,
+  ...rest
+}: LabelTextProps) => (
+  <StyledLabelText className={labelTextStyles({ variant, bold, uppercase })} {...rest}>
     {children}
   </StyledLabelText>
 );

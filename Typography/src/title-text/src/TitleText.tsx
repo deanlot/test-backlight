@@ -5,12 +5,8 @@ import { titleTextStyles, StyledTitleText } from './TitleText.styles';
 /**
  * Title description goes here
  */
-export const TitleText = ({ children, variant = 'medium', color }: TitleTextProps) => (
-  <StyledTitleText
-    as={getTagForVariant(variant)}
-    className={titleTextStyles({ variant })}
-    css={{ ...(color && { color }) }}
-  >
+export const TitleText = ({ children, variant = 'medium', ...rest }: TitleTextProps) => (
+  <StyledTitleText tag={getTagForVariant(variant)} className={titleTextStyles({ variant })} {...rest}>
     {children}
   </StyledTitleText>
 );
@@ -24,6 +20,7 @@ export interface TitleTextProps extends TypographyProps {
   variant?: Variant;
 }
 
-type Tags = 'h4' | 'h5' | 'h6';
+type TitleTags = 'h4' | 'h5' | 'h6';
 
-const getTagForVariant = (variant: Variant): Tags => ({ small: 'h6', medium: 'h5', large: 'h4' }[variant] as Tags);
+const getTagForVariant = (variant: Variant): TitleTags =>
+  ({ small: 'h6', medium: 'h5', large: 'h4' }[variant] as TitleTags);
