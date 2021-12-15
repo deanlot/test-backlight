@@ -7,7 +7,7 @@ import { paragraphTextStyles, StyledParagraphText } from './ParagraphText.styles
  */
 export const ParagraphText = ({ children, variant = 'medium', ...rest }: ParagraphTextProps) => {
   return (
-    <StyledParagraphText className={paragraphTextStyles({ variant })} {...rest}>
+    <StyledParagraphText tag="p" className={paragraphTextStyles({ variant })} {...rest}>
       {children}
     </StyledParagraphText>
   );
