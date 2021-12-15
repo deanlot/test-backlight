@@ -5,8 +5,8 @@ import { numericTextStyles, StyledNumericText } from './NumericText.styles';
 /**
  * Numeric description goes here
  */
-export const NumericText = ({ children, variant = 'medium', color }: NumericTextProps) => (
-  <StyledNumericText className={numericTextStyles({ variant })} css={{ ...(color && { color }) }}>
+export const NumericText = ({ children, variant = 'medium', ...rest }: NumericTextProps) => (
+  <StyledNumericText className={numericTextStyles({ variant })} {...rest}>
     {children}
   </StyledNumericText>
 );

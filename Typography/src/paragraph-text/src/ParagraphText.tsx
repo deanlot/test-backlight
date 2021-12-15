@@ -5,11 +5,13 @@ import { paragraphTextStyles, StyledParagraphText } from './ParagraphText.styles
 /**
  * Paragraph description goes here
  */
-export const ParagraphText = ({ children, variant = 'medium', color }: ParagraphTextProps) => (
-  <StyledParagraphText as="p" className={paragraphTextStyles({ variant })} css={{ ...(color && { color }) }}>
-    {children}
-  </StyledParagraphText>
-);
+export const ParagraphText = ({ children, variant = 'medium', ...rest }: ParagraphTextProps) => {
+  return (
+    <StyledParagraphText tag="p" className={paragraphTextStyles({ variant })} {...rest}>
+      {children}
+    </StyledParagraphText>
+  );
+};
 
 type Variant = 'small' | 'medium' | 'large';
 

@@ -5,12 +5,8 @@ import { headerTextStyles, StyledHeaderText } from './HeaderText.styles';
 /**
  * Header description goes here
  */
-export const HeaderText = ({ children, variant = 'medium', color }: HeaderTextProps) => (
-  <StyledHeaderText
-    as={getTagForVariant(variant)}
-    className={headerTextStyles({ variant })}
-    css={{ ...(color && { color }) }}
-  >
+export const HeaderText = ({ children, variant = 'medium', ...rest }: HeaderTextProps) => (
+  <StyledHeaderText tag={getTagForVariant(variant)} className={headerTextStyles({ variant })} {...rest}>
     {children}
   </StyledHeaderText>
 );
@@ -24,6 +20,7 @@ export interface HeaderTextProps extends TypographyProps {
   variant?: Variant;
 }
 
-type Tags = 'h1' | 'h2' | 'h3';
+type HeaderTags = 'h1' | 'h2' | 'h3';
 
-const getTagForVariant = (variant: Variant): Tags => ({ small: 'h3', medium: 'h2', large: 'h1' }[variant] as Tags);
+const getTagForVariant = (variant: Variant): HeaderTags =>
+  ({ small: 'h3', medium: 'h2', large: 'h1' }[variant] as HeaderTags);
