@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, useCallback, useState } from 'react';
+import React, { ReactElement, ReactNode, useCallback, useEffect, useState } from 'react';
 import * as RadixDialog from '@radix-ui/react-dialog';
 import { Content, ContentContainer, Header, Overlay } from './Modal.styles';
 import Button from '../../Button/src/Button';
@@ -12,6 +12,11 @@ import { animated, useSpring } from 'react-spring';
 const Modal = ({ children, trigger, title, open, showClose = true, ...rest }: ModalProps): ReactElement => {
   const { themeClass: theme } = useTheme();
   const [isOpen, setIsOpen] = useState<boolean>(open);
+
+  useEffect(() => {
+    setIsOpen(open);
+  }, [open]);
+
   const onOpenChange = useCallback(
     (open: boolean) => {
       setIsOpen(open);
@@ -27,7 +32,7 @@ const Modal = ({ children, trigger, title, open, showClose = true, ...rest }: Mo
     reset: isOpen,
   });
   return (
-    <RadixDialog.Root modal={true} open={isOpen} onOpenChange={onOpenChange} {...rest}>
+    <RadixDialog.Root modal={true} open={isOpen} onOpenChange={onOpenChange && onOpenChange} {...rest}>
       {open === undefined && (
         <RadixDialog.Trigger asChild>{trigger || <Button variant={'outline'}>Open</Button>}</RadixDialog.Trigger>
       )}
