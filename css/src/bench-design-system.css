@@ -1,0 +1,186 @@
+/* ------ LL-Circular ------*/
+
+/* regular */
+@font-face {
+    font-family: "LLCircularWeb";
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-bookitalic-s.eot");
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-bookitalic-s.eot?#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-bookitalic-s.woff") format("woff"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-bookitalic-s.ttf") format("truetype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-bookitalic-s.svg#LLCircularWeb-Bookitalic") format("svg");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "LLCircularWeb";
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-book-s.eot");
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-book-s.eot?#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-book-s.woff") format("woff"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-book-s.ttf") format("truetype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-book-s.svg#LLCircularWeb-Book") format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* medium */
+@font-face {
+    font-family: "LLCircularWeb";
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-mediumitalic-s.eot");
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-mediumitalic-s.eot?#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-mediumitalic-s.woff") format("woff"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-mediumitalic-s.ttf") format("truetype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-mediumitalic-s.svg#LLCircularWeb-Mediumitalic") format("svg");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "LLCircularWeb";
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-medium-s.eot");
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-medium-s.eot?#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-medium-s.woff") format("woff"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-medium-s.ttf") format("truetype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-medium-s.svg#LLCircularWeb-Medium") format("svg");
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* bold */
+@font-face {
+    font-family: "LLCircularWeb";
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-bolditalic-s.eot");
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-bolditalic-s.eot?#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-bolditalic-s.woff") format("woff"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-bolditalic-s.ttf") format("truetype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-bolditalic-s.svg#LLCircularWeb-Bolditalic") format("svg");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "LLCircularWeb";
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-bold-s.eot");
+    src: url("https://assets.bench.co/fonts/circular/lineto-circular-bold-s.eot?#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-bold-s.woff") format("woff"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-bold-s.ttf") format("truetype"),
+    url("https://assets.bench.co/fonts/circular/lineto-circular-bold-s.svg#LLCircularWeb-Bold") format("svg");
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+/* ------ Untitled Serif ------*/
+
+/* regular */
+@font-face{
+    font-family: "UntitledSerif";
+    src:url("https://assets.bench.co/fonts/UntitledSerif/untitled-serif-web-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "UntitledSerif";
+    src:url("https://assets.bench.co/fonts/UntitledSerif/untitled-serif-web-regular-italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* medium */
+@font-face{
+    font-family: "UntitledSerif";
+    src:url("https://assets.bench.co/fonts/untitled-serif-web-medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "UntitledSerif";
+    src:url("https://assets.bench.co/fonts/UntitledSerif/untitled-serif-web-medium-italic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* bold */
+@font-face{
+    font-family: "UntitledSerif";
+    src:url("https://assets.bench.co/fonts/UntitledSerif/untitled-serif-web-bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "UntitledSerif";
+    src:url("https://assets.bench.co/fonts/UntitledSerif/untitled-serif-web-bold-italic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+
+/* ------ PP Pangram ------*/
+
+/* regular */
+@font-face {
+    font-family: "PPPanagram";
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Regular.eot");
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Regular.eot#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Regular.woff") format("woff"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PPPanagram";
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-RegularItalic.eot");
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-RegularItalic.eot#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-RegularItalic.woff") format("woff"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-RegularItalic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: Italic;
+}
+
+/* medium */
+@font-face {
+    font-family: "PPPanagram";
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Medium.eot");
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Medium.eot#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Medium.woff") format("woff"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PPPanagram";
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-MediumItalic.eot");
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-MediumItalic.eot#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-MediumItalic.woff") format("woff"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-MediumItalic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: Italic;
+}
+
+/* bold */
+@font-face {
+    font-family: "PPPanagram";
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Bold.eot");
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Bold.eot?#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Bold.woff") format("woff"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PPPanagram";
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-BoldItalic.eot");
+    src: url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-BoldItalic.eot?#iefix") format("embedded-opentype"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-BoldItalic.woff") format("woff"),
+    url("https://assets.bench.co/fonts/PPPanagram/PPPangramSansRounded-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+}

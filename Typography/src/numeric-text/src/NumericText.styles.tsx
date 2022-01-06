@@ -15,6 +15,7 @@ export const numericTextStyles = css({
       },
       small: {
         fontSize: '$5',
+        fontWeight: '$medium',
         lineHeight: '$5',
       },
       medium: {

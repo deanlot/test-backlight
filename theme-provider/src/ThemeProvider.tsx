@@ -1,5 +1,5 @@
 import React, { createContext, PropsWithChildren, useContext, useMemo, useState } from 'react';
-import '../../layout/src/fonts.css';
+import '../../css/src/bench-design-system.css';
 import { ThemeContextConfig } from './types/themeContextConfig';
 import { themeList } from '../../theme-list';
 import { createStitches } from '@stitches/react';
