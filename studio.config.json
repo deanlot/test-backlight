@@ -8,7 +8,8 @@
         [
           "theme",
           "theme-provider",
-          "theme-list"
+          "theme-list",
+          "css"
         ]
       ],
       [
